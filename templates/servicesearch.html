@@ -3,41 +3,106 @@
 <head>
     <meta charset="utf-8">
 
-    <title>About Dylan</title>
+    <title>Service Search</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     {% include "foundation/Navigation-Bar.html" %}
 </head>
 <style>
     html, body {
         font-family: 'Roboto Flex', sans-serif;
+        margin: 0;
+        padding: 0;
         overflow-x: hidden;
-    }
-
-    #SearchBackground1 {
-        height: 800px;
         background-color: whitesmoke;
     }
 
-    .PrimarySearchContainer {
-        height: 50px;
-        width: 650px;
+    .search-background-diagonal-1T {
+        margin-top: 100px;
+        height: 400px;
+        background: linear-gradient(to top left, steelblue 50%, whitesmoke 50%);
+    }
+
+    .search-background-diagonal-1B {
+        height: 400px;
+        background: linear-gradient(to top left, whitesmoke 50%, steelblue 50%);
+    }
+
+    .search-introduction {
+        height: 500px;
+        width: 1000px;
         margin: auto;
-        background-color: slategray;
-        padding: 7px;
+        margin-top: -21px;
+        z-index: 1;
+        background: url(/static/assets/images/customer_support.jpeg)
     }
 
-    .PrimarySearchBar {
-        margin-top: 11px;
-        margin-left: 11px;
-        height: 21px;
-        width: 400px;
+    .search-introduction-overlay {
+        height: 500px;
+        width: 1000px;
+        margin: auto;
+        z-index 2;
+        background-color: rgba(0, 0, 255, 30%);
     }
 
-    .SearchButton1 {
+    #search-background-1 {
+        height: 3000px;
+        width: 100%;
+        margin-top: -70px;
+        background-color: whitesmoke;
+        background-repeat: no-repeat;
+    }
+
+    .categories-container {
+        margin-top: -200px;
+    }
+
+    .category-dropdown-container {
+        height: 100px;
+        width: 700px;
+        margin: auto;
+        margin-top: 70px;
+        position: relative;
+        top: 110px;
+        background-color: navy;
+        border-left: 7px solid dodgerblue;
+        color: white;
+        padding: 10px;
+        transition-duration: 1.1s;
+    }
+
+    .category-dropdown-container:hover {
+        animation-name: dropdown-animation-background-color;
+        animation-duration: 1.4s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes dropdown-animation-background-color {
+        0% {background-color: navy;}
+        100% {background-color: dodgerblue;}
+    }
+
+    .category-dropdown-content {
+        width: 720px;
+        border-left: 7px solid transparent;
+        margin: auto;
+        position: relative;
+        top: 110px;
+        background-color: darkblue;
+    }
+
+    /*.category-dropdown-marking {
+        height: 100px;
+        width: 7px;
+        background-color: dodgerblue;
+    }*/
+
+    /* .search-button-1 {
         height: 24px;
         width: 200px;
         font-size: 14px;
@@ -49,71 +114,109 @@
         transition-duration: 0.4s;
     }
 
-    .SearchButton1:hover {
+    .search-button-1:hover {
         border-image: linear-gradient(45deg, dodgerblue, cyan) 1;
-    }
+    } */
 
-    input::placeholder {
-        font-size: 12px;
-    }
-
-    .ServiceCategory {
-        margin: auto;
-        height: 550px;
-        width: 325px;
-        background-color: white;
-        margin-top: 100px;
-        padding: 10px;
-    }
-
-    .ServiceCategoryImage {
-        margin: auto;
-        height: 300px;
-        width: 300px;
-        background-color: whitesmoke;
-    }
 </style>
-<body>
-    <div id = "SearchBackground1">
-        <h1 style = "text-align: center;">Service Search</h1>
-        <div class = "PrimarySearchContainer">
-            <input class = "PrimarySearchBar" id = "userinput" placeholder = "Search category (e.g. maintenance, amenity, medical, education, etc.)">
-            <button class = "SearchButton1" id = "searchbutton">Search</button>
+
+    <!--<div class = "search-introduction">
+                <div class = "search-introduction-overlay">
+                    <h1 style = "text-align: center; color: white; z-index: 2;">Service Search</h1>
+                </div>
+        </div>-->
+    <div id = "search-background-1">
+
+        <div class = "search-background-diagonal-1T">
+            <h1 style = "text-align: center; margin-top: 200px">Service Search</h1>
         </div>
-        <h2 id = "displaytext" style = "margin-top: 50px"></h2>
-        <input id = "userinput2">
-        <button onclick = "serviceReminder()">Add Reminder</button>
-        <ul id = "myservicereminds"></ul>
+        <div class = "search-background-diagonal-1B">
+            <!--<h4 style = "color: white">Select a category</h4>
+            <div class = "arrow-1"></div>
+            <h4 style = "color: white">Find the ideal service</h4>-->
+        </div>
+
+        <div class = "categories-container">
+            <div class = "category-dropdown-container">
+                <h1 style = "text-align: center; margin-top: 28px">Maintenance</h1>
+            </div>
+            <div class = "category-dropdown-content">
+            </div>
+
+            <div class = "category-dropdown-container">
+                <h1 style = "text-align: center; margin-top: 28px">Amenity</h1>
+            </div>
+            <div class = "category-dropdown-content">
+            </div>
+
+            <div class = "category-dropdown-container">
+                <h1 style = "text-align: center; margin-top: 28px">Medical</h1>
+            </div>
+            <div class = "category-dropdown-content">
+            </div>
+
+            <div class = "category-dropdown-container">
+                <h1 style = "text-align: center; margin-top: 28px">Education</h1>
+            </div>
+            <div class = "category-dropdown-content">
+                <a href="/test/">Kumon</a>
+            </div>
+        </div>
+
+        <div class = "search-background-diagonal-1T"></div>
+        <div class = "search-background-diagonal-1B"></div>
+        <div></div>
     </div>
     <script>
 
-        var userInput2 = document.getElementById("userinput2");
-        var myServiceReminds = document.getElementById("myservicereminds");
+        $(".category-dropdown-container").on("click", dropdownAnimation1);
 
-        if (localStorage.getItem("myServiceRemindsKey")) {
-            for (var i = 0; i < JSON.parse(localStorage.getItem("myServiceRemindsKey")).length; i++) {
-                var serviceRemindRetrieve = document.createElement("li");
-                serviceRemindRetrieve.innerHTML = JSON.parse(localStorage.getItem("myServiceRemindsKey"))[i];
-                myServiceReminds.appendChild(serviceRemindRetrieve);
+        $(".category-dropdown-content").css("display", "none");
+        $(".category-dropdown-content").css("height", "0px");
+
+        function dropdownAnimation1() {
+            if ($(this).children(0).text() == 'Maintenance') {
+                if ($(".category-dropdown-content").eq(0).css("display") == "none") {
+                    $(".category-dropdown-content").eq(0).css("display", "block");
+                    $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000);
+                }
+                else if ($(".category-dropdown-content").eq(0).css("display") == "block") {
+                    $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
+                    $(".category-dropdown-content").eq(0).css("display", "none");
+                    });
+                }
+            } else if ($(this).children(0).text() == 'Amenity') {
+                if ($(".category-dropdown-content").eq(1).css("display") == "none") {
+                    $(".category-dropdown-content").eq(1).css("display", "block");
+                    $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000);
+                }
+                else if ($(".category-dropdown-content").eq(1).css("display") == "block") {
+                    $(".category-dropdown-content").eq(1).animate({height: "0px"}, 1000, function(){
+                    $(".category-dropdown-content").eq(1).css("display", "none");
+                    });
+                }
+            } else if ($(this).children(0).text() == 'Medical') {
+                if ($(".category-dropdown-content").eq(2).css("display") == "none") {
+                    $(".category-dropdown-content").eq(2).css("display", "block");
+                    $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000);
+                }
+                else if ($(".category-dropdown-content").eq(2).css("display") == "block") {
+                    $(".category-dropdown-content").eq(2).animate({height: "0px"}, 1000, function(){
+                    $(".category-dropdown-content").eq(2).css("display", "none");
+                    });
+                }
+            } else if ($(this).children(0).text() == 'Education') {
+                if ($(".category-dropdown-content").eq(3).css("display") == "none") {
+                    $(".category-dropdown-content").eq(3).css("display", "block");
+                    $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000);
+                }
+                else if ($(".category-dropdown-content").eq(3).css("display") == "block") {
+                    $(".category-dropdown-content").eq(3).animate({height: "0px"}, 1000, function(){
+                    $(".category-dropdown-content").eq(3).css("display", "none");
+                    });
+                }
             }
         }
-
-        function serviceReminder() {
-            var serviceRemind = document.createElement("li");
-            serviceRemind.innerHTML = userInput2.value;
-            myServiceReminds.appendChild(serviceRemind);
-            if (localStorage.getItem("myServiceRemindsKey")) {
-                var listServiceReminds2 = JSON.parse(localStorage.getItem("myServiceRemindsKey"));
-                listServiceReminds2.push(serviceRemind.innerHTML);
-                localStorage.setItem("myServiceRemindsKey", JSON.stringify(listServiceReminds2));
-            }
-            else {
-                var listServiceReminds1 = [serviceRemind.innerHTML];
-                localStorage.setItem("myServiceRemindsKey", JSON.stringify(listServiceReminds1));
-            }
-        }
-
-
     </script>
 </body>
 </html>

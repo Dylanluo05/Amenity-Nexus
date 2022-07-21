@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Personal Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% include "foundation/Navigation-Bar.html" %}
+</head>
+<style>
+    html, body {
+        font-family: 'Roboto Flex', sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: white;
+    }
+</style>
+<body>
+    <input id = "userinput2">
+    <button onclick = "serviceReminder()">Add Reminder</button>
+    <ul id = "myservicereminds"></ul>
+    <script>
+        var userInput2 = document.getElementById("userinput2");
+        var myServiceReminds = document.getElementById("myservicereminds");
+
+        if (localStorage.getItem("myServiceRemindsKey")) {
+            for (var i = 0; i < JSON.parse(localStorage.getItem("myServiceRemindsKey")).length; i++) {
+                var serviceRemindRetrieve = document.createElement("li");
+                serviceRemindRetrieve.innerHTML = JSON.parse(localStorage.getItem("myServiceRemindsKey"))[i];
+                myServiceReminds.appendChild(serviceRemindRetrieve);
+            }
+        }
+
+        function serviceReminder() {
+            var serviceRemind = document.createElement("li");
+            serviceRemind.innerHTML = userInput2.value;
+            myServiceReminds.appendChild(serviceRemind);
+            if (localStorage.getItem("myServiceRemindsKey")) {
+                var listServiceReminds2 = JSON.parse(localStorage.getItem("myServiceRemindsKey"));
+                listServiceReminds2.push(serviceRemind.innerHTML);
+                localStorage.setItem("myServiceRemindsKey", JSON.stringify(listServiceReminds2));
+            }
+            else {
+                var listServiceReminds1 = [serviceRemind.innerHTML];
+                localStorage.setItem("myServiceRemindsKey", JSON.stringify(listServiceReminds1));
+            }
+        }
+    </script>
+</body>
+</html>

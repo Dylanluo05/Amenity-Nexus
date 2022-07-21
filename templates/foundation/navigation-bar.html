@@ -14,19 +14,17 @@
     /* Swap the first "%" and "{" signs to get the "include" block to work */ %{ include "foundation/Navigation-Bar.CSS" %} %}
     body {
         overflow-x: hidden;
-        overflow-y: hidden;
     }
 
-    .navigationcontainer {
-        height: 61px;
-        width: 200%;
+    .navigation-container {
+        height: 60px;
+        width: 100%;
         background-color: white;
         padding: 10px;
-        margin-top: -11px;
     }
 
-    .navigationlinkscontainer {
-        height: 59px;
+    .navigation-links-container {
+        height: 60px;
         width: 150%;
         margin: 10px;
         margin-left: 28px;
@@ -49,7 +47,7 @@
         text-decoration: none;
     }
 
-    .navigationdropdowncontainer {
+    .navigation-dropdown-container {
         width: 150px;
         background-color: white;
         position: relative;
@@ -60,7 +58,7 @@
         padding: 10px;
     }
 
-    .navigationdropdownmember {
+    .navigation-dropdown-member {
         width: 150px;
         border: none;
         text-align: left;
@@ -73,39 +71,40 @@
 
 </style>
 <body>
-<div class="navigationcontainer">
-    <div class="navigationlinkscontainer">
+<div class="navigation-container">
+    <div class="navigation-links-container">
         <a href="/">Home</a>
-        <a onclick="Dropdownmain1();" type="button">About Us</a>
-        <div class="navigationdropdowncontainer" id="navigationdropdowncontainer1">
-            <div class="navigationdropdownmember"><a href="/aboutdylan/" style="position: relative; left: -21px;">Dylan
+        <a onclick="dropdownMain1();" type="button">About Us</a>
+        <div class="navigation-dropdown-container" id="navigation-dropdown-container-1">
+            <div class="navigation-dropdown-member"><a href="/aboutdylan/" style="position: relative; left: -21px;">Dylan
                 Luo</a></div>
-            <div class="navigationdropdownmember"><a href="/aboutritvik/" style="position: relative; left: -21px;">Ritvik
+            <div class="navigation-dropdown-member"><a href="/aboutritvik/" style="position: relative; left: -21px;">Ritvik
                 Keerthi</a></div>
-            <div class="navigationdropdownmember"><a href="/aboutadi/" style="position: relative; left: -21px;">Adi
+            <div class="navigation-dropdown-member"><a href="/aboutadi/" style="position: relative; left: -21px;">Adi
                 Nawandhar</a></div>
-            <div class="navigationdropdownmember"><a href="/aboutjean/" style="position: relative; left: -21px;">Jean
+            <div class="navigation-dropdown-member"><a href="/aboutjean/" style="position: relative; left: -21px;">Jean
                 Kim</a></div>
-            <div class="navigationdropdownmember"><a href="/aboutsohan/" style="position: relative; left: -21px;">Sohan
+            <div class="navigation-dropdown-member"><a href="/aboutsohan/" style="position: relative; left: -21px;">Sohan
                 Sankuratri</a></div>
-            <div class="navigationdropdownmember"><a href="/aboutkurtis/" style="position: relative; left: -21px;">Kurtis
+            <div class="navigation-dropdown-member"><a href="/aboutkurtis/" style="position: relative; left: -21px;">Kurtis
                 Kwan</a></div>
         </div>
         <a href="/servicesearch/">Service Search</a>
+        <a href="/personalization/">Personal Tools</a>
         <a href="/account/">Account</a>
     </div>
 </div>
 
 <script>
-        var Dropdown1 = document.getElementById("navigationdropdowncontainer1");
-        Dropdown1.style.display = "none";
+        var dropdown1 = document.getElementById("navigation-dropdown-container-1");
+        dropdown1.style.display = "none";
 
-        function Dropdownmain1 () {
-        if (Dropdown1.style.display == "none") {
-            Dropdown1.style.display = "block";
+        function dropdownMain1 () {
+        if (dropdown1.style.display == "none") {
+            dropdown1.style.display = "block";
         }
-        else if (Dropdown1.style.display == "block"){
-            Dropdown1.style.display = "none";
+        else if (dropdown1.style.display == "block"){
+            dropdown1.style.display = "none";
         }
 
     }

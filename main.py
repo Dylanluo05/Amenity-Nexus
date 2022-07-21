@@ -63,6 +63,14 @@ def servicesearch():
 def account():
     return render_template("account.html")
 
+@app.route('/personalization/')
+def personalization():
+    return render_template("personalization.html")
+
+@app.route('/test/')
+def test():
+    return render_template("/servicebase/test.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=777)
