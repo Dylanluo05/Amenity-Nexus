@@ -1,18 +1,18 @@
 
 from flask import Flask, render_template
-#from flask_mysqldb import MySQL
+from flask_mysqldb import MySQL
 
 # create a Flask instance
 app = Flask(__name__)
 
-#app.secret_key = 'service-NEXUS-a72387as349sjidla02'
+app.secret_key = 'service-NEXUS-a72387as349sjidla02'
 
-#app.config['MYSQL_HOST'] = 'localhost'
-#app.config['MYSQL_USER'] = 'service-nexus'
-#app.config['MYSQL_PASSWORD'] = 'NEXUS-TEMP'
-#app.config['MYSQL_DB'] = 'nexus'
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'service-nexus'
+app.config['MYSQL_PASSWORD'] = 'NEXUS-TEMP'
+app.config['MYSQL_DB'] = 'nexus'
 
-#mysql = MySQL(app)
+mysql = MySQL(app)
 
 
 @app.route('/')
@@ -20,9 +20,9 @@ def home():
     return render_template("/foundation/home.html")
 
 
-#@app.route('/login', methods=['GET', 'POST'])
-#def login():
-
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return "nothing"
 
 @app.route('/aboutdylan/')
 def aboutdylan():
