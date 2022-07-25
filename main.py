@@ -1,6 +1,6 @@
 
 from flask import Flask, render_template
-from flask_mysqldb import MySQL
+#from flask_mysqldb import MySQL
 
 # create a Flask instance
 app = Flask(__name__)
@@ -12,7 +12,7 @@ app.config['MYSQL_USER'] = 'service-nexus'
 app.config['MYSQL_PASSWORD'] = 'NEXUS-TEMP'
 app.config['MYSQL_DB'] = 'nexus'
 
-mysql = MySQL(app)
+#mysql = MySQL(app)
 
 
 @app.route('/')

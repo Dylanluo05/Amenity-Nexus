@@ -21,15 +21,22 @@
         background-color: whitesmoke;
     }
 
+    .search-heading-1 {
+        height: 60px;
+        width: 300px;
+        background-color: slategray;
+        margin: auto;
+    }
+
     .search-background-diagonal-1T {
         margin-top: 100px;
         height: 400px;
-        background: linear-gradient(to top left, steelblue 50%, whitesmoke 50%);
+        background: linear-gradient(to top right, steelblue 50%, whitesmoke 50%);
     }
 
     .search-background-diagonal-1B {
         height: 400px;
-        background: linear-gradient(to top left, whitesmoke 50%, steelblue 50%);
+        background: linear-gradient(to top right, whitesmoke 50%, steelblue 50%);
     }
 
     .search-introduction {
@@ -62,7 +69,7 @@
     }
 
     .category-dropdown-container {
-        height: 100px;
+        height: 70px;
         width: 700px;
         margin: auto;
         margin-top: 70px;
@@ -118,6 +125,63 @@
         border-image: linear-gradient(45deg, dodgerblue, cyan) 1;
     } */
 
+    .arrow-container-1 {
+        position: relative;
+        top: -225px;
+        left: 475px;
+    }
+
+    .arrow-1 {
+        border: 2px solid black;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 28px;
+        transform: rotate(335deg);
+    }
+
+    .arrow-2 {
+        border: 2px solid gray;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        position: relative;
+        top: 30px;
+        left: 0px;
+        padding: 28px;
+        transform: rotate(335deg);
+    }
+
+    .arrow-3 {
+        border: 2px solid silver;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        position: relative;
+        top: 60px;
+        left: 10px;
+        padding: 28px;
+        transform: rotate(335deg);
+    }
+
+    .arrow-4 {
+        border: 2px solid lightgray;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        position: relative;
+        top: 90px;
+        left: 20px;
+        padding: 28px;
+        transform: rotate(335deg);
+    }
+
+    .arrow-5 {
+        border: 2px solid white;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        position: relative;
+        top: 120px;
+        left: 30px;
+        padding: 28px;
+        transform: rotate(335deg);
+    }
 </style>
 
     <!--<div class = "search-introduction">
@@ -128,35 +192,44 @@
     <div id = "search-background-1">
 
         <div class = "search-background-diagonal-1T">
-            <h1 style = "text-align: center; margin-top: 200px">Service Search</h1>
+            <div class = "search-heading-1">
+                <h1 style = "text-align: center; margin-top: 210px; color: blue; position: relative; top: 10px">Service Search</h1>
+            </div>
         </div>
-        <div class = "search-background-diagonal-1B">
-            <!--<h4 style = "color: white">Select a category</h4>
-            <div class = "arrow-1"></div>
-            <h4 style = "color: white">Find the ideal service</h4>-->
+        <div class = "search-background-diagonal-1B" style = "margin-top: -42px;">
+            <h2 style = "color: white; position: relative; top: -175px; left: 100px; font-size: 50px">Select a category</h2>
+            <div class = "arrow-container-1">
+                <div class = "arrow-1"></div>
+                <div class = "arrow-2"></div>
+                <div class = "arrow-3"></div>
+                <div class = "arrow-4"></div>
+                <div class = "arrow-5"></div>
+            </div>
+            <h2 style = "color: white; position: relative; top: -130px; left: 900px; font-size: 50px">Find the ideal service</h2>
+            <!--<h2 style = "color: white">Find the ideal service</h2>-->
         </div>
 
         <div class = "categories-container">
             <div class = "category-dropdown-container">
-                <h1 style = "text-align: center; margin-top: 28px">Maintenance</h1>
+                <h1 style = "text-align: center; margin-top: 21px">Maintenance</h1>
             </div>
             <div class = "category-dropdown-content">
             </div>
 
             <div class = "category-dropdown-container">
-                <h1 style = "text-align: center; margin-top: 28px">Amenity</h1>
+                <h1 style = "text-align: center; margin-top: 21px">Amenity</h1>
             </div>
             <div class = "category-dropdown-content">
             </div>
 
             <div class = "category-dropdown-container">
-                <h1 style = "text-align: center; margin-top: 28px">Medical</h1>
+                <h1 style = "text-align: center; margin-top: 21px">Medical</h1>
             </div>
             <div class = "category-dropdown-content">
             </div>
 
             <div class = "category-dropdown-container">
-                <h1 style = "text-align: center; margin-top: 28px">Education</h1>
+                <h1 style = "text-align: center; margin-top: 21px">Education</h1>
             </div>
             <div class = "category-dropdown-content">
                 <a href="/test/">Kumon</a>

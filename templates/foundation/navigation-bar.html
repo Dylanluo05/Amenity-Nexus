@@ -30,6 +30,7 @@
         margin-left: 28px;
         position: relative;
         top: 10px;
+        white-space: nowrap;
     }
 
     a {
@@ -48,6 +49,7 @@
     }
 
     .navigation-dropdown-container {
+        height: 170px;
         width: 150px;
         background-color: white;
         position: relative;
@@ -67,7 +69,25 @@
         margin-top: 4px;
     }
 
+    .profile-image {
+        border-radius: 50%;
+        animation: float 4s linear infinite;
+        display: inline-block;
+        margin-top: -130px;
+        margin-left: 1400px;
+    }
 
+    @keyframes float {
+        0%,
+        100% {
+            box-shadow: 0 5px 15px 0 rgba(255,255,255,0.6);
+            transform: translatey(-10px);
+        }
+        50% {
+            box-shadow: 0 25px 15px 0 rgba(255,255,255,0.2);
+            transform: translatey(-30px);
+        }
+    }
 
 </style>
 <body>
@@ -92,6 +112,9 @@
         <a href="/servicesearch/">Service Search</a>
         <a href="/personalization/">Personal Tools</a>
         <a href="/account/">Account</a>
+    </div>
+    <div class = "profile-image">
+        <img src="/static/assets/images/Service-Nexus-Logo-Transparent-Type.png" alt = "Logo" style = "height: 100px; width: 100px">
     </div>
 </div>
 
