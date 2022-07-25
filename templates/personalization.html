@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     {% include "foundation/Navigation-Bar.html" %}
 </head>
@@ -44,8 +45,10 @@
         border: none;
         margin-left: 37px;
         margin-top: 34px;
+        padding-left: 7px;
         background-color: slategray;
         color: white;
+        caret-color: white;
     }
 
     .reminder-button-1 {
@@ -68,13 +71,6 @@
     }
 
     .reminder-check {
-        float: right;
-        margin-top: -21px;
-        margin-right: 11px;
-        font-weight: lighter;
-    }
-
-    .reminder-checked {
         float: right;
         margin-top: -21px;
         margin-right: 11px;
@@ -109,7 +105,6 @@
     <script>
         var userInput1 = document.getElementById("user-input-1");
         var myServiceReminds = document.getElementById("my-service-reminds");
-        var serviceRemindCheckIndexes = document.getElementsByClassName("reminder-check");
 
         if (localStorage.getItem("myServiceRemindsKey")) {
             for (var i = 0; i < JSON.parse(localStorage.getItem("myServiceRemindsKey")).length; i++) {
@@ -156,10 +151,14 @@
             }
         }
 
-
         function serviceReminderCheck() {
-            this.setAttribute("class", "reminder-checked");
+            var serviceRemindIndex = $(this).parent().index();
+            $(this).parent().css("display", "none");
+            var listServiceReminds3 = JSON.parse(localStorage.getItem("myServiceRemindsKey"));
+            listServiceReminds3.splice(serviceRemindIndex, 1);
+            localStorage.setItem("myServiceRemindsKey", JSON.stringify(listServiceReminds3));
         }
+
     </script>
 </body>
 </html>

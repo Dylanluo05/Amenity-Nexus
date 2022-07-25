@@ -69,26 +69,33 @@
         margin-top: 4px;
     }
 
-    .profile-image {
-        border-radius: 50%;
-        animation: float 4s linear infinite;
+    .service-nexus-logo {
+        animation: float 2s linear infinite;
         display: inline-block;
-        margin-top: -130px;
+        position: relative;
+        top: -100px;
         margin-left: 1400px;
+        transition-duration: 0.7s;
     }
 
+    .service-nexus-logo:hover {
+        box-shadow: 0 5px 5px 0 rgba(0,0,0,0.6);
+        transform: translatey(-11px);
+    }
+
+    /*
     @keyframes float {
         0%,
         100% {
             box-shadow: 0 5px 15px 0 rgba(255,255,255,0.6);
-            transform: translatey(-10px);
+            transform: translatey(-15px);
         }
         50% {
             box-shadow: 0 25px 15px 0 rgba(255,255,255,0.2);
-            transform: translatey(-30px);
+            transform: translatey(-25px);
         }
     }
-
+    */
 </style>
 <body>
 <div class="navigation-container">
@@ -113,9 +120,7 @@
         <a href="/personalization/">Personal Tools</a>
         <a href="/account/">Account</a>
     </div>
-    <div class = "profile-image">
-        <img src="/static/assets/images/Service-Nexus-Logo-Transparent-Type.png" alt = "Logo" style = "height: 100px; width: 100px">
-    </div>
+    <img src="/static/assets/images/Service-Nexus-Logo-Transparent-Type.png" class = "service-nexus-logo" alt = "Logo" style = "height: 100px; width: 100px">
 </div>
 
 <script>
