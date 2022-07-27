@@ -1,10 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+
     <title>About Jean</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% include "foundation/Navigation-Bar.html" %}
 </head>
+
+<style>
+    html, body {
+        font-family: 'Roboto Flex', san-serif;
+        background-repeat: no-repeat;
+        overflow-x: hidden;
+    }
+
+    #AboutDylanBackground1 {
+        height: 2700px;
+        background: linear-gradient(to top right, cyan 0%, dodgerblue 100%);
+        background-repeat: no-repeat;
+        padding: 38px;
+        z-index: 1;
+    }
+
+    .AboutDylanBackground1Barrier {
+        height: 800px;
+        margin: auto;
+        background: white;
+        background-repeat: no-repeat;
+        position: relative;
+        top: 140px;
+        opacity: 0.7;
+        z-index: 2;
+    }
+
+    .profilecontainer1 {
+        height: 500px;
+        width: 500px;
+        background-color: white;
+        margin: auto;
+        position: relative;
+        top: -52pc;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+        z-index: 3;
+    }
+
+    .imageprofile {
+        border-radius: 100%;
+        background-color: whitesmoke;
+        height: 240px;
+        width: 240px;
+        position: relative;
+        top: -31pc;
+        margin: auto;
+        z-index: 4;
+    }
+
+    .profilecontainer2 {
+        height: 110px;
+        width: 380px;
+        background-color: white;
+        box-shadow: 0 10px 10px 0 rgba(0,0,0,0.7);
+        margin: auto;
+        position: relative;
+        top: -50pc;
+        z-index: 3;
+        padding: 10px;
+    }
+
+    .fa {
+        border-radius: 100%;
+        font-size: 24px;
+        height: 21px;
+        width: 21px;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .fa-instagram {
+        border: 2px solid lightcoral;
+        background-color: white;
+        color: lightcoral;
+        transition-duration: 0.8s;
+    }
+
+    .fa-instagram:hover {
+        color: white;
+        background: lightcoral;
+    }
+
+    .fa-linkedin {
+        border: 2px solid navy;
+        background-color: white;
+        color: navy;
+        transition-duration: 0.8s;
+    }
+
+    .fa-linkedin:hover {
+        color: white;
+        background-color: navy;
+    }
+
+    .fa-youtube {
+        border: 2px solid maroon;
+        background-color: white;
+        color: maroon;
+        transition-duration: 0.8s;
+    }
+
+    .fa-youtube:hover {
+        color: white;
+        background-color: maroon;
+    }
+
+    .fa-google {
+        border: 2px solid royalblue;
+        background-color: white;
+        color: royalblue;
+        transition-duration: 0.8s;
+    }
+
+    .fa-google:hover {
+        color: white;
+        background-color: royalblue;
+    }
+
+
+    .HeadingStyle1 {
+        color: slategray;
+        text-decoration-style: solid;
+        text-decoration-line: underline;
+        text-decoration-thickness: 1.5px;
+        font-size: 21px;
+    }
+
+    .profilecontainer3 {
+        margin: auto;
+        height: 380px;
+        width: 400px;
+        background-color: white;
+        position: relative;
+        top: -39pc;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+        padding: 38px;
+        z-index: 3;
+    }
+
+    .image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+
+    .profilecontainer4 {
+        margin: auto;
+        height: 480px;
+        width: 700px;
+        background-color: white;
+        position: relative;
+        top: -28pc;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+        z-index: 3;
+        padding: 37px;
+    }
+</style>
+
 <body>
+<div id = "AboutDylanBackground1">
+    <div class = "AboutDylanBackground1Barrier"></div>
+    <div class = "imageprofile">
+        <img src = "/static/assets/images/Photo.JPG" alt = "Jean's Picture" class = "image">
+    </div>
+    <div class = "profilecontainer1">
+        <h1 style = "text-align: center; position: relative; top: 348px;">Jean Kim</h1>
+        <h2 style = "text-align: center; position: relative; top: 348px; font-weight: normal;">Head of Communications and Project Developer</h2>
+    </div>
+    <div class = "profilecontainer2">
+        <h2 class = "HeadingStyle1" style = "position: relative; top: -16px;">Socials</h2>
+        <a href = "https://www.instagram.com/jean._.kim/"  class = "fa fa-instagram" style = "margin-left: 34px; position: relative; top: -20px;"></a>
+        <a href = "https://www.linkedin.com/in/jean-kim-025261229/" class = "fa fa-linkedin" style = "margin-left: 34px; position: relative; top: -20px;"></a>
+        <a href = "mailto:jeaneonkim@gmail.com" class = "fa fa-google" style = "margin-left: 34px; position: relative; top: -20px;"></a>
+    </div>
+    <div class = "profilecontainer3">
+        <h1 style = "text-align: center;">Allow me to introduce myself...</h1>
+        <h3 style = "font-weight: normal;">Hey, my name is Jean Kim, and I'm a senior at Del Norte High School. Apart from academics, I participate in extracurriculars and athletics including school clubs, Taekwondo, Cross Country, and Track and Field.</h3>
+        <br>
+        <br>
+        <h3 style = "font-weight: normal;">Within this project and team, I am a developer, as I am proficient in coding languages such as HTML, Python, Java, and Javascript. With experience in public relations and networking, I also serve as the Head of Communications for this project.</h3>
+    </div>
+</div>
+</div>
+
+<script>
+
+</script>
 
 </body>
+
 </html>
