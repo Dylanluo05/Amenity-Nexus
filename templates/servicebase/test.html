@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Kumon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    {% include "foundation/navigation-bar.html" %}
+</head>
+
+<style>
+    html, body {
+        font-family: 'Roboto Flex', sans-serif;
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    #service-template-background-1 {
+        height: 800px;
+        background-color: dodgerblue;
+    }
+
+    .div1 {
+        height: 450px;
+        width: 400px;
+        padding: 10px;
+        background-color: white;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+
+    /* Include the padding and border in an element's total width and height */
+    * {
+      box-sizing: border-box;
+    }
+
+
+    /* Style the close button */
+    .close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 12px 16px 12px 16px;
+    }
+
+    .close:hover {
+      background-color: #f44336;
+      color: white;
+    }
+
+    /* Style the header */
+    .header {
+      background-color: #f44336;
+      padding: 30px 40px;
+      color: white;
+      text-align: center;
+    }
+
+    /* Clear floats after the header */
+    .header:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* Style the input */
+    input {
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      width: 75%;
+      padding: 10px;
+      float: left;
+      font-size: 16px;
+    }
+
+    /* Style the "Add" button */
+    .button-2 {
+      height: 38px;
+      width: 25%;
+      background: #d9d9d9;
+      color: #555;
+      float: left;
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: none;
+      border-radius: 0;
+    }
+
+    .addBtn:hover {
+      background-color: #bbb;
+    }
+
+
+    .button-1 {
+        margin-top: 11px;
+        margin-left: 100px;
+        height: 40px;
+        width: 200px;
+        color: black;
+        background-color: white;
+        border: 2px solid;
+        border-image: linear-gradient(45deg, white, black) 1;
+        transition-duration: 0.8s;
+    }
+
+    .button-1:hover {
+        border-image: linear-gradient(45deg, black, white) 1;
+    }
+
+    .locations-list {
+        font-size: 10px;
+    }
+
+</style>
+<body>
+
+<div id = "service-template-background-1">
+    <h1 style = "position: relative; top: 80px; text-align: center; color: white;">Kumon</h1>
+
+    <br>
+
+    <div style = "margin-left: 100px; margin-top: 100px;" class = "div1">
+        <center><h1>Contact Information</h1></center>
+        <hr>
+        <p class = "bold">Customer Service Phone Number:</p>
+        <p>1-800-222-6284</p>
+        <p class = "bold">Email Address:</p>
+        <p>contacto@kumon.com</p>
+        <p class = "bold">Locations in San Diego:</p>
+        <ul class = "locations-list">
+            <li>4s Ranch</li>
+            <li>Point Loma</li>
+            <li>Rancho Bernardo</li>
+            <li>Rancho Penasquitos</li>
+        </ul>
+        <ul class = "locations-list" style = "margin-top: -57px; margin-left: 110px;">
+            <li>Kearny Mesa</li>
+            <li>Mira Mesa</li>
+            <li>Carmel Valley</li>
+            <li>University City</li>
+        </ul>
+        <ul class = "locations-list" style = "margin-top: -57px; margin-left: 210px;">
+            <li>Rancho Santa Fe</li>
+            <li>La Jolla</li>
+            <li>Poway</li>
+            <li>Escondido</li>
+        </ul>
+        <br>
+        <form action = "https://www.kumon.com/carlsbad-la-costa-oaks?gclid=Cj0KCQjwz96WBhC8ARIsAATR253tGRI4dlHhoxJCGl1uzHMtsnEPy9VpPh6YXMUNotAR4KdwKHcnnvkaAsMsEALw_wcB">
+            <input type = "submit" class = "button-1" value = "Kumon's Website">
+        </form>
+    </div>
+
+    <div class = "div1" style = "margin: auto; margin-top: -450px;">
+        <center><h1>General Description</h1></center>
+        <hr>
+        <div style = "margin-left: 40px;">
+            <img src="/static/assets/images/KumonLogo.jpg" alt="Picture of Company" style = "height: 100px; width: 300px;">
+        </div>
+        <p style = "margin-top: 28px; text-align: center; font-size: 21px;">Kumon is an academic institution for students from grades pre-K to 12th. It offers effective practice worksheets
+        designed to help students take on vigorous work habits as well as to aid them in sharpening their skills in core education subjects
+        such as math and reading.</p>
+    </div>
+
+    <div class = "div1" style = "float: right; margin-top: -450px; margin-right: 100px;">
+
+            <h1 style="text-align: center;">Add a Reminder</h1>
+            <hr>
+        <div id="myDIV" class="header">
+            <input type="text" id="external-input-value-1" placeholder="Write a description">
+            <button id = "add-reminder" class="button-2">Add</button>
+        </div>
+
+        <ul id="myUL">
+
+        </ul>
+    </div>
+</div>
+    <script>
+    var externalInputValue1 = document.getElementById("external-input-value-1");
+    var addReminder = document.getElementById("add-reminder");
+
+    function addReminderExternal() {
+        if (localStorage.getItem("myServiceRemindsKey")) {
+            var externalServiceRemindRetrieve = JSON.parse(localStorage.getItem("myServiceRemindsKey"));
+            externalServiceRemindRetrieve.push(externalInputValue1.value);
+            localStorage.setItem("myServiceRemindsKey", JSON.stringify(externalServiceRemindRetrieve));
+        } else {
+            var externalServiceRemindRetrieve = [externalInputValue1.value];
+            localStorage.setItem("myServiceRemindsKey", JSON.stringify(externalServiceRemindRetrieve));
+        }
+    }
+
+    addReminder.addEventListener("click", addReminderExternal);
+
+    /*
+        var myNodelist = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+          var span = document.createElement("SPAN");
+          var txt = document.createTextNode("\u00D7");
+          span.className = "close";
+          span.appendChild(txt);
+          myNodelist[i].appendChild(span);
+        }
+
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+          }
+        }
+
+        var list = document.querySelector('ul');
+        list.addEventListener('click', function(ev) {
+          if (ev.target.tagName === 'LI') {
+            ev.target.classList.toggle('checked');
+          }
+        }, false);
+
+        function newElement() {
+          var li = document.createElement("li");
+          var inputValue = document.getElementById("myInput").value;
+          var t = document.createTextNode(inputValue);
+          li.appendChild(t);
+          if (inputValue === '') {
+            alert("You must write something!");
+          } else {
+            document.getElementById("myUL").appendChild(li);
+          }
+          document.getElementById("myInput").value = "";
+
+          var span = document.createElement("SPAN");
+          var txt = document.createTextNode("\u00D7");
+          span.className = "close";
+          span.appendChild(txt);
+          li.appendChild(span);
+
+          for (i = 0; i < close.length; i++) {
+            close[i].onclick = function() {
+              var div = this.parentElement;
+              div.style.display = "none";
+            }
+          }
+        }
+
+        */
+        </script>
+
+    </body>
+</html>

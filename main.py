@@ -53,6 +53,10 @@ def aboutsohan():
 def aboutkurtis():
     return render_template("aboutkurtis.html")
 
+@app.route('/aboutaryan/')
+def aboutaryan():
+    return render_template("aboutaryan.html")
+
 
 @app.route('/servicesearch/')
 def servicesearch():

@@ -21,12 +21,44 @@
             background-color: white;
         }
 
-        #home-background-1 {
-            background-color: white;
+        .home-background-1 {
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .home-background-1-image {
+            height: 700px;
+            background: url("https://www.viscom.com/fileadmin/content/service/Viscom_Service_Header_allgemein_web.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            z-index: 1;
+        }
+
+        .home-background-1-overlay {
+            height: 700px;
+            background-color: mediumseagreen;
+            opacity: 30%;
+            z-index: 2;
+        }
+
+        .home-background-1-content {
+            position: relative;
+            z-index: 3;
         }
 
         #home-background-2 {
-            background-color: mediumseagreen;
+            height: 800px;
+            background-color: white;
+        }
+
+        .introduction-container {
+            height: 80px;
+            width: 800px;
+            margin: auto;
+            padding: 10px;
+            background-color: lightgray;
         }
 
         .navigation-container-1 {
@@ -63,14 +95,23 @@
 
 <body>
 
-<div id = "home-background-1">
-    <h1 style = "text-align: center;">Service Nexus</h1>
-    <h3 style = "text-align: center;">Our goal is to help connect residents in the 4s Ranch community with a variety of services, consisting of
-        key categories such as maintenance, amenities, medical facilities, educational support, and many more!
-    </h3>
+<div class = "home-background-1">
+    <div class = "home-background-1-image">
+        <div class = "home-background-1-overlay"></div>
+    </div>
+    <!--<div class = "home-background-1-content">
+        <h1 style = "text-align: center; color: white;">Service Nexus</h1>
+    </div>-->
+</div>
+
+
+<div id = "home-background-2">
+    <div class = "introduction-container" style = "margin-top: 100px;">
+        <h3 style = "text-align: center; font-weight: normal; margin-top: 16px;">Our goal is to help connect residents in the 4s Ranch community with a variety of services, consisting of key categories such as maintenance, amenities, medical facilities, educational support, and many more!</h3>
+    </div>
     <h2 style = "text-align: center; color: black;">These are the 4 most popular services of this month!</h2>
     <div class="navigation-container-1">
-        <div class="homebuttoncontainer1">
+        <div class="home-button-container-1">
             <button class = "home-button-1">Electrician</button>
             <button class = "home-button-1">Plumbing</button>
             <button class = "home-button-1">Carpenting</button>
