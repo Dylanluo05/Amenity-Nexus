@@ -59,9 +59,9 @@ def servicesearch():
     return render_template("servicesearch.html")
 
 
-@app.route('/account/')
-def account():
-    return render_template("account.html")
+@app.route('/signup/')
+def signup():
+    return render_template("signup.html")
 
 @app.route('/personalization/')
 def personalization():
