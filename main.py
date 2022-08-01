@@ -22,7 +22,7 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    return "nothing"
+    return render_template("login/login.html")
 
 @app.route('/aboutdylan/')
 def aboutdylan():
