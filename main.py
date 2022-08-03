@@ -22,7 +22,7 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template("login/login.html")
+    return render_template("login/signin.html")
 
 @app.route('/aboutdylan/')
 def aboutdylan():
@@ -63,9 +63,13 @@ def servicesearch():
     return render_template("servicesearch.html")
 
 
+@app.route('/signin/')
+def signin():
+    return render_template("/account/signin.html")
+
 @app.route('/signup/')
 def signup():
-    return render_template("signup.html")
+    return render_template("/account/signup.html")
 
 @app.route('/personalization/')
 def personalization():
