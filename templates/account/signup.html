@@ -13,6 +13,7 @@
     {% include "foundation/Navigation-Bar.html" %}
 </head>
 <style>
+
     html, body {
         font-family: 'Roboto Flex', san-serif;
         overflow-x: hidden;
@@ -21,17 +22,84 @@
         background-color: white;
     }
 
-    #account-background-1 {
-        height: 800px;
-        background: linear-gradient(to top right, purple 0%, darkblue 100%);
+    #account-background-2 {
+        height: 1000px;
+        background: linear-gradient(to top right, darkblue 0%, purple 100%);
     }
 
+    .signup-link {
+        color: blue;
+        font-size: 21px;
+        text-decoration: underline;
+        margin-top: 0px;
+        margin-left: 5px;
+    }
+
+    .signup-container {
+        height: 650px;
+        width: 30%;
+        background-color: white;
+        padding: 11px;
+        margin: auto;
+        margin-top: 100px;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+    }
+
+    .signup-input {
+        display: block;
+        margin: auto;
+        height: 30px;
+        width: 90%;
+        background-color: lightgray;
+        border: none;
+    }
+
+    input::placeholder {
+        position: relative;
+        left: 7px;
+    }
+
+    .signup-button-1 {
+        height: 30px;
+        width: 250px;
+        color: white;
+        background-color: blue;
+        border: none;
+        display: block;
+        margin: auto;
+        transition-duration: 0.7s;
+    }
+
+    .signup-button-1:hover {
+        background-color: lightskyblue;
+    }
 
 </style>
 <body>
-    <div id = "account-background-1">
-        <h1 style = "margin: 0; text-align: center;">Sign Up</h1>
+<div id = "account-background-2">
+    <br><br>
+    <div class="signup-container">
+        <h1 style = "margin-top: 10%; text-align: center; color: black;">Sign Up</h1><br>
+        <hr style = "display: block; margin-top: -5%;">
+        <form id="signup" method="get" action="/servicesearch/" style = "margin-top: 10%;">
+            <h3 style = "text-align: center;">Create a Username</h3>
+            <input type = "text" name = "user-name" placeholder = "Username" class = "signup-input">
+            <br>
+            <h3 style = "text-align: center;">Enter Full Name</h3>
+            <input type = "text" name = "full-name" placeholder = "Full Name" class = "signup-input">
+            <br>
+            <h3 style = "text-align: center;">Create a Password</h3>
+            <input type = "password" name = "password" placeholder = "Password" class = "signup-input">
+            <br>
+            <h3 style = "text-align: center;">Confirm Password</h3>
+            <input type = "password" name = "confirm-password" placeholder = "Confirm Password" class = "signup-input">
+            <br><br>
+            <input type = "submit" value = "Sign In" class = "signup-button-1">
+            <br><br>
+        </form>
+        <p style = "text-align: center; font-size: 21px; margin-top: 0px;">New here? <a href = "/signup/" class = "signup-link">Sign Up</a></p>
     </div>
+</div>
 
 <script>
 
