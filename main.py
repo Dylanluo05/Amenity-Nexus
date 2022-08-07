@@ -82,9 +82,10 @@ def user_profile():
 def personalization():
     return render_template("personalization.html")
 
-@app.route('/test/')
-def test():
-    return render_template("/servicebase/test.html")
+#Service Base URLs
+@app.route('/kumon/')
+def kumon():
+    return render_template("/servicebase/kumon.html")
 
 
 if __name__ == "__main__":
