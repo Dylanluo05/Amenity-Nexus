@@ -3,31 +3,38 @@
 <head>
     <meta charset="utf-8">
 
-    <title>About Kurtis</title>
+    <title>About Aditya</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    {% include "foundation/Navigation-Bar.html" %}
+    {% include "foundation/navigation_bar.html" %}
 </head>
+
 <style>
     html, body {
         font-family: 'Roboto Flex', san-serif;
+        margin: 0;
+        padding: 0;
         background-repeat: no-repeat;
         overflow-x: hidden;
     }
 
-    #AboutKurtisBackground1 {
-        height: 2700px;
-        background: linear-gradient(to top right, cyan 0%, dodgerblue 100%);
+    .navigation-container, .navigation-dropdown-container {
+        z-index: 3;
+    }
+
+    #AboutAdiBackground1 {
+        max-height: 250vh;
+        background: linear-gradient(to top right, #ccffff 0%, #3399ff 100%);
         background-repeat: no-repeat;
         padding: 38px;
         z-index: 1;
     }
 
-    .AboutKurtisBackground1Barrier {
+    .AboutAdiBackground1Barrier {
         height: 800px;
         margin: auto;
         background: white;
@@ -50,7 +57,7 @@
     }
 
     .imageprofile {
-        border-radius: 100%;
+        border-radius: 50%;
         background-color: whitesmoke;
         height: 240px;
         width: 240px;
@@ -93,30 +100,6 @@
         background: lightcoral;
     }
 
-    .fa-linkedin {
-        border: 2px solid navy;
-        background-color: white;
-        color: navy;
-        transition-duration: 0.8s;
-    }
-
-    .fa-linkedin:hover {
-        color: white;
-        background-color: navy;
-    }
-
-    .fa-youtube {
-        border: 2px solid maroon;
-        background-color: white;
-        color: maroon;
-        transition-duration: 0.8s;
-    }
-
-    .fa-youtube:hover {
-        color: white;
-        background-color: maroon;
-    }
-
     .fa-google {
         border: 2px solid royalblue;
         background-color: white;
@@ -143,6 +126,7 @@
         height: 580px;
         width: 800px;
         background-color: white;
+        margin: auto;
         position: relative;
         top: -39pc;
         box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
@@ -150,35 +134,20 @@
         z-index: 3;
     }
 
-    .image {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        border-radius: 100%;
-    }
 
-    .profilecontainer4 {
-        margin: auto;
-        height: 480px;
-        width: 700px;
-        background-color: white;
-        position: relative;
-        top: -28pc;
-        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
-        z-index: 3;
-        padding: 37px;
-    }
+
 </style>
 
 <body>
-    <div id="AboutKurtisBackground1">
-    <div class="AboutKurtisBackground1Barrier"></div>
-    <div class = "imageprofile">
-        <img src = "/static/assets/images/ServiceNexusKurtisKwan.png" alt = "Dylan's Picture" class = "image">
+<div id="AboutAdiBackground1">
+    <div class="AboutAdiBackground1Barrier"></div>
+    <div class="imageprofile">
+        <img src="C:\Users\Nawandhar\python\Service-Nexus\static\assets\images\WhatsApp Image 2022-07-15 at 10.11.38 AM.jpeg"
+             alt="Aditya's Picture" class="image">
     </div>
     <div class="profilecontainer1">
-        <h1 style="text-align: center; position: relative; top: 348px;">Kurtis Kwan</h1>
-        <h2 style="text-align: center; position: relative; top: 348px; font-weight: normal;">Team Coordinator</h2>
+        <h1 style="text-align: center; position: relative; top: 348px;">Aditya Nawandhar</h1>
+        <h2 style="text-align: center; position: relative; top: 348px; font-weight: normal;">Project Director</h2>
     </div>
     <div class="profilecontainer2">
         <h2 class="HeadingStyle1" style="position: relative; top: -16px;">Socials</h2>
@@ -189,18 +158,16 @@
     </div>
     <div class="profilecontainer3">
         <h1 style="position: relative; text-align: center;">Allow me to introduce myself...</h1>
-        <h3 style="font-weight: normal;">Hi, my name is Kurtis Kwan, and I am a senior at Del Norte, graduating in 2023. I enjoy playing tennis, learning more about computer science, and learning more about fixing vehicles.
-        </h3>
-        <h3 style = "font-weight: normal;">After school and in my free time, I attend a variety of clubs and extracurriculars:
-            <ol>
-                <li>Academics and Athletics for All</li>
-                <li>Cooking Club</li>
-                <li>Trail Norte</li>
-                <li>Red Cross</li>
-            </ol>
-        </h3>
-        <h3 style="font-weight: normal;">Since middle school, I have had an interest in computer science. I started off learning bash scripting, and eventually led up to larger things, such as Python or Javascript.
-            Learning about computer science has also helped me with certain hobbies. I learned more about file formats and bitrates, which helped me greatly with my hobby of listening to music.  </h3>
+        <h2 style="font-weight: normal;">Extracurriculars and Passions: I like to play any physical sport that makes my
+            energy going and brings my competitive spirit out. I like outdoor sports more than indoor sports. One of my
+            favorite sport is soccer and my favorite player is Messi.I am an animal lover. I myself have a German
+            Shepherd. I am a dog lover. I have a constant curiosity for learning about different animals. I love fun
+            facts and to learn something new. One of the main reasons that I like fun facts is that I learn something
+            new without doing intensive research or spending a lot of time on. I love to eat, and like most of the
+            people I love deserts and fast food a lot. I love to eat and try different cuisines, and I especially like
+            spicy food. I especially love desserts with chocolate in them or made from chocolate.
+        </h2>
+        <h3></h3>
     </div>
 </div>
 </body>

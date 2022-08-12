@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    {% include "foundation/Navigation-Bar.html" %}
+    {% include "foundation/navigation_bar.html" %}
 </head>
 <style>
     html, body {
@@ -22,20 +22,126 @@
         background-color: white;
     }
 
-    .reminders-main-container {
+    #personalization-background-1 {
+        position: relative;
+        background-repeat: no-repeat;
+    }
+
+    .personalization-background-1-image, .personalization-background-1-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .personalization-background-1-image {
+        height: 500px;
+        background: url("https://images.pexels.com/photos/196650/pexels-photo-196650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+        z-index: 1;
+    }
+
+    .personalization-background-1-overlay {
+        height: 500px;
+        background-color: black;
+        opacity: 50%;
+        z-index: 2;
+    }
+
+    .personalization-background-1-content {
+        position: relative;
+        height: 500px;
+        z-index: 3;
+    }
+
+    #personalization-background-2 {
+        height: 500px;
+        background-color: black;
+    }
+
+    .intro-container {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        top: 25%;
+    }
+
+    .intro-circle-container-1 {
+        height: 250px;
+        width: 250px;
+        margin-left: 100px;
+        border-radius: 100%;
+        background-color: darkgray;
+        z-index: 1;
+    }
+
+    .intro-square-container-1 {
+        height: 220px;
+        width: 220px;
+        margin: auto;
+        position: relative;
+        top: 5%;
+        opacity: 70%;
+        background-color: white;
+        z-index: 2;
+    }
+
+    .personalization-button-1 {
+        height: 40px;
+        width: 200px;
+        display: block;
+        margin: auto;
+        background-color: blue;
+        border: none;
+        color: white;
+        position: relative;
+        z-index: 4;
+    }
+
+    .personalization-button-1-shadow {
+        height: 40px;
+        width: 200px;
+        background-color: dodgerblue;
+        position: absolute;
+        top: 5px;
+        left: 15px;
+        z-index: 3;
+    }
+
+    #reminders-background-1 {
         height: 700px;
-        background: url("https://s1.1zoom.me/b5050/409/Alarm_clock_Clock_Colored_background_560279_3840x2400.jpg");
+        /*background: url("https://s1.1zoom.me/b5050/409/Alarm_clock_Clock_Colored_background_560279_3840x2400.jpg");*/
+        background-color: white;
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
         background-size: cover;
     }
 
+    #reminders-background-2 {
+        height: 800px;
+        background-color: black;
+        color: white;
+    }
+
     .reminders-heading {
         height: 100px;
         width: 800px;
-        border-radius: 15px;
-        background-color: #DBBD26;
+        margin: auto;
+        position: relative;
+        top: 0px;
+        background-color: dodgerblue;
+    }
+
+    #my-service-reminds {
+        position: relative;
+        top: 0px;
+        margin: auto;
+        margin-left: -40px;
     }
 
     .user-input-1 {
@@ -81,33 +187,90 @@
     .reminder-item-container {
         height: 40px;
         width: 800px;
+        margin: auto;
         background-color: lightgray;
         padding-top: 16px;
         text-align: center;
-        border-radius: 10px;
         border-bottom: 1px solid black;
     }
 
-    #my-service-reminds {
-        margin: auto;
-        margin-left: -40px;
+    .reminders-description-container-1 {
+        display: flex;
+        max-width: 200px;
+        color: white;
+        line-height: 30px;
+        text-align: center;
+        border: none;
+        margin-left: 300px;
     }
 
 </style>
 <body>
-<div id="reminders-background-1">
-    <center>
-        <div class="reminders-main-container">
-            <div class="reminders-heading">
-                <input id="user-input-1" class="user-input-1">
-                <input type = "date" id = "user-date-1">
-                <button onclick="serviceReminder()" class="reminder-button-1">Add Reminder</button>
+<div id = "personalization-background-1">
+    <div class = "personalization-background-1-image"></div>
+    <div class = "personalization-background-1-overlay"></div>
+    <div class = "personalization-background-1-content">
+        <h1 style = "margin: 0; color: white; text-align: center; font-size: 48px; position: relative; top: 40%;">Personalization</h1>
+    </div>
+</div>
+<div id = "personalization-background-2">
+    <div class = "intro-container">
+        <div class = "intro-circle-container-1">
+            <div class = "intro-square-container-1">
+                <div style = "position: relative; top: 40%;">
+                    <button class = "personalization-button-1">To be determined</button>
+                    <div class = "personalization-button-1-shadow"></div>
+                </div>
             </div>
-            <ul id="my-service-reminds"></ul>
         </div>
-    </center>
+        <div class = "intro-circle-container-1">
+            <div class = "intro-square-container-1">
+                <div style = "position: relative; top: 40%;">
+                    <button class = "personalization-button-1">To be determined</button>
+                    <div class = "personalization-button-1-shadow"></div>
+                </div>
+            </div>
+        </div>
+        <div class = "intro-circle-container-1">
+            <div class = "intro-square-container-1">
+                <div style = "position: relative; top: 40%;">
+                    <button class = "personalization-button-1">To be determined</button>
+                    <div class = "personalization-button-1-shadow"></div>
+                </div>
+            </div>
+        </div>
+        <div class = "intro-circle-container-1">
+            <div class = "intro-square-container-1">
+                <div style = "position: relative; top: 40%;">
+                    <button class = "personalization-button-1">To be determined</button>
+                    <div class = "personalization-button-1-shadow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="reminders-background-1">
+    <br>
+    <h1 style = "text-align: center;">Reminders</h1>
+    <div class="reminders-heading">
+        <input id="user-input-1" class="user-input-1">
+        <!--<input type = "date" id = "user-date-1">-->
+        <button onclick="serviceReminder()" class="reminder-button-1">Add Reminder</button>
+    </div>
+    <ul id="my-service-reminds"></ul>
+</div>
+<div id = "reminders-background-2">
+    <h1 style = "margin: 0; text-align: center; position: relative; top: 50px;">Reminders</h1>
+    <div style = "display: flex; flex-direction: row; margin-top: 10%; margin-left: -9%;">
+        <div class = "reminders-description-container-1"><h3>Life can be busy, so it is often hard to keep track of things.</h3></div>
+        <div class = "reminders-description-container-1"><h3>Our website offers a reminders feature that helps you take note of the different services you are interested in.</h3></div>
+        <div class = "reminders-description-container-1"><h3>Use the Service Search page to find a viable service for your needs, then save that service in your reminders.</h3></div>
+    </div>
 </div>
 <script>
+
+        /*$(".personalization-button-1").hover(personalizationButtonAnimation1, personalizationButtonAnimation2);*/
+
         var userInput1 = document.getElementById("user-input-1");
         var userDate1 = document.getElementById("user-date-1");
         var myServiceReminds = document.getElementById("my-service-reminds");

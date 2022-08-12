@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <title>Sign Up</title>
 
-    {% include "foundation/Navigation-Bar.html" %}
+    {% include "foundation/navigation_bar.html" %}
 </head>
 <style>
 
@@ -49,14 +49,10 @@
         display: block;
         margin: auto;
         height: 30px;
+        padding-left: 7px;
         width: 90%;
         background-color: lightgray;
         border: none;
-    }
-
-    input::placeholder {
-        position: relative;
-        left: 7px;
     }
 
     .signup-button-1 {
@@ -97,7 +93,7 @@
             <input type = "submit" value = "Sign In" class = "signup-button-1">
             <br><br>
         </form>
-        <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Have an account? <a href = "/signin/" class = "signup-link">Sign In</a></p>
+        <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Have an account? <a href = "/sign_in/" class = "signup-link">Sign In</a></p>
     </div>
 </div>
 

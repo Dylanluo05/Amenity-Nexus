@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    {% include "foundation/navigation-bar.html" %}
+    {% include "foundation/navigation_bar.html" %}
 </head>
 
 <style>
@@ -21,8 +21,12 @@
         background-color: white;
     }
 
+    .navigation-container, .navigation-dropdown-container {
+        z-index: 3;
+    }
+
     #about-dylan-background-1 {
-        height: 2700px;
+        max-height: 350vh;
         background: linear-gradient(to top right, cyan 0%, dodgerblue 100%);
         background-repeat: no-repeat;
         padding: 38px;

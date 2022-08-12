@@ -9,25 +9,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    {% include "foundation/Navigation-Bar.html" %}
+    {% include "foundation/navigation_bar.html" %}
 </head>
 
 <style>
     html, body {
         font-family: 'Roboto Flex', san-serif;
+        margin: 0;
+        padding: 0;
+        padding: 0;
         background-repeat: no-repeat;
         overflow-x: hidden;
     }
 
-    #AboutDylanBackground1 {
-        height: 2700px;
-        background: linear-gradient(to top right, cyan 0%, dodgerblue 100%);
+    .navigation-container, .navigation-dropdown-container {
+        z-index: 3;
+    }
+
+    #AboutJeanBackground1 {
+        max-height: 220vh;
+        background: linear-gradient(to top right, #ccffff 0%, #3399ff 100%);
         background-repeat: no-repeat;
         padding: 38px;
         z-index: 1;
     }
 
-    .AboutDylanBackground1Barrier {
+    .AboutJeanBackground1Barrier {
         height: 800px;
         margin: auto;
         background: white;
@@ -171,8 +178,8 @@
 </style>
 
 <body>
-<div id = "AboutDylanBackground1">
-    <div class = "AboutDylanBackground1Barrier"></div>
+<div id = "AboutJeanBackground1">
+    <div class = "AboutJeanBackground1Barrier"></div>
     <div class = "imageprofile">
         <img src = "/static/assets/images/Photo.JPG" alt = "Jean's Picture" class = "image">
     </div>
