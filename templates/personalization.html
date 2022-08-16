@@ -78,7 +78,7 @@
     .intro-circle-container-1 {
         height: 250px;
         width: 250px;
-        margin-left: 100px;
+        margin-left: 21%;
         border-radius: 100%;
         background-color: darkgray;
         z-index: 1;
@@ -250,6 +250,7 @@
         margin-top: -19px;
         margin-right: 10px;
         font-weight: lighter;
+        cursor: pointer;
     }
 
     .reminder-item-container {
@@ -341,7 +342,19 @@
         background-color: dodgerblue;
     }
 
-    .phonebook-main-container {
+    .phonebook-lobby-container {
+        height: 450px;
+        width: 400px;
+        background-color: black;
+        display: none;
+        position: relative;
+        z-index: 2;
+        margin: auto;
+        margin-top: -23%;
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
+    }
+
+     .phonebook-main-container {
         height: 550px;
         width: 500px;
         margin: auto;
@@ -356,18 +369,6 @@
         line-height: 70px;
         margin: auto;
         background-color: navy;
-    }
-
-    .phonebook-lobby-container {
-        height: 450px;
-        width: 400px;
-        background-color: black;
-        display: none;
-        position: relative;
-        z-index: 2;
-        margin: auto;
-        margin-top: -23%;
-        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
     }
 
 </style>
@@ -393,22 +394,6 @@
             <div class = "intro-square-container-1">
                 <div style = "position: relative; top: 40%;">
                     <button class = "personalization-button-1" onclick = "document.getElementById('phonebook-background-1').scrollIntoView()">Phonebook</button>
-                    <div class = "personalization-button-1-shadow"></div>
-                </div>
-            </div>
-        </div>
-        <div class = "intro-circle-container-1">
-            <div class = "intro-square-container-1">
-                <div style = "position: relative; top: 40%;">
-                    <button class = "personalization-button-1">To be determined</button>
-                    <div class = "personalization-button-1-shadow"></div>
-                </div>
-            </div>
-        </div>
-        <div class = "intro-circle-container-1">
-            <div class = "intro-square-container-1">
-                <div style = "position: relative; top: 40%;">
-                    <button class = "personalization-button-1">To be determined</button>
                     <div class = "personalization-button-1-shadow"></div>
                 </div>
             </div>
