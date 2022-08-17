@@ -68,11 +68,11 @@ def sign_in():
             passwordRetrieve = request.form["password"]
             #databaseConnection = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             #databaseConnection.execute("SELECT * FROM User Information WHERE email = %s AND password = %s",(emailRetrieve, passwordRetrieve))
-    return render_template("/account/sign_in.html")
+    return render_template("/account/sign_in.php")
 
 @app.route('/sign_up/', methods = ["GET", "POST"])
 def sign_up():
-    return render_template("/account/sign_up.html")
+    return render_template("/account/sign_up.php")
 
 @app.route('/user_profile/')
 def user_profile():
