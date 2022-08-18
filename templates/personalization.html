@@ -346,12 +346,49 @@
         height: 450px;
         width: 400px;
         background-color: black;
+        color: white;
         display: none;
         position: relative;
         z-index: 2;
         margin: auto;
-        margin-top: -23%;
+        margin-top: -23.5%;
+        padding: 10px;
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
+    }
+
+    .phonebook-lobby-item-container {
+        height: 40px
+        width: 350px;
+        line-height: 40px;
+        background-color: slategray;
+        margin: auto;
+        margin-top: 20px;
+        padding-left: 12px;
+        margin-right: 10%;
+        white-space: nowrap;
+    }
+
+    .phonebook-lobby-item {
+        list-style-type: none;
+        display: inline-block;
+        font-size: 12px;
+    }
+
+    .phonebook-button-2 {
+        height: 25px;
+        width: 150px;
+        background-color: white;
+        border: 2px solid mediumseagreen;
+        color: mediumseagreen;
+        font-size: 10px;
+        margin-top: 2%;
+        margin-left: 8%;
+        transition-duration: 0.7s;
+    }
+
+    .phonebook-button-2:hover {
+        background-color: mediumseagreen;
+        color: white;
     }
 
      .phonebook-main-container {
@@ -370,7 +407,6 @@
         margin: auto;
         background-color: navy;
     }
-
 </style>
 <body>
 <div id = "personalization-background-1">
@@ -450,8 +486,18 @@
     </h3></div>
     <button id = "phonebook-button-1" class = "phonebook-button-1">Access Service Phone Contact Lobby</button>
     <div id = "phonebook-lobby-container" class = "phonebook-lobby-container">
-        <p id = "phonebook-lobby-container-exit" style = "float: right; color: white; margin-top: -2%; margin-right: 3%; cursor: pointer;">&#x2716;</p>
+        <p id = "phonebook-lobby-container-exit" style = "float: right; color: white; position: relative; top: -5%; right: 5%; cursor: pointer;">&#x2716;</p>
         <br>
+        <h2 style = "text-align: center;">Service Phonebook Lobby</h2>
+        <hr>
+        <ul>
+            <div class = "phonebook-lobby-item-container">
+                <div style = "display: flex; flex-direction: row;">
+                    <li class = "phonebook-lobby-item">Kumon: 1-800-222-6284</li>
+                    <button class = "phonebook-button-2">Add to Personal Phonebook</button>
+                </div>
+            </div>
+        </ul>
     </div>
 </div>
 <div id = "phonebook-background-2">
