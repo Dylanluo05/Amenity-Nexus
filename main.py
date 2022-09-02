@@ -21,46 +21,45 @@ app.config['MYSQL_DB'] = 'nexus'
 def home():
     return render_template("/foundation/home.html")
 
-@app.route('/about_dylan/')
+@app.route('/about-dylan/')
 def about_dylan():
-    return render_template("about_dylan.html")
+    return render_template("about-dylan.html")
 
 
-@app.route('/about_ritvik/')
+@app.route('/about-ritvik/')
 def about_ritvik():
-    return render_template("about_ritvik.html")
+    return render_template("about-ritvik.html")
 
 
-@app.route('/about_adi/')
+@app.route('/about-adi/')
 def about_adi():
-    return render_template("about_adi.html")
+    return render_template("about-adi.html")
 
 
-@app.route('/about_jean/')
+@app.route('/about-jean/')
 def about_jean():
-    return render_template("about_jean.html")
+    return render_template("about-jean.html")
 
 
-@app.route('/about_sohan/')
+@app.route('/about-sohan/')
 def about_sohan():
-    return render_template("about_sohan.html")
+    return render_template("about-sohan.html")
 
 
-@app.route('/about_kurtis/')
+@app.route('/about-kurtis/')
 def about_kurtis():
-    return render_template("about_kurtis.html")
+    return render_template("about-kurtis.html")
 
-@app.route('/about_aryan/')
+@app.route('/about-aryan/')
 def about_aryan():
-    return render_template("about_aryan.html")
+    return render_template("about-aryan.html")
 
-
-@app.route('/service_search/')
+@app.route('/service-search/')
 def service_search():
-    return render_template("service_search.html")
+    return render_template("service-search.html")
 
 
-@app.route('/sign_in/', methods = ["GET", "POST"])
+@app.route('/sign-in/', methods = ["GET", "POST"])
 def sign_in():
     if request == "POST":
         if "email" in request.form and "password" in request.form:
@@ -68,13 +67,13 @@ def sign_in():
             passwordRetrieve = request.form["password"]
             #databaseConnection = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             #databaseConnection.execute("SELECT * FROM User Information WHERE email = %s AND password = %s",(emailRetrieve, passwordRetrieve))
-    return render_template("/account/sign_in.php")
+    return render_template("/account/sign-in.php")
 
-@app.route('/sign_up/', methods = ["GET", "POST"])
+@app.route('/sign-up/', methods = ["GET", "POST"])
 def sign_up():
-    return render_template("/account/sign_up.php")
+    return render_template("/account/sign-up.php")
 
-@app.route('/user_profile/')
+@app.route('/user-profile/')
 def user_profile():
     return redirect(url_for("sign_in"))
 

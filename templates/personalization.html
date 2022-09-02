@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    {% include "foundation/navigation_bar.html" %}
+    {% include "foundation/navigation-bar.html" %}
 </head>
 <style>
     html, body {
@@ -342,71 +342,146 @@
         background-color: dodgerblue;
     }
 
-    .phonebook-lobby-container {
-        height: 450px;
-        width: 400px;
+    * {
+        box-sizing: border-box;
+    }
+
+    .title-container {
+        height: 30%;
+        width: 100%;
+        background-color: lightblue;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    a {
+        color: white;
+        margin-left: 21px;
+        cursor: pointer;
+    }
+
+    a:link {
+        text-decoration: none;
+    }
+
+    .service-phonebook-lobby-container {
+        height: 80%;
+        width: 30%;
+        display: none;
+        overflow-y: auto;
+        margin: auto;
+        padding: 10px;
+        position: relative;
+        top: -65%;
+        left: 20%;
         background-color: black;
         color: white;
-        display: none;
-        position: relative;
-        z-index: 2;
+    }
+
+    .service-phonebook-lobby-contact {
+        height: 35px;
+        width: 90%;
         margin: auto;
-        margin-top: -23.5%;
-        padding: 10px;
-        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
-    }
-
-    .phonebook-lobby-item-container {
-        height: 40px
-        width: 350px;
-        line-height: 40px;
-        background-color: slategray;
-        margin: auto;
-        margin-top: 20px;
-        padding-left: 12px;
-        margin-right: 10%;
-        white-space: nowrap;
-    }
-
-    .phonebook-lobby-item {
-        list-style-type: none;
-        display: inline-block;
-        font-size: 12px;
-    }
-
-    .phonebook-button-2 {
-        height: 25px;
-        width: 150px;
-        background-color: white;
-        border: 2px solid mediumseagreen;
-        color: mediumseagreen;
+        margin-top: 21px;
+        padding-left: 7px;
+        padding-right: 7px;
+        background-color: darkgray;
+        color: white;
         font-size: 10px;
-        margin-top: 2%;
-        margin-left: 8%;
+    }
+
+    .button-1 {
+        height: 25px;
+        width: 38%;
+        float: right;
+        background-color: white;
+        color: navy;
+        font-size: 10px;
+        position: relative;
+        top: 7px;
+        border: 2px solid navy;
         transition-duration: 0.7s;
     }
 
-    .phonebook-button-2:hover {
-        background-color: mediumseagreen;
+    .button-1:hover {
+        background-color: navy;
         color: white;
     }
 
-     .phonebook-main-container {
-        height: 550px;
-        width: 500px;
-        margin: auto;
-        position: relative;
-        top: 5%;
-        background-color: gray;
+    .reveal-1 {
+        float: right;
+        margin-right: 54px;
     }
 
-    .phonebook-heading {
-        height: 70px;
-        width: 500px;
-        line-height: 70px;
+    .personal-service-phonebook-container {
+        height: 80%;
+        width: 30%;
         margin: auto;
-        background-color: navy;
+        padding: 10px;
+        position: relative;
+        top: 10%;
+        background-color: black;
+        color: white;
     }
+
+    .personal-service-phonebook-contact {
+        height: 80%;
+        width: 70%;
+        margin: auto;
+        margin-top: 5%;
+        padding: 10px;
+        background-color: darkgray;
+        color: white;
+    }
+
+    .current-service-phonebook-contact {
+        height: 90%;
+        width: 80%;
+        margin: auto;
+        margin-top: 5%;
+        padding: 10px;
+        background-color: black;
+        color: white;
+    }
+
+    .button-2 {
+        height: 30px;
+        width: 150px;
+        display: block;
+        margin: auto;
+        position: relative;
+        top: -2%;
+        background-color: white;
+        color: red;
+        border: 2px solid red;
+        transition-duration: 0.7s;
+    }
+
+    .button-2:hover {
+        background-color: red;
+        color: white;
+    }
+
+    .prev {
+        display: inline-block;
+        float: left;
+        margin-left: 10%;
+        margin-top: -5%;
+        font-size: 37px;
+        color: white;
+    }
+
+    .next {
+        display: inline-block;
+        float: right;
+        margin-right: 10%;
+        margin-top: -5%;
+        font-size: 37px;
+        color: white;
+    }
+
 </style>
 <body>
 <div id = "personalization-background-1">
@@ -485,25 +560,94 @@
         and keep them in your own personal service phonebook.
     </h3></div>
     <button id = "phonebook-button-1" class = "phonebook-button-1">Access Service Phone Contact Lobby</button>
-    <div id = "phonebook-lobby-container" class = "phonebook-lobby-container">
-        <p id = "phonebook-lobby-container-exit" style = "float: right; color: white; position: relative; top: -5%; right: 5%; cursor: pointer;">&#x2716;</p>
+    <div id = "service-phonebook-lobby-container" class = "service-phonebook-lobby-container">
+        <p id = "service-phonebook-lobby-container-exit" style = "float: right; color: white; position: relative; top: -5%; right: 5%; cursor: pointer;">&#x2716;</p>
         <br>
-        <h2 style = "text-align: center;">Service Phonebook Lobby</h2>
+        <h2 style = "text-align: center;">Service Phone Contact Lobby</h2>
         <hr>
-        <ul>
-            <div class = "phonebook-lobby-item-container">
-                <div style = "display: flex; flex-direction: row;">
-                    <li class = "phonebook-lobby-item">Kumon: 1-800-222-6284</li>
-                    <button class = "phonebook-button-2">Add to Personal Phonebook</button>
-                </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">WIRED AV:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(619) 348-4142</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
             </div>
-        </ul>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">The Painting Company San Diego:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(619) 937-2468</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">LA Fitness:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 676-6806</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">Fit Athletic Club:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 674-4480</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">Kumon:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 472-8341</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">Mathnasium:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 312-8888</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">Rady's Children's Hospital:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 576-1700</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">Scripps Clinic Rancho Bernardo:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 487-1800</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
     </div>
 </div>
 <div id = "phonebook-background-2">
-    <div class = "phonebook-main-container">
-        <div class = "phonebook-heading">
-            <h2 style = "margin: 0; text-align: center;">Your Personal Service Phonebook</h2>
+    <div class = "personal-service-phonebook-container">
+        <h2 style = "text-align: center;">Personal Service Phonebook</h2>
+        <hr>
+        <div class = "personal-service-phonebook-contact">
+            <div class = "current-service-phonebook-contact">
+                <h3 style = "text-align: center;" class = "service-name">Service Name</h3>
+                <hr>
+                <h3 style = "text-align: center;">Contact Information:</h3>
+                <h4 style = "text-align: center;">Service Name: </h4>
+                <h4 style = "text-align: center;" id = "service-phonebook-name"></h4>
+                <h4 style = "text-align: center;">Phone Number: </h4>
+                <h4 style = "text-align: center;" id = "service-phonebook-phone-number"></h4>
+                <button class = "button-2" id = "button-2">Remove Contact</button>
+                <p class = "prev" id = "prev">&#8678;</p>
+                <p class = "next" id = "next">&#8680;</p>
+            </div>
         </div>
     </div>
 </div>
@@ -651,7 +795,7 @@
         var phonebookButton1 = document.getElementById("phonebook-button-1");
         phonebookButton1.addEventListener("click", phonebookLobbyShow);
 
-        var phonebookLobbyContainer = document.getElementById("phonebook-lobby-container");
+        var phonebookLobbyContainer = document.getElementById("service-phonebook-lobby-container");
         phonebookLobbyContainer.style.display = "none";
         phonebookLobbyContainer.style.opacity = 0;
         var OPACITY3 = 0;
@@ -671,7 +815,7 @@
             }
         }
 
-        var phonebookLobbyContainerExit = document.getElementById("phonebook-lobby-container-exit");
+        var phonebookLobbyContainerExit = document.getElementById("service-phonebook-lobby-container-exit");
         phonebookLobbyContainerExit.addEventListener("click", phonebookLobbyHide);
 
         var OPACITY4 = 1;
@@ -690,6 +834,141 @@
                 }
             }
         }
+
+        $(".reveal-1").hide();
+        $(".button-1").on("click", addContact);
+
+        if (localStorage.servicePhonebookKey) {
+            var addedDataArrayRetrieve2 = JSON.parse(localStorage.servicePhonebookKey);
+            for (var i = 0; i < addedDataArrayRetrieve2.length; i++) {
+                var indexRetrieve = addedDataArrayRetrieve2[i].index;
+                $(".button-1").eq(indexRetrieve).hide();
+                $(".reveal-1").eq(indexRetrieve).show();
+            }
+        }
+
+        function addContact() {
+            var index = $(this).parent().parent().index();
+            var indexNew = index - 2;
+            var title = $(this).parent().children(".title").html();
+            var titleLength = title.length;
+            var titleNew = title.slice(0, titleLength - 1);
+            var phoneNumber = $(this).parent().children(".phone-number").html();
+            $(this).hide();
+            $(".reveal-1").eq(indexNew).show();
+            if (localStorage.servicePhonebookKey) {
+                var addedDataArrayRetrieve1 = JSON.parse(localStorage.servicePhonebookKey);
+                var addedData2 = {
+                    index: indexNew,
+                    title: titleNew,
+                    phoneNumber: phoneNumber
+                };
+                addedDataArrayRetrieve1.push(addedData2);
+                localStorage.servicePhonebookKey = JSON.stringify(addedDataArrayRetrieve1);
+            } else {
+                var addedData1 = {
+                    index: indexNew,
+                    title: titleNew,
+                    phoneNumber: phoneNumber
+                };
+                var addedDataArray = [addedData1];
+                localStorage.servicePhonebookKey = JSON.stringify(addedDataArray);
+            }
+        }
+
+        var slideNumber = 0;
+
+        if (localStorage.servicePhonebookKey) {
+            var addedDataArrayRetrieve3 = JSON.parse(localStorage.servicePhonebookKey);
+            /*var indexList = [];
+            for (var a = 0; a < addedDataArrayRetrieve3.length; a++) {
+                indexList.push(addedDataArrayRetrieve3[a].index);
+            }
+            var indexListSort = indexList.sort(function(a, b){return a - b});
+            for (var w = 0; w < indexListSort.length; w++) {
+                if (indexListSort[0] == addedDataArrayRetrieve3[w].index) {
+                    $("#service-phonebook-name").html(addedDataArrayRetrieve3[w].title);
+                    $("#service-phonebook-phone-number").html(addedDataArrayRetrieve3[w].phoneNumber);
+                }
+            }*/
+            $("#service-phonebook-name").html(addedDataArrayRetrieve3[0].title);
+            $("#service-phonebook-phone-number").html(addedDataArrayRetrieve3[0].phoneNumber);
+        }
+
+        var prevButton = document.getElementById("prev");
+        prevButton.addEventListener("click", previous);
+
+        var nextButton = document.getElementById("next");
+        nextButton.addEventListener("click", next);
+
+        function previous() {
+            var addedDataArrayRetrieve4 = JSON.parse(localStorage.servicePhonebookKey);
+            if (slideNumber > 0) {
+                slideNumber -= 1;
+            } else {
+                slideNumber = addedDataArrayRetrieve4.length - 1;
+            }
+            /*var indexListSortItem1 = indexListSort[slideNumber];
+            for (var y = 0; y < addedDataArrayRetrieve4.length; y++) {
+                if (indexListSortItem1 == addedDataArrayRetrieve4[y].index) {
+                    $("#service-phonebook-name").html(addedDataArrayRetrieve4[y].title);
+                    $("#service-phonebook-phone-number").html(addedDataArrayRetrieve4[y].phoneNumber);
+                }
+            }*/
+            $("#service-phonebook-name").html(addedDataArrayRetrieve4[slideNumber].title);
+            $("#service-phonebook-phone-number").html(addedDataArrayRetrieve4[slideNumber].phoneNumber);
+
+        }
+
+        function next() {
+            var addedDataArrayRetrieve5 = JSON.parse(localStorage.servicePhonebookKey);
+            if (slideNumber < addedDataArrayRetrieve5.length - 1) {
+                slideNumber += 1;
+            } else {
+                slideNumber = 0;
+            }
+            /*var indexListSortItem2 = indexListSort[slideNumber];
+            for (var y = 0; y < addedDataArrayRetrieve5.length; y++) {
+                if (indexListSortItem2 == addedDataArrayRetrieve5[y].index) {
+                    $("#service-phonebook-name").html(addedDataArrayRetrieve5[y].title);
+                    $("#service-phonebook-phone-number").html(addedDataArrayRetrieve5[y].phoneNumber);
+                }
+            }*/
+            $("#service-phonebook-name").html(addedDataArrayRetrieve5[slideNumber].title);
+            $("#service-phonebook-phone-number").html(addedDataArrayRetrieve5[slideNumber].phoneNumber);
+        }
+
+        var removeButton = document.getElementById("button-2");
+        removeButton.addEventListener("click", removeContact);
+
+        function removeContact() {
+            var addedDataArrayRetrieveFinal = JSON.parse(localStorage.servicePhonebookKey)
+            var slideNumberTemp = slideNumber
+            if (slideNumber == addedDataArrayRetrieveFinal.length - 1) {
+                slideNumber = 0;
+            } else {
+                slideNumber += 1;
+            }
+            /*var indexListSortItem3 = indexListSort[slideNumber];
+            for (var b = 0; b < addedDataArrayRetrieveFinal.length; b++) {
+                if (indexListSortItem3 == addedDataArrayRetrieveFinal[b].index) {
+                    $("#service-phonebook-name").html(addedDataArrayRetrieveFinal[b].title);
+                    $("#service-phonebook-phone-number").html(addedDataArrayRetrieveFinal[b].phoneNumber);
+                }
+            }*/
+            $("#service-phonebook-name").html(addedDataArrayRetrieveFinal[slideNumber].title);
+            $("#service-phonebook-phone-number").html(addedDataArrayRetrieveFinal[slideNumber].phoneNumber);
+            /*indexListSort.splice(slideNumberTemp, 1);
+            for (var i = 0; i < addedDataArrayRetrieveFinal.length; i++) {
+               if (indexListSort[slideNumberTemp] == addedDataArrayRetrieveFinal[i].index) {
+                   addedDataArrayRetrieveFinal.splice(i, 1);
+                   localStorage.servicePhonebookKey = JSON.stringify(addedDataArrayRetrieveFinal);
+               }
+            }*/
+            addedDataArrayRetrieveFinal.splice(slideNumberTemp, 1);
+            localStorage.servicePhonebookKey = JSON.stringify(addedDataArrayRetrieveFinal);
+        }
+
 
 </script>
 </body>

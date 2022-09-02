@@ -116,7 +116,7 @@ require_once('config.php');
                 <input type = "submit" value = "Sign In" class = "signup-button-1">
                 <br><br>
             </form>
-            <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Have an account? <a href = "/sign_in/" class = "signup-link">Sign In</a></p>
+            <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Have an account? <a href = "/sign-in/" class = "signup-link">Sign In</a></p>
         </div>
 </div>
 
