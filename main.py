@@ -1,8 +1,9 @@
-from flask import Flask, render_template, redirect, url_for, session, request
+from flask import Flask, render_template, redirect, url_for, request
+
 # redirect and url_for can be used for redirecting users to the login page if they are attempting to access their user profile,
 # but they are not yet logged in.
-#from flask_mysqldb import MySQL
-#import MySQLdb
+# from flask_mysqldb import MySQL
+# import MySQLdb
 
 # create a Flask instance
 app = Flask(__name__)
@@ -14,12 +15,14 @@ app.config['MYSQL_USER'] = 'service-nexus'
 app.config['MYSQL_PASSWORD'] = 'NEXUS-TEMP'
 app.config['MYSQL_DB'] = 'nexus'
 
-#mysql = MySQL(app)
+
+# mysql = MySQL(app)
 
 
 @app.route('/')
 def home():
     return render_template("/foundation/home.html")
+
 
 @app.route('/about-dylan/')
 def about_dylan():
@@ -50,41 +53,52 @@ def about_sohan():
 def about_kurtis():
     return render_template("about-kurtis.html")
 
+
 @app.route('/about-aryan/')
 def about_aryan():
     return render_template("about-aryan.html")
+
 
 @app.route('/service-search/')
 def service_search():
     return render_template("service-search.html")
 
 
-@app.route('/sign-in/', methods = ["GET", "POST"])
+@app.route('/sign-in/', methods=["GET", "POST"])
 def sign_in():
     if request == "POST":
         if "email" in request.form and "password" in request.form:
             emailRetrieve = request.form["email"]
             passwordRetrieve = request.form["password"]
-            #databaseConnection = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            #databaseConnection.execute("SELECT * FROM User Information WHERE email = %s AND password = %s",(emailRetrieve, passwordRetrieve))
+            # databaseConnection = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            # databaseConnection.execute("SELECT * FROM User Information WHERE email = %s AND password = %s",(emailRetrieve, passwordRetrieve))
     return render_template("/account/sign-in.php")
 
-@app.route('/sign-up/', methods = ["GET", "POST"])
+
+@app.route('/sign-up/', methods=["GET", "POST"])
 def sign_up():
     return render_template("/account/sign-up.php")
+
 
 @app.route('/user-profile/')
 def user_profile():
     return redirect(url_for("sign_in"))
 
+
 @app.route('/personalization/')
 def personalization():
     return render_template("personalization.html")
 
-#Service Base URLs
+
+# Service Base URLs
 @app.route('/kumon/')
 def kumon():
     return render_template("/servicebase/kumon.html")
+
+
+@app.route('/mathnasium/')
+def mathnasium():
+    return render_template("/servicebase/mathnasium.html")
 
 
 if __name__ == "__main__":
