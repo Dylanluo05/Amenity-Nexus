@@ -11,215 +11,963 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    {% include "foundation/Navigation-Bar.html" %}
+    {% include "foundation/navigation-bar.html" %}
 </head>
 <style>
     html, body {
         font-family: 'Roboto Flex', sans-serif;
         margin: 0;
         padding: 0;
+        scroll-behavior: smooth;
         overflow-x: hidden;
         background-color: white;
     }
 
-    .reminders-main-container {
-        height: 700px;
-        background: url("https://s1.1zoom.me/b5050/409/Alarm_clock_Clock_Colored_background_560279_3840x2400.jpg");
+    .navigation-container, .navigation-dropdown-container {
+            z-index: 4;
+    }
+
+    #personalization-background-1 {
+        position: relative;
         background-repeat: no-repeat;
-        background-position: center;
+    }
+
+    .personalization-background-1-image, .personalization-background-1-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .personalization-background-1-image {
+        height: 500px;
+        background: url("https://images.pexels.com/photos/196650/pexels-photo-196650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+        background-repeat: no-repeat;
         background-attachment: fixed;
+        background-position: center;
         background-size: cover;
+        z-index: 1;
     }
 
-    .reminders-heading {
-        height: 100px;
-        width: 800px;
-        border-radius: 15px;
-        background-color: #DBBD26;
+    .personalization-background-1-overlay {
+        height: 500px;
+        background-color: black;
+        opacity: 50%;
+        z-index: 2;
     }
 
-    .user-input-1 {
-        height: 30px;
-        width: 500px;
+    .personalization-background-1-content {
+        position: relative;
+        height: 500px;
+        z-index: 3;
+    }
+
+    #personalization-background-2 {
+        height: 500px;
+        background-color: black;
+    }
+
+    .intro-container {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        top: 25%;
+    }
+
+    .intro-circle-container-1 {
+        height: 250px;
+        width: 250px;
+        margin-left: 21%;
+        border-radius: 100%;
+        background-color: darkgray;
+        z-index: 1;
+    }
+
+    .intro-square-container-1 {
+        height: 220px;
+        width: 220px;
+        margin: auto;
+        position: relative;
+        top: 5%;
+        opacity: 70%;
+        background-color: white;
+        z-index: 2;
+    }
+
+    .personalization-button-1 {
+        height: 40px;
+        width: 200px;
+        display: block;
+        margin: auto;
+        background-color: blue;
         border: none;
-        margin-left: 37px;
-        margin-top: 34px;
-        padding-left: 7px;
-        background-color: slategray;
-        border-radius: 10px;
         color: white;
-        caret-color: white;
+        position: relative;
+        z-index: 4;
+    }
+
+    .personalization-button-1-shadow {
+        height: 40px;
+        width: 200px;
+        background-color: dodgerblue;
+        position: absolute;
+        top: 5px;
+        left: 15px;
+        z-index: 3;
+    }
+
+    #reminders-background-1 {
+        height: 500px;
+        background-color: darkgray;
+        color: #383838;
+    }
+
+    #reminders-background-2 {
+        height: 400px;
+        width: 100%;
+        padding: 10px;
+        background-color: black;
+        color: white;
+    }
+
+    .reminders-description-container-1 {
+        display: flex;
+        max-width: 450px;
+        font-weight: bolder;
+        line-height: 30px;
+        text-align: center;
+        border: none;
+        margin-top: -55px;
+        margin-left: 370px;
+    }
+
+    .reminders-image-1 {
+        height: 450px;
+        width: 450px;
+        margin-top: -170px;
+        margin-left: 225px;
+        transform: translateY(0px);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        transition-duration: 1s;
+    }
+
+    .reminders-image-1:hover {
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+        transform: translateY(-10px);
     }
 
     .reminder-button-1 {
-        height: 36px;
-        width: 200px;
-        margin-left: 11px;
-        color: mediumseagreen;
-        background-color: white;
-        border-radius: 10px;
-        border: 2px solid mediumseagreen;
+        height: 40px;
+        width: 400px;
+        display: block;
+        margin-top: 25px;
+        margin-left: 255px;
+        border: none;
+        background-color: royalblue;
+        color: white;
         transition-duration: 0.7s;
     }
 
     .reminder-button-1:hover {
+        background-color: dodgerblue;
+    }
+
+    .reminder-input-container {
+        height: 400px;
+        width: 500px;
+        opacity: 0;
+        background-color: white;
+        padding: 10px;
+        position: relative;
+        z-index: 2;
+        margin: auto;
+        top: -75%;
+        /*top: 10%;
+        left: 35%;*/
+        box-shadow: 0 5px 20px 0 rgba(255, 255, 255, 0.7);
+    }
+
+    .user-input-1 {
+        height: 20px;
+        width: 300px;
+        display: block;
+        margin: auto;
+    }
+
+    .user-date-1 {
+        height: 20px;
+        width: 150px;
+        display: block;
+        margin: auto;
+    }
+
+    .user-time-1 {
+        height: 20px;
+        width: 100px;
+        display: block;
+        margin: auto;
+    }
+
+    .reminders-heading {
+        height: 80px;
+        width: 800px;
+        line-height: 80px;
+        margin: auto;
+        position: relative;
+        top: 50px;
+        background-color: navy;
         color: white;
-        background-color: mediumseagreen;
     }
 
-    .reminder-list-item {
+    #my-service-reminds {
+        position: relative;
+        top: 50px;
+        margin: auto;
+        margin-left: -40px;
+    }
+
+    .reminder-item-title {
         list-style-type: none;
+        text-align: center;
     }
 
-    .reminder-check {
+    .reminder-item-date {
+        float: left;
+        margin-top: -17px;
+        margin-left: 20px;
+    }
+
+    .reminder-item-time {
+        float: left;
+        margin-top: -17px;
+        position: relative;
+        left: 10px;
+    }
+
+    .reminder-item-check {
         float: right;
-        margin-top: -21px;
-        margin-right: 11px;
+        margin-top: -19px;
+        margin-right: 10px;
         font-weight: lighter;
+        cursor: pointer;
     }
 
     .reminder-item-container {
         height: 40px;
         width: 800px;
+        margin: auto;
         background-color: lightgray;
+        color: black;
         padding-top: 16px;
         text-align: center;
-        border-radius: 10px;
         border-bottom: 1px solid black;
     }
 
-    #my-service-reminds {
+    .reminder-button-2 {
+        height: 40px;
+        width: 250px;
+        background-color: white;
+        border: 2px solid dodgerblue;
+        color: dodgerblue;
+        transition-duration: 0.7s;
+        display: block;
         margin: auto;
-        margin-left: -40px;
+        margin-top: 10px;
+    }
+
+    .reminder-button-2:hover {
+        background-color: dodgerblue;
+        color: white;
+    }
+
+    label {
+        color: black;
+        display: block;
+    }
+
+    #phonebook-background-1 {
+        height: 500px;
+        background-color: darkgray;
+        color: #383838;
+    }
+
+    #phonebook-background-2 {
+        height: 700px;
+        background-color: black;
+        color: white;
+    }
+
+    .phonebook-image-1 {
+        height: 350px;
+        width: 500px;
+        margin-top: 3%;
+        margin-left: 10%;
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        transform: translateY(0px);
+        transition-duration: 1s;
+    }
+
+    .phonebook-image-1:hover {
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+        transform: translateY(-10px);
+    }
+
+    .phonebook-description-container-1 {
+        display: flex;
+        max-width: 450px;
+        float: right;
+        font-weight: bolder;
+        line-height: 30px;
+        text-align: center;
+        border: none;
+        margin-top: 8%;
+        position: relative;
+        left: -15%;
+    }
+
+    .phonebook-button-1 {
+        height: 40px;
+        width: 400px;
+        display: block;
+        margin-top: -7%;
+        margin-left: 57%;
+        border: none;
+        background-color: royalblue;
+        color: white;
+        transition-duration: 0.7s;
+    }
+
+    .phonebook-button-1:hover {
+        background-color: dodgerblue;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .title-container {
+        height: 30%;
+        width: 100%;
+        background-color: lightblue;
+    }
+
+    .title {
+        text-align: center;
+    }
+
+    a {
+        color: white;
+        margin-left: 21px;
+        cursor: pointer;
+    }
+
+    a:link {
+        text-decoration: none;
+    }
+
+    .service-phonebook-lobby-container {
+        height: 80%;
+        width: 30%;
+        display: none;
+        overflow-y: auto;
+        margin: auto;
+        padding: 10px;
+        position: relative;
+        top: -65%;
+        left: 20%;
+        background-color: black;
+        color: white;
+    }
+
+    .service-phonebook-lobby-contact {
+        height: 35px;
+        width: 90%;
+        margin: auto;
+        margin-top: 21px;
+        padding-left: 7px;
+        padding-right: 7px;
+        background-color: darkgray;
+        color: white;
+        font-size: 10px;
+    }
+
+    .button-1 {
+        height: 25px;
+        width: 38%;
+        float: right;
+        background-color: white;
+        color: navy;
+        font-size: 10px;
+        position: relative;
+        top: 7px;
+        border: 2px solid navy;
+        transition-duration: 0.7s;
+    }
+
+    .button-1:hover {
+        background-color: navy;
+        color: white;
+    }
+
+    .reveal-1 {
+        float: right;
+        margin-right: 54px;
+    }
+
+    .personal-service-phonebook-container {
+        height: 80%;
+        width: 30%;
+        margin: auto;
+        padding: 10px;
+        position: relative;
+        top: 10%;
+        background-color: black;
+        color: white;
+    }
+
+    .personal-service-phonebook-contact {
+        height: 80%;
+        width: 70%;
+        margin: auto;
+        margin-top: 5%;
+        padding: 10px;
+        background-color: darkgray;
+        color: white;
+    }
+
+    .current-service-phonebook-contact {
+        height: 90%;
+        width: 80%;
+        margin: auto;
+        margin-top: 5%;
+        padding: 10px;
+        background-color: black;
+        color: white;
+    }
+
+    .button-2 {
+        height: 30px;
+        width: 150px;
+        display: block;
+        margin: auto;
+        position: relative;
+        top: -2%;
+        background-color: white;
+        color: red;
+        border: 2px solid red;
+        transition-duration: 0.7s;
+    }
+
+    .button-2:hover {
+        background-color: red;
+        color: white;
+    }
+
+    .prev {
+        display: inline-block;
+        float: left;
+        margin-left: 10%;
+        margin-top: -5%;
+        font-size: 37px;
+        color: white;
+    }
+
+    .next {
+        display: inline-block;
+        float: right;
+        margin-right: 10%;
+        margin-top: -5%;
+        font-size: 37px;
+        color: white;
     }
 
 </style>
 <body>
-<div id="reminders-background-1">
-    <center>
-        <div class="reminders-main-container">
-            <div class="reminders-heading">
-                <input id="user-input-1" class="user-input-1">
-                <input type = "date" id = "user-date-1">
-                <button onclick="serviceReminder()" class="reminder-button-1">Add Reminder</button>
+<div id = "personalization-background-1">
+    <div class = "personalization-background-1-image"></div>
+    <div class = "personalization-background-1-overlay"></div>
+    <div class = "personalization-background-1-content">
+        <h1 style = "margin: 0; color: white; text-align: center; font-size: 48px; position: relative; top: 40%;">Personalization</h1>
+    </div>
+</div>
+<div id = "personalization-background-2">
+    <div class = "intro-container">
+        <div class = "intro-circle-container-1">
+            <div class = "intro-square-container-1">
+                <div style = "position: relative; top: 40%;">
+                    <button class = "personalization-button-1" onclick = "document.getElementById('reminders-background-1').scrollIntoView();">Reminders</button>
+                    <div class = "personalization-button-1-shadow"></div>
+                </div>
             </div>
-            <ul id="my-service-reminds"></ul>
         </div>
-    </center>
+        <div class = "intro-circle-container-1">
+            <div class = "intro-square-container-1">
+                <div style = "position: relative; top: 40%;">
+                    <button class = "personalization-button-1" onclick = "document.getElementById('phonebook-background-1').scrollIntoView()">Phonebook</button>
+                    <div class = "personalization-button-1-shadow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id = "reminders-background-1">
+    <h1 style = "margin: 0; center; position: relative; top: 80px; left: 395px;">Reminders</h1>
+    <div style = "display: flex; flex-direction: row; margin-top: 10%; margin-left: -9%;">
+        <div class = "reminders-description-container-1"><h3>Life can be busy, so it is often hard to keep track of things.
+            Our website offers a helpful reminders feature that helps you take note of the different services you are interested in.
+            Use the Service Search page to find a viable service for your needs, then save the name of that service in your reminders,
+            as well as when you want to be notified.</h3>
+        </div>
+        <div style = "height: 0; width: 0;">
+            <img src = "/static/assets/images/calender-stock-photo-2.jpg" class = "reminders-image-1">
+        </div>
+    </div>
+    <button id = "reminder-button-1" class = "reminder-button-1">Add a Reminder</button>
+    <div id = "reminder-input-container" class = "reminder-input-container">
+        <p id = "reminder-input-container-exit" style = "float: right; color: black; margin-top: 0px; margin-right: 5px; cursor: pointer;">&#x2716;</p>
+        <br>
+        <h2 style = "color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
+        <hr>
+        <form id = "reminder-form" onsubmit = "addReminder()">
+            <label for = "user-input-1" style = "text-align: center;">Write the name of the service</label>
+            <br>
+            <input type = "text" name = "reminder-name" id = "user-input-1" class = "user-input-1" required>
+            <br>
+            <label for = "user-date-1" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
+            <br>
+            <input type = "date" name = "reminder-date" id = "user-date-1" class = "user-date-1" required>
+            <br>
+            <label for = "user-time-1" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
+            <br>
+            <input type = "time" name = "reminder-time" id = "user-time-1" class = "user-time-1" required>
+            <input type = "submit" id = "reminder-button-2" class = "reminder-button-2" value = "Add Reminder">
+        </form>
+    </div>
+</div>
+<div id = "reminders-background-2">
+    <div class="reminders-heading">
+        <h2 style = "margin: 0; text-align: center;">Your Reminder List</h2>
+    </div>
+    <ul id="my-service-reminds"></ul>
+</div>
+<div id = "phonebook-background-1">
+    <h1 style = "margin: 0; text-align: center; position: relative; top: 25%; left: 20%;">Service Phonebook</h1>
+    <img src = "/static/assets/images/phonebook-stock-photo-2.jpg" class = "phonebook-image-1">
+    <div class = "phonebook-description-container-1"><h3>
+        In life, organization is essential to time efficiency.
+        Search for the phone contacts of services you need in the service phone number lobby,
+        and keep them in your own personal service phonebook.
+    </h3></div>
+    <button id = "phonebook-button-1" class = "phonebook-button-1">Access Service Phone Contact Lobby</button>
+    <div id = "service-phonebook-lobby-container" class = "service-phonebook-lobby-container">
+        <p id = "service-phonebook-lobby-container-exit" style = "float: right; color: white; position: relative; top: -5%; right: 5%; cursor: pointer;">&#x2716;</p>
+        <br>
+        <h2 style = "text-align: center;">Service Phone Contact Lobby</h2>
+        <hr>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">WIRED AV:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(619) 348-4142</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">The Painting Company San Diego:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(619) 937-2468</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">LA Fitness:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 676-6806</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">Fit Athletic Club:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 674-4480</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">Kumon:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 472-8341</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">Mathnasium:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 312-8888</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">Rady's Children's Hospital:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 576-1700</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+        <div class = "service-phonebook-lobby-contact">
+            <div style = "position: relative; top: -3px;">
+                <h4 style = "display: inline-block;" class = "title">Scripps Clinic Rancho Bernardo:</h4>
+                <h4 style = "display: inline-block;" class = "phone-number">(858) 487-1800</h4>
+                <button class = "button-1">Add to Personal Phonebook</button>
+                <h4 class = "reveal-1">Added!</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div id = "phonebook-background-2">
+    <div class = "personal-service-phonebook-container">
+        <h2 style = "text-align: center;">Personal Service Phonebook</h2>
+        <hr>
+        <div class = "personal-service-phonebook-contact">
+            <div class = "current-service-phonebook-contact">
+                <h3 style = "text-align: center;" class = "service-name">Service Name</h3>
+                <hr>
+                <h3 style = "text-align: center;">Contact Information:</h3>
+                <h4 style = "text-align: center;">Service Name: </h4>
+                <h4 style = "text-align: center;" id = "service-phonebook-name"></h4>
+                <h4 style = "text-align: center;">Phone Number: </h4>
+                <h4 style = "text-align: center;" id = "service-phonebook-phone-number"></h4>
+                <button class = "button-2" id = "button-2">Remove Contact</button>
+                <p class = "prev" id = "prev">&#8678;</p>
+                <p class = "next" id = "next">&#8680;</p>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
-        var userInput1 = document.getElementById("user-input-1");
-        var userDate1 = document.getElementById("user-date-1");
+        var reminderButton1 = document.getElementById("reminder-button-1");
+        reminderButton1.addEventListener("click", reminderInputShow);
+
+        var reminderInputContainer = document.getElementById("reminder-input-container");
+        reminderInputContainer.style.display = "none";
+        reminderInputContainer.style.opacity = 0;
+        var OPACITY1 = 0;
+
+        function reminderInputShow() {
+            if (reminderInputContainer.style.display == "none") {
+                reminderInputContainer.style.display = "block";
+                var Timer1 = setInterval(reminderPopupShowAnimation, 40);
+                function reminderPopupShowAnimation() {
+                    reminderInputContainer.style.opacity = OPACITY1;
+                    OPACITY1 += 0.05;
+                    if (OPACITY1 > 1.05) {
+                        clearInterval(Timer1);
+                        OPACITY1 = 0;
+                    }
+                }
+            }
+        }
+
+        var reminderInputContainerExit = document.getElementById("reminder-input-container-exit");
+        reminderInputContainerExit.addEventListener("click", reminderInputHide);
+        var OPACITY2 = 1;
+
+        function reminderInputHide() {
+            if (reminderInputContainer.style.display == "block") {
+                var Timer2 = setInterval(reminderPopupHideAnimation, 40);
+                function reminderPopupHideAnimation() {
+                    reminderInputContainer.style.opacity = OPACITY2;
+                    OPACITY2 -= 0.05;
+                    if (OPACITY2 < -0.05) {
+                        clearInterval(Timer2);
+                        OPACITY2 = 1;
+                        reminderInputContainer.style.display = "none";
+                    }
+                }
+            }
+        }
+
+        var reminderForm = document.getElementById("reminder-form");
         var myServiceReminds = document.getElementById("my-service-reminds");
 
-        if (localStorage.getItem("myServiceRemindsKey")) {
+         if (localStorage.getItem("myServiceRemindsKey")) {
             for (var i = 0; i < JSON.parse(localStorage.getItem("myServiceRemindsKey")).length; i++) {
-                var serviceRemindRetrieve = document.createElement("li");
-                serviceRemindRetrieve.innerHTML = JSON.parse(localStorage.getItem("myServiceRemindsKey"))[i];
-                serviceRemindRetrieve.setAttribute("class", "reminder-list-item");
+                var remindTitle = document.createElement("li");
+                remindTitle.innerHTML = JSON.parse(localStorage.getItem("myServiceRemindsKey"))[i].title;
+                remindTitle.setAttribute("class", "reminder-item-title");
 
-                /*var serviceRemindRetrieveDate = document.createElement("p");
-                serviceRemindRetrieveDate.innerHTML = JSON.parse(localStorage.getItem("myServiceRemindDatesKey"))[i];*/
+                var remindDate = document.createElement("p");
+                remindDate.innerHTML = JSON.parse(localStorage.getItem("myServiceRemindsKey"))[i].date;
+                remindDate.setAttribute("class", "reminder-item-date");
 
-                var serviceRemindRetrieveCheck = document.createElement("p");
-                serviceRemindRetrieveCheck.innerHTML = "&#x2716;";
-                serviceRemindRetrieveCheck.setAttribute("class", "reminder-check");
-                serviceRemindRetrieveCheck.addEventListener("click", serviceReminderCheck);
+                var remindTime = document.createElement("p");
+                remindTime.innerHTML = JSON.parse(localStorage.getItem("myServiceRemindsKey"))[i].time;
+                remindTime.setAttribute("class", "reminder-item-time");
 
-                var serviceRemindRetrieveContainer = document.createElement("div");
-                serviceRemindRetrieveContainer.setAttribute("class", "reminder-item-container");
-                serviceRemindRetrieveContainer.appendChild(serviceRemindRetrieve);
-                /*serviceRemindRetrieveContainer.appendChild(serviceRemindRetrieveDate);*/
-                serviceRemindRetrieveContainer.appendChild(serviceRemindRetrieveCheck);
+                var remindCheck = document.createElement("p");
+                remindCheck.innerHTML = "&#x2716;";
+                remindCheck.setAttribute("class", "reminder-item-check");
+                remindCheck.addEventListener("click", removeReminder);
 
-                myServiceReminds.appendChild(serviceRemindRetrieveContainer);
+                var remindContainer = document.createElement("div");
+                remindContainer.setAttribute("class", "reminder-item-container");
+                remindContainer.appendChild(remindTitle);
+                remindContainer.appendChild(remindDate);
+                remindContainer.appendChild(remindTime);
+                remindContainer.appendChild(remindCheck);
+
+                myServiceReminds.appendChild(remindContainer);
             }
         }
 
-        function serviceReminder() {
-            if (userInput1.value == "") {
-                alert("Please type something in the input field!");
+        function addReminder() {
+            event.preventDefault();
+            var reminderFormData = $("#reminder-form").serializeArray();
+            reminderForm.reset();
+            var reminderFormObject = {
+                title: reminderFormData[0].value,
+                date: reminderFormData[1].value,
+                time: reminderFormData[2].value
+            };
+
+            var newRemindTitle = document.createElement("li");
+            newRemindTitle.innerHTML = reminderFormObject.title;
+            newRemindTitle.setAttribute("class", "reminder-item-title");
+
+            var newRemindDate = document.createElement("p");
+            newRemindDate.innerHTML = reminderFormObject.date;
+            newRemindDate.setAttribute("class", "reminder-item-date")
+
+            var newRemindTime = document.createElement("p");
+            newRemindTime.innerHTML = reminderFormObject.time;
+            newRemindTime.setAttribute("class", "reminder-item-time");
+
+            var newRemindCheck = document.createElement("p");
+            newRemindCheck.innerHTML = "&#x2716;";
+            newRemindCheck.setAttribute("class", "reminder-item-check");
+            newRemindCheck.addEventListener("click", removeReminder);
+
+            var newRemindContainer = document.createElement("div");
+            newRemindContainer.setAttribute("class", "reminder-item-container");
+            newRemindContainer.appendChild(newRemindTitle);
+            newRemindContainer.appendChild(newRemindDate);
+            newRemindContainer.appendChild(newRemindTime);
+            newRemindContainer.appendChild(newRemindCheck);
+
+            myServiceReminds.appendChild(newRemindContainer);
+
+            if (localStorage.getItem("myServiceRemindsKey")) {
+                var serviceRemindsList2 = JSON.parse(localStorage.getItem("myServiceRemindsKey"));
+                var serviceRemindObject2 = {
+                    title: reminderFormData[0].value,
+                    date: reminderFormData[1].value,
+                    time: reminderFormData[2].value
+                };
+                serviceRemindsList2.push(serviceRemindObject2);
+                localStorage.setItem("myServiceRemindsKey", JSON.stringify(serviceRemindsList2));
+            }
+            else {
+                var serviceRemindObject1 = {
+                    title: reminderFormData[0].value,
+                    date: reminderFormData[1].value,
+                    time: reminderFormData[2].value
+                };
+                var serviceRemindsList1 = [serviceRemindObject1];
+                localStorage.setItem("myServiceRemindsKey", JSON.stringify(serviceRemindsList1));
+            }
+        }
+
+        function removeReminder() {
+            var reminderIndex = $(this).parent().index();
+            $(this).parent().remove();
+            var serviceRemindsList3 = JSON.parse(localStorage.getItem("myServiceRemindsKey"));
+            serviceRemindsList3.splice(reminderIndex, 1);
+            localStorage.setItem("myServiceRemindsKey", JSON.stringify(serviceRemindsList3));
+        }
+
+        var phonebookButton1 = document.getElementById("phonebook-button-1");
+        phonebookButton1.addEventListener("click", phonebookLobbyShow);
+
+        var phonebookLobbyContainer = document.getElementById("service-phonebook-lobby-container");
+        phonebookLobbyContainer.style.display = "none";
+        phonebookLobbyContainer.style.opacity = 0;
+        var OPACITY3 = 0;
+
+        function phonebookLobbyShow() {
+            if (phonebookLobbyContainer.style.display == "none") {
+                phonebookLobbyContainer.style.display = "block";
+                var Timer3 = setInterval(phonebookPopupShowAnimation, 40);
+                function phonebookPopupShowAnimation() {
+                    phonebookLobbyContainer.style.opacity = OPACITY3;
+                    OPACITY3 += 0.05;
+                    if (OPACITY3 > 1.05) {
+                        clearInterval(Timer3);
+                        OPACITY3 = 0;
+                    }
+                }
+            }
+        }
+
+        var phonebookLobbyContainerExit = document.getElementById("service-phonebook-lobby-container-exit");
+        phonebookLobbyContainerExit.addEventListener("click", phonebookLobbyHide);
+
+        var OPACITY4 = 1;
+
+        function phonebookLobbyHide() {
+            if (phonebookLobbyContainer.style.display == "block") {
+                var Timer4 = setInterval(phonebookPopupHideAnimation, 40);
+                function phonebookPopupHideAnimation() {
+                    phonebookLobbyContainer.style.opacity = OPACITY4;
+                    OPACITY4 -= 0.05;
+                    if (OPACITY4 < -0.05) {
+                        clearInterval(Timer4);
+                        phonebookLobbyContainer.style.display = "none";
+                        OPACITY4 = 1;
+                    }
+                }
+            }
+        }
+
+        $(".reveal-1").hide();
+        $(".button-1").on("click", addContact);
+
+        if (localStorage.servicePhonebookKey) {
+            var addedDataArrayRetrieve2 = JSON.parse(localStorage.servicePhonebookKey);
+            for (var i = 0; i < addedDataArrayRetrieve2.length; i++) {
+                var indexRetrieve = addedDataArrayRetrieve2[i].index;
+                $(".button-1").eq(indexRetrieve).hide();
+                $(".reveal-1").eq(indexRetrieve).show();
+            }
+        }
+
+        function addContact() {
+            var index = $(this).parent().parent().index();
+            var indexNew = index - 2;
+            var title = $(this).parent().children(".title").html();
+            var titleLength = title.length;
+            var titleNew = title.slice(0, titleLength - 1);
+            var phoneNumber = $(this).parent().children(".phone-number").html();
+            $(this).hide();
+            $(".reveal-1").eq(indexNew).show();
+            if (localStorage.servicePhonebookKey) {
+                var addedDataArrayRetrieve1 = JSON.parse(localStorage.servicePhonebookKey);
+                var addedData2 = {
+                    index: indexNew,
+                    title: titleNew,
+                    phoneNumber: phoneNumber
+                };
+                addedDataArrayRetrieve1.push(addedData2);
+                localStorage.servicePhonebookKey = JSON.stringify(addedDataArrayRetrieve1);
             } else {
-                var serviceRemind = document.createElement("li");
-                serviceRemind.innerHTML = userInput1.value;
-                serviceRemind.setAttribute("class", "reminder-list-item");
-
-                /*var serviceRemindDate = document.createElement("p");
-                serviceRemindDate.innerHTML = userDate1.value;*/
-
-                var serviceRemindCheck = document.createElement("p");
-                serviceRemindCheck.innerHTML = "&#x2716;";
-                serviceRemindCheck.setAttribute("class", "reminder-check");
-                serviceRemindCheck.addEventListener("click", serviceReminderCheck);
-
-                var serviceRemindContainer = document.createElement("div");
-                serviceRemindContainer.setAttribute("class", "reminder-item-container");
-                serviceRemindContainer.appendChild(serviceRemind);
-                /*serviceRemindContainer.appendChild(serviceRemindDate);*/
-                serviceRemindContainer.appendChild(serviceRemindCheck);
-
-                myServiceReminds.appendChild(serviceRemindContainer);
-
-                if (localStorage.getItem("myServiceRemindsKey")) {
-                    var listServiceReminds2 = JSON.parse(localStorage.getItem("myServiceRemindsKey"));
-                    /*var listServiceRemindDates2 = JSON.parse(localStorage.getItem("myServiceRemindDatesKey"));*/
-                    listServiceReminds2.push(serviceRemind.innerHTML);
-                    /*listServiceRemindDates2.push(serviceRemindDate.innerHTML);*/
-                    localStorage.setItem("myServiceRemindsKey", JSON.stringify(listServiceReminds2));
-                    /*localStorage.setItem("myServiceRemindDatesKey", JSON.stringify(listServiceRemindDates2));*/
-                }
-                else {
-                    var listServiceReminds1 = [serviceRemind.innerHTML];
-                    /*var listServiceRemindDates1 = [serviceRemindDate.innerHTML];*/
-                    localStorage.setItem("myServiceRemindsKey", JSON.stringify(listServiceReminds1));
-                    /*localStorage.setItem("myServiceRemindDatesKey", JSON.stringify(listServiceRemindDates1));*/
-                }
+                var addedData1 = {
+                    index: indexNew,
+                    title: titleNew,
+                    phoneNumber: phoneNumber
+                };
+                var addedDataArray = [addedData1];
+                localStorage.servicePhonebookKey = JSON.stringify(addedDataArray);
             }
         }
 
-        function serviceReminderCheck() {
-            var serviceRemindIndex = $(this).parent().index();
-            $(this).parent().css("display", "none");
-            var listServiceReminds3 = JSON.parse(localStorage.getItem("myServiceRemindsKey"));
-            /*var listServiceRemindDates3 = JSON.parse(localStorage.getItem("myServiceRemindDatesKey"));*/
-            listServiceReminds3.splice(serviceRemindIndex, 1);
-            /*listServiceRemindDates3.splice(serviceRemindIndex, 1);*/
-            localStorage.setItem("myServiceRemindsKey", JSON.stringify(listServiceReminds3));
-            /*localStorage.setItem("myServiceRemindDatesKey", JSON.stringify(listServiceRemindDates3));*/
+        var slideNumber = 0;
+
+        if (localStorage.servicePhonebookKey) {
+            var addedDataArrayRetrieve3 = JSON.parse(localStorage.servicePhonebookKey);
+            /*var indexList = [];
+            for (var a = 0; a < addedDataArrayRetrieve3.length; a++) {
+                indexList.push(addedDataArrayRetrieve3[a].index);
+            }
+            var indexListSort = indexList.sort(function(a, b){return a - b});
+            for (var w = 0; w < indexListSort.length; w++) {
+                if (indexListSort[0] == addedDataArrayRetrieve3[w].index) {
+                    $("#service-phonebook-name").html(addedDataArrayRetrieve3[w].title);
+                    $("#service-phonebook-phone-number").html(addedDataArrayRetrieve3[w].phoneNumber);
+                }
+            }*/
+            $("#service-phonebook-name").html(addedDataArrayRetrieve3[0].title);
+            $("#service-phonebook-phone-number").html(addedDataArrayRetrieve3[0].phoneNumber);
         }
 
+        var prevButton = document.getElementById("prev");
+        prevButton.addEventListener("click", previous);
 
+        var nextButton = document.getElementById("next");
+        nextButton.addEventListener("click", next);
 
+        function previous() {
+            var addedDataArrayRetrieve4 = JSON.parse(localStorage.servicePhonebookKey);
+            if (slideNumber > 0) {
+                slideNumber -= 1;
+            } else {
+                slideNumber = addedDataArrayRetrieve4.length - 1;
+            }
+            /*var indexListSortItem1 = indexListSort[slideNumber];
+            for (var y = 0; y < addedDataArrayRetrieve4.length; y++) {
+                if (indexListSortItem1 == addedDataArrayRetrieve4[y].index) {
+                    $("#service-phonebook-name").html(addedDataArrayRetrieve4[y].title);
+                    $("#service-phonebook-phone-number").html(addedDataArrayRetrieve4[y].phoneNumber);
+                }
+            }*/
+            $("#service-phonebook-name").html(addedDataArrayRetrieve4[slideNumber].title);
+            $("#service-phonebook-phone-number").html(addedDataArrayRetrieve4[slideNumber].phoneNumber);
 
+        }
 
+        function next() {
+            var addedDataArrayRetrieve5 = JSON.parse(localStorage.servicePhonebookKey);
+            if (slideNumber < addedDataArrayRetrieve5.length - 1) {
+                slideNumber += 1;
+            } else {
+                slideNumber = 0;
+            }
+            /*var indexListSortItem2 = indexListSort[slideNumber];
+            for (var y = 0; y < addedDataArrayRetrieve5.length; y++) {
+                if (indexListSortItem2 == addedDataArrayRetrieve5[y].index) {
+                    $("#service-phonebook-name").html(addedDataArrayRetrieve5[y].title);
+                    $("#service-phonebook-phone-number").html(addedDataArrayRetrieve5[y].phoneNumber);
+                }
+            }*/
+            $("#service-phonebook-name").html(addedDataArrayRetrieve5[slideNumber].title);
+            $("#service-phonebook-phone-number").html(addedDataArrayRetrieve5[slideNumber].phoneNumber);
+        }
 
+        var removeButton = document.getElementById("button-2");
+        removeButton.addEventListener("click", removeContact);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        function removeContact() {
+            var addedDataArrayRetrieveFinal = JSON.parse(localStorage.servicePhonebookKey)
+            var slideNumberTemp = slideNumber
+            if (slideNumber == addedDataArrayRetrieveFinal.length - 1) {
+                slideNumber = 0;
+            } else {
+                slideNumber += 1;
+            }
+            /*var indexListSortItem3 = indexListSort[slideNumber];
+            for (var b = 0; b < addedDataArrayRetrieveFinal.length; b++) {
+                if (indexListSortItem3 == addedDataArrayRetrieveFinal[b].index) {
+                    $("#service-phonebook-name").html(addedDataArrayRetrieveFinal[b].title);
+                    $("#service-phonebook-phone-number").html(addedDataArrayRetrieveFinal[b].phoneNumber);
+                }
+            }*/
+            $("#service-phonebook-name").html(addedDataArrayRetrieveFinal[slideNumber].title);
+            $("#service-phonebook-phone-number").html(addedDataArrayRetrieveFinal[slideNumber].phoneNumber);
+            /*indexListSort.splice(slideNumberTemp, 1);
+            for (var i = 0; i < addedDataArrayRetrieveFinal.length; i++) {
+               if (indexListSort[slideNumberTemp] == addedDataArrayRetrieveFinal[i].index) {
+                   addedDataArrayRetrieveFinal.splice(i, 1);
+                   localStorage.servicePhonebookKey = JSON.stringify(addedDataArrayRetrieveFinal);
+               }
+            }*/
+            addedDataArrayRetrieveFinal.splice(slideNumberTemp, 1);
+            localStorage.servicePhonebookKey = JSON.stringify(addedDataArrayRetrieveFinal);
+        }
 
 
 </script>

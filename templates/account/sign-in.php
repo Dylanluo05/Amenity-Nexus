@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <title>Sign In</title>
 
-    {% include "foundation/Navigation-Bar.html" %}
+    {% include "foundation/navigation_bar.html" %}
 </head>
 <style>
     html, body {
@@ -87,7 +87,7 @@
             <input type = "submit" value = "Sign In" class = "signin-button-1">
             <br><br>
         </form>
-        <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Don't have an account? <a href = "/signup/" class = "signup-link">Sign Up</a></p>
+        <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Don't have an account? <a href = "/sign-up/" class = "signup-link">Sign Up</a></p>
     </div>
 </div>
 

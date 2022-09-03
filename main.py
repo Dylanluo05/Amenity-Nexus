@@ -21,62 +21,61 @@ app.config['MYSQL_DB'] = 'nexus'
 def home():
     return render_template("/foundation/home.html")
 
-@app.route('/aboutdylan/')
-def aboutdylan():
-    return render_template("aboutdylan.html")
+@app.route('/about-dylan/')
+def about_dylan():
+    return render_template("about-dylan.html")
 
 
-@app.route('/aboutritvik/')
-def aboutritvik():
-    return render_template("aboutritvik.html")
+@app.route('/about-ritvik/')
+def about_ritvik():
+    return render_template("about-ritvik.html")
 
 
-@app.route('/aboutadi/')
-def aboutadi():
-    return render_template("aboutadi.html")
+@app.route('/about-adi/')
+def about_adi():
+    return render_template("about-adi.html")
 
 
-@app.route('/aboutjean/')
-def aboutjean():
-    return render_template("aboutjean.html")
+@app.route('/about-jean/')
+def about_jean():
+    return render_template("about-jean.html")
 
 
-@app.route('/aboutsohan/')
-def aboutsohan():
-    return render_template("aboutsohan.html")
+@app.route('/about-sohan/')
+def about_sohan():
+    return render_template("about-sohan.html")
 
 
-@app.route('/aboutkurtis/')
-def aboutkurtis():
-    return render_template("aboutkurtis.html")
+@app.route('/about-kurtis/')
+def about_kurtis():
+    return render_template("about-kurtis.html")
 
-@app.route('/aboutaryan/')
-def aboutaryan():
-    return render_template("aboutaryan.html")
+@app.route('/about-aryan/')
+def about_aryan():
+    return render_template("about-aryan.html")
+
+@app.route('/service-search/')
+def service_search():
+    return render_template("service-search.html")
 
 
-@app.route('/servicesearch/')
-def servicesearch():
-    return render_template("servicesearch.html")
-
-
-@app.route('/signin/', methods = ["GET", "POST"])
-def signin():
+@app.route('/sign-in/', methods = ["GET", "POST"])
+def sign_in():
     if request == "POST":
         if "email" in request.form and "password" in request.form:
             emailRetrieve = request.form["email"]
             passwordRetrieve = request.form["password"]
             #databaseConnection = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
             #databaseConnection.execute("SELECT * FROM User Information WHERE email = %s AND password = %s",(emailRetrieve, passwordRetrieve))
-    return render_template("/account/signin.html")
+    return render_template("/account/sign-in.php")
 
-@app.route('/signup/', methods = ["GET", "POST"])
-def signup():
-    return render_template("/account/signup.html")
+@app.route('/sign-up/', methods = ["GET", "POST"])
+def sign_up():
+    return render_template("/account/sign-up.php")
 
-@app.route('/user_profile/')
+@app.route('/user-profile/')
 def user_profile():
-    return redirect(url_for("signin"))
+    return redirect(url_for("sign_in"))
 
 @app.route('/personalization/')
 def personalization():

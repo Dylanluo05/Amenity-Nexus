@@ -9,19 +9,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    {% include "foundation/Navigation-Bar.html" %}
+    {% include "foundation/navigation-bar.html" %}
 </head>
 
 <style>
         html, body {
             font-family: 'Roboto Flex', san-serif;
+            margin: 0;
+            padding: 0;
             background-repeat: no-repeat;
             overflow-x: hidden;
         }
 
+        .navigation-container, .navigation-dropdown-container {
+            z-index: 3;
+        }
+
         #AboutSohanBackground1 {
-            height: 2700px;
-            background: linear-gradient(to top right, cyan 0%, dodgerblue 100%);
+            max-height: 350vh;
+            background: linear-gradient(to top right, #ccffff 0%, #3399ff 100%);
             background-repeat: no-repeat;
             padding: 38px;
             z-index: 1;
@@ -216,7 +222,7 @@
             as well as trying to obtain more information on these companies and their products so that we can provide our user the most in depth experience possible.
             One of our key goals in the development of Service Nexus is the concept of efficieny. Our team believes that every use deserves an efficient and fast experience regarding obtaining information on your favorite products and services.
         </h2>
-        <img src = "/static/assets/images/Service-Nexus-Logo-TransparentType.png" alt = "Service Nexus Logo" width = "340px" height = "340px" style = "display: block; margin: auto; margin-top: -70px;">
+        <img src = "/static/assets/images/Service-Nexus-Logo-Transparent-Type.png" alt = "Service Nexus Logo" width = "340px" height = "340px" style = "display: block; margin: auto; margin-top: -70px;">
     </div>
 </div>
 </div>

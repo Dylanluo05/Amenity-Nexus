@@ -50,53 +50,6 @@
         font-weight: bold;
     }
 
-
-    /* Style the header */
-    .header {
-      background-color: #f44336;
-      padding: 30px 40px;
-      color: white;
-      text-align: center;
-      display: block;
-      white-space: nowrap;
-    }
-
-    /* Clear floats after the header */
-    .header:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-
-    /* Style the input */
-    input {
-      margin: 0;
-      border: none;
-      border-radius: 0;
-      width: 75%;
-      padding: 10px;
-      float: left;
-      font-size: 16px;
-    }
-
-    /* Style the "Add" button */
-    .button-2 {
-      height: 38px;
-      width: 20%;
-      background: #d9d9d9;
-      color: #555;
-      text-align: center;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-      border: none;
-      border-radius: 0;
-    }
-
-    .addBtn:hover {
-        background-color: #bbb;
-    }
-
     .button-1 {
         margin-top: 11px;
         margin-left: 100px;
@@ -115,6 +68,88 @@
 
     .locations-list {
         font-size: 10px;
+    }
+
+    .button-2 {
+        height: 30px;
+        width: 300px;
+        background-color: navy;
+        border: none;
+        display: block;
+        margin: auto;
+        color: white;
+        transition-duration: 0.7s;
+    }
+
+    .button-2:hover {
+        background-color: dodgerblue;
+    }
+
+    .reminder-input-container {
+        height: 400px;
+        width: 350px;
+        background-color: darkgray;
+        display: none;
+        margin: auto;
+        margin-top: -72%;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+    }
+
+    label {
+        color: black;
+        display: block;
+    }
+
+    .user-input-1 {
+        height: 20px;
+        width: 300px;
+        display: block;
+        margin: auto;
+    }
+
+    .user-date-1 {
+        height: 20px;
+        width: 150px;
+        display: block;
+        margin: auto;
+    }
+
+    .user-time-1 {
+        height: 20px;
+        width: 100px;
+        display: block;
+        margin: auto;
+    }
+
+    .button-3 {
+        height: 40px;
+        width: 250px;
+        background-color: white;
+        border: 2px solid dodgerblue;
+        color: dodgerblue;
+        transition-duration: 0.7s;
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    .button-3:hover {
+        background-color: dodgerblue;
+        color: white;
+    }
+
+    .phonebook-lobby-container {
+        height: 400px;
+        width: 350px;
+        background-color: black;
+        display: none;
+        position: relative;
+        z-index: 2;
+        margin: auto;
+        margin-top: -72%;
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
     }
 
 </style>
@@ -174,90 +209,40 @@
 
     <div class = "service-template-container-1" style = "float: right; margin-top: -470px; margin-right: 100px;">
 
-            <h1 style="text-align: center;">Add a Reminder</h1>
+        <h1 style="text-align: center;">Personalization Tools</h1>
+        <hr>
+        <p style = "text-align: center; font-size: 21px;">Add a reminder for Kumon, or add the phone number of Kumon to your own personal service phonebook.</p>
+        <button id = "reminder-button" class = "button-2">Add to Reminders</button>
+        <button id = "phonebook-button" class = "button-2" style = "margin-top: 50px;">Add to Service Phonebook</button>
+        <div id = "reminder-input-container" class = "reminder-input-container">
+            <p id = "reminder-input-container-exit" style = "float: right; color: black; margin-top: 0px; margin-right: 5px; cursor: pointer;">&#x2716;</p>
+            <br>
+            <h2 style = "color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
             <hr>
-        <div id="myDIV" class="header">
-            <input type="text" id="external-input-value-1" placeholder="Write a description">
-            <button id = "add-reminder" class="button-2">Add</button>
+            <form id = "reminder-form" onsubmit = "addReminderExternal()">
+                <label for = "user-input-1" style = "text-align: center;">Write the name of the service</label>
+                <input type = "text" name = "reminder-name" id = "user-input-1" class = "user-input-1" required>
+                <br>
+                <label for = "user-date-1" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
+                <input type = "date" name = "reminder-date" id = "user-date-1" class = "user-date-1" required>
+                <br>
+                <label for = "user-time-1" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
+                <input type = "time" name = "reminder-time" id = "user-time-1" class = "user-time-1" required>
+                <input type = "submit" id = "add-reminder-button" class = "button-3" value = "Add Reminder">
+            </form>
         </div>
-
-        <ul id="myUL">
-
-        </ul>
+        <div id = "phonebook-lobby-container" class = "phonebook-lobby-container">
+            <p id = "phonebook-lobby-container-exit" style = "float: right; color: white; margin-top: 1%; margin-right: 3%; cursor: pointer;">&#x2716;</p>
+            <br>
+        </div>
     </div>
 </div>
-    <script>
-    var externalInputValue1 = document.getElementById("external-input-value-1");
-    var addReminder = document.getElementById("add-reminder");
+        <script src='/static/assets/javascript/personalization_service_search_scripts.js'></script>
+        <script>
 
-    function addReminderExternal() {
-        if (localStorage.getItem("myServiceRemindsKey")) {
-            var externalServiceRemindRetrieve = JSON.parse(localStorage.getItem("myServiceRemindsKey"));
-            externalServiceRemindRetrieve.push(externalInputValue1.value);
-            localStorage.setItem("myServiceRemindsKey", JSON.stringify(externalServiceRemindRetrieve));
-        } else {
-            var externalServiceRemindRetrieve = [externalInputValue1.value];
-            localStorage.setItem("myServiceRemindsKey", JSON.stringify(externalServiceRemindRetrieve));
-        }
-    }
+        var userInput1 = document.getElementById("user-input-1");
+        userInput1.value = "Kumon";
 
-    addReminder.addEventListener("click", addReminderExternal);
-
-    /*
-        var myNodelist = document.getElementsByTagName("LI");
-        var i;
-        for (i = 0; i < myNodelist.length; i++) {
-          var span = document.createElement("SPAN");
-          var txt = document.createTextNode("\u00D7");
-          span.className = "close";
-          span.appendChild(txt);
-          myNodelist[i].appendChild(span);
-        }
-
-        var close = document.getElementsByClassName("close");
-        var i;
-        for (i = 0; i < close.length; i++) {
-          close[i].onclick = function() {
-            var div = this.parentElement;
-            div.style.display = "none";
-          }
-        }
-
-        var list = document.querySelector('ul');
-        list.addEventListener('click', function(ev) {
-          if (ev.target.tagName === 'LI') {
-            ev.target.classList.toggle('checked');
-          }
-        }, false);
-
-        function newElement() {
-          var li = document.createElement("li");
-          var inputValue = document.getElementById("myInput").value;
-          var t = document.createTextNode(inputValue);
-          li.appendChild(t);
-          if (inputValue === '') {
-            alert("You must write something!");
-          } else {
-            document.getElementById("myUL").appendChild(li);
-          }
-          document.getElementById("myInput").value = "";
-
-          var span = document.createElement("SPAN");
-          var txt = document.createTextNode("\u00D7");
-          span.className = "close";
-          span.appendChild(txt);
-          li.appendChild(span);
-
-          for (i = 0; i < close.length; i++) {
-            close[i].onclick = function() {
-              var div = this.parentElement;
-              div.style.display = "none";
-            }
-          }
-        }
-
-        */
         </script>
-
     </body>
 </html>

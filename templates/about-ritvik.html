@@ -10,18 +10,25 @@
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    {% include "foundation/Navigation-Bar.html" %}
+    {% include "foundation/navigation-bar.html" %}
 </head>
 <style>
     html, body {
         font-family: 'Roboto Flex', san-serif;
+        margin: 0;
+        padding: 0;
         background-repeat: no-repeat;
         overflow-x: hidden;
     }
 
+    .navigation-container, .navigation-dropdown-container {
+        z-index: 3;
+    }
+
+
     #AboutRitvikBackground1 {
-        height: 2700px;
-        background: linear-gradient(to top right, cyan 0%, dodgerblue 100%);
+        max-height: 220vh;
+        background: linear-gradient(to top right, #ccffff 0%, #3399ff 100%);
         background-repeat: no-repeat;
         padding: 38px;
         z-index: 1;
