@@ -101,5 +101,10 @@ def mathnasium():
     return render_template("/servicebase/mathnasium.html")
 
 
+@app.route('/khan-academy/')
+def khanacademy():
+    return render_template("/servicebase/khan-academy.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=777)
