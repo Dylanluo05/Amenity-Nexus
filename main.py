@@ -1,8 +1,9 @@
-from flask import Flask, render_template, redirect, url_for, session, request
+from flask import Flask, render_template, redirect, url_for, request
+
 # redirect and url_for can be used for redirecting users to the login page if they are attempting to access their user profile,
 # but they are not yet logged in.
-#from flask_mysqldb import MySQL
-#import MySQLdb
+# from flask_mysqldb import MySQL
+# import MySQLdb
 
 # create a Flask instance
 app = Flask(__name__)
@@ -14,75 +15,82 @@ app.config['MYSQL_USER'] = 'service-nexus'
 app.config['MYSQL_PASSWORD'] = 'NEXUS-TEMP'
 app.config['MYSQL_DB'] = 'nexus'
 
-#mysql = MySQL(app)
+
+# mysql = MySQL(app)
 
 
 @app.route('/')
 def home():
     return render_template("/foundation/home.html")
 
-@app.route('/about_dylan/')
+
+@app.route('/about-dylan/')
 def about_dylan():
-    return render_template("about_dylan.html")
+    return render_template("about-dylan.html")
 
 
-@app.route('/about_ritvik/')
+@app.route('/about-ritvik/')
 def about_ritvik():
-    return render_template("about_ritvik.html")
+    return render_template("about-ritvik.html")
 
 
-@app.route('/about_adi/')
+@app.route('/about-adi/')
 def about_adi():
-    return render_template("about_adi.html")
+    return render_template("about-adi.html")
 
 
-@app.route('/about_jean/')
+@app.route('/about-jean/')
 def about_jean():
-    return render_template("about_jean.html")
+    return render_template("about-jean.html")
 
 
-@app.route('/about_sohan/')
+@app.route('/about-sohan/')
 def about_sohan():
-    return render_template("about_sohan.html")
+    return render_template("about-sohan.html")
 
 
-@app.route('/about_kurtis/')
+@app.route('/about-kurtis/')
 def about_kurtis():
-    return render_template("about_kurtis.html")
+    return render_template("about-kurtis.html")
 
-@app.route('/about_aryan/')
+
+@app.route('/about-aryan/')
 def about_aryan():
-    return render_template("about_aryan.html")
+    return render_template("about-aryan.html")
 
 
-@app.route('/service_search/')
+@app.route('/service-search/')
 def service_search():
-    return render_template("service_search.html")
+    return render_template("service-search.html")
 
 
-@app.route('/sign_in/', methods = ["GET", "POST"])
+@app.route('/sign-in/', methods=["GET", "POST"])
 def sign_in():
     if request == "POST":
         if "email" in request.form and "password" in request.form:
             emailRetrieve = request.form["email"]
             passwordRetrieve = request.form["password"]
-            #databaseConnection = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            #databaseConnection.execute("SELECT * FROM User Information WHERE email = %s AND password = %s",(emailRetrieve, passwordRetrieve))
-    return render_template("/account/sign_in.php")
+            # databaseConnection = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            # databaseConnection.execute("SELECT * FROM User Information WHERE email = %s AND password = %s",(emailRetrieve, passwordRetrieve))
+    return render_template("/account/sign-in.php")
 
-@app.route('/sign_up/', methods = ["GET", "POST"])
+
+@app.route('/sign-up/', methods=["GET", "POST"])
 def sign_up():
-    return render_template("/account/sign_up.php")
+    return render_template("/account/sign-up.php")
 
-@app.route('/user_profile/')
+
+@app.route('/user-profile/')
 def user_profile():
     return redirect(url_for("sign_in"))
+
 
 @app.route('/personalization/')
 def personalization():
     return render_template("personalization.html")
 
-#Service Base URLs
+
+# Service Base URLs
 @app.route('/kumon/')
 def kumon():
     return render_template("/servicebase/kumon.html")
@@ -95,6 +103,16 @@ def mathnasium():
 @app.route('/The-Art-of-Dentistry/')
 def mathnasium():
     return render_template("/servicebase/The Art of Dentistry.html")
+
+@app.route('/mathnasium/')
+def mathnasium():
+    return render_template("/servicebase/mathnasium.html")
+
+
+@app.route('/khan-academy/')
+def khanacademy():
+    return render_template("/servicebase/khan-academy.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=777)
