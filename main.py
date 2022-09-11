@@ -87,6 +87,15 @@ def personalization():
 def kumon():
     return render_template("/servicebase/kumon.html")
 
+@app.route('/mathnasium/')
+def mathnasium():
+    return render_template("/servicebase/mathnasium.html")
+
+
+@app.route('/The-Art-of-Dentistry/')
+def mathnasium():
+    return render_template("/servicebase/The Art of Dentistry.html")
 
 if __name__ == "__main__":
     app.run(debug=True, port=777)
+
