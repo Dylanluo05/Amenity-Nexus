@@ -101,7 +101,7 @@ def mathnasium():
 
 
 @app.route('/The-Art-of-Dentistry/')
-def mathnasium():
+def theartofdentistry():
     return render_template("/servicebase/The Art of Dentistry.html")
 
 @app.route('/mathnasium/')
