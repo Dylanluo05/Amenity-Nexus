@@ -106,5 +106,10 @@ def khanacademy():
     return render_template("/servicebase/khan-academy.html")
 
 
+@app.route('/teqneeq-24-hour-gym/')
+def khanacademy():
+    return render_template("/servicebase/teqneeq-24-hour-gym.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=777)
