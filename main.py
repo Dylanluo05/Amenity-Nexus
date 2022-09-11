@@ -1,9 +1,8 @@
+import MySQLdb.cursors
 from flask import Flask, render_template, redirect, url_for, session, request
 # redirect and url_for can be used for redirecting users to the login page if they are attempting to access their user profile,
 # but they are not yet logged in.
 from flask_mysqldb import MySQL
-import MySQLdb.cursors
-import re
 
 # create a Flask instance
 app = Flask(__name__)
@@ -21,6 +20,7 @@ mysql = MySQL(app)
 @app.route('/')
 def home():
     return render_template("/foundation/home.html")
+
 
 @app.route('/about-dylan/')
 def about_dylan():
@@ -51,16 +51,18 @@ def about_sohan():
 def about_kurtis():
     return render_template("about-kurtis.html")
 
+
 @app.route('/about-aryan/')
 def about_aryan():
     return render_template("about-aryan.html")
+
 
 @app.route('/service-search/')
 def service_search():
     return render_template("service-search.html")
 
 
-@app.route('/signin/', methods = ["GET", "POST"])
+@app.route('/signin/', methods=["GET", "POST"])
 def signin():
     msg = ""
     if request == "POST" and "email" in request.form and "password" in request.form:
@@ -76,7 +78,8 @@ def signin():
             return "Sign in was successful!"
         else:
             msg = "Incorrect email and/or password!"
-    return render_template("/account/signin.html", msg = msg)
+    return render_template("/account/signin.html", msg=msg)
+
 
 @app.route('/signout/')
 def signout():
@@ -85,7 +88,8 @@ def signout():
     session.pop("email", None)
     return redirect(url_for("signin"))
 
-@app.route('/signup/', methods = ["GET", "POST"])
+
+@app.route('/signup/', methods=["GET", "POST"])
 def signup():
     msg = ""
     if request.method == "POST" and "email" in request.form and "password" in request.form:
@@ -100,24 +104,43 @@ def signup():
             cursor.execute("INSERT INTO user-accounts VALUES (NULL, %s, %s,)", (email, password,))
             mysql.connection.commit()
             msg = "You have successfully created a new account!"
-    return render_template("/account/signup.html", msg = msg)
+    return render_template("/account/signup.html", msg=msg)
+
 
 @app.route('/user-profile/')
 def user_profile():
     return redirect(url_for("sign_in"))
 
+
 @app.route('/personalization/')
 def personalization():
     return render_template("personalization.html")
+
 
 @app.route('/crud-test/')
 def crudtest():
     return render_template("crud-test.html")
 
-#Service Base URLs
+
+# Service Base URLs
 @app.route('/kumon/')
 def kumon():
     return render_template("/servicebase/kumon.html")
+
+
+@app.route('/mathnasium/')
+def mathnasium():
+    return render_template("/servicebase/mathnasium.html")
+
+
+@app.route('/khan-academy/')
+def khanacademy():
+    return render_template("/servicebase/khan-academy.html")
+
+
+@app.route('/teqneeq-24-hour-gym/')
+def khanacademy():
+    return render_template("/servicebase/teqneeq-24-hour-gym.html")
 
 
 if __name__ == "__main__":
