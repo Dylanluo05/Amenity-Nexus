@@ -1,7 +1,3 @@
-<?php
-require_once('config.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,29 +74,13 @@ require_once('config.php');
 <body>
 
 <div>
-    <?php
-    if(isset($_POST['create'])){
-        $email = $_POST['email'];
-        $fullname = $_POST['fullname'];
-        $password = $_POST['password'];
-        $cpassword = $_POST['cpassword'];
-    }
-    $sql = "INSERT INTO users (email, fullname, password, cpassword) VALUES(?, ?, ?, ?)";
-    $stmtinsert = $db->prepare($sql);
-    $result = $stmtinsert->execute([$email, $fullname, $password, $cpassword]);
-    if($result){
-        echo "Works";
-    } else {
-        echo "Doesn't work :(";
-    }
-    ?>
 </div>
 <div id = "account-background-2">
     <br><br>
         <div class="signup-container">
             <h1 style = "margin-top: 10%; text-align: center; color: black;">Sign Up</h1><br>
             <hr style = "display: block; margin-top: -5%;">
-            <form id="signup-form" method="post" onsubmit = "signupData()" action="" style = "margin-top: 5%;">
+            <form id="signup-form" action = "{{ url_for('signup')}}" method="post" onsubmit = "signupData()" action="" style = "margin-top: 5%;">
                 <h3 style = "text-align: center;">Enter Email</h3>
                 <input type = "email" name = "email" placeholder = "Email" class = "signup-input" required>
                 <br>
@@ -113,10 +93,11 @@ require_once('config.php');
                 <h3 style = "text-align: center;">Confirm Password</h3>
                 <input type = "password" name = "confirm-password" placeholder = "Confirm Password" class = "signup-input" required>
                 <br><br>
+                <div class = "msg">{{ msg }}</div>
                 <input type = "submit" value = "Sign In" class = "signup-button-1">
                 <br><br>
             </form>
-            <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Have an account? <a href = "/sign-in/" class = "signup-link">Sign In</a></p>
+            <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Have an account? <a href = "{{ url_for('signin') }}" class = "signup-link">Sign In</a></p>
         </div>
 </div>
 
