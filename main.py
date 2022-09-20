@@ -13,7 +13,7 @@ app.secret_key = 'service-NEXUS-a72387as349sjidla02'
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'service-nexus'
 app.config['MYSQL_PASSWORD'] = 'NEXUS-TEMP'
-app.config['MYSQL_DB'] = 'nexus'
+app.config['MYSQL_DB'] = 'nexusdatabase'
 
 mysql = MySQL(app)
 
@@ -67,7 +67,7 @@ def signin():
         email = request.form["email"]
         password = request.form["password"]
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("SELECT * FROM user-accounts WHERE email = %s and password = %s", (email, password,))
+        cursor.execute("SELECT * FROM useraccounts WHERE email = %s and password = %s", (email, password,))
         user_account = cursor.fetchone()
         if user_account:
             session["signedin"] = True
@@ -89,22 +89,28 @@ def signout():
 def signup():
     msg = ""
     if request.method == "POST" and "email" in request.form and "password" in request.form:
+        fullname = request.form["fullname"]
         email = request.form["email"]
         password = request.form["password"]
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute("SELECT * FROM user-accounts WHERE email = %s", (email,))
+        cursor.execute("SELECT * FROM useraccounts WHERE email = %s", (fullname,))
         user_account = cursor.fetchone()
         if user_account:
             msg = "User account already exists!"
         else:
-            cursor.execute("INSERT INTO user-accounts VALUES (NULL, %s, %s,)", (email, password,))
+            cursor.execute("INSERT INTO useraccounts VALUES (NULL, %s, %s,)", (fullname, password, email,))
             mysql.connection.commit()
-            msg = "You have successfully created a new account!"
+            msg = "You have successfully created a new account!x"
     return render_template("/account/signup.html", msg = msg)
 
-@app.route('/user-profile/')
-def user_profile():
-    return redirect(url_for("sign_in"))
+@app.route("/userprofile/")
+def userprofile():
+    if "signedin" in session:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("SELECT * FROM useraccounts WHERE id = %s", (session["id"],))
+        user_account = cursor.fetchone()
+        return render_template("/account/userprofile.html", user_account = user_account)
+    return redirect(url_for("signin"))
 
 @app.route('/personalization/')
 def personalization():

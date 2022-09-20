@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <title>Sign Up</title>
 
-    {% include "foundation/navigation_bar.html" %}
+    {% include "foundation/navigation-bar.html" %}
 </head>
 <style>
 
@@ -80,21 +80,21 @@
         <div class="signup-container">
             <h1 style = "margin-top: 10%; text-align: center; color: black;">Sign Up</h1><br>
             <hr style = "display: block; margin-top: -5%;">
-            <form id="signup-form" action = "{{ url_for('signup')}}" method="post" onsubmit = "signupData()" action="" style = "margin-top: 5%;">
+            <form action = "{{ url_for('signup')}}" method="post" action="" style = "margin-top: 5%;">
                 <h3 style = "text-align: center;">Enter Email</h3>
-                <input type = "email" name = "email" placeholder = "Email" class = "signup-input" required>
+                <input type = "email" name = "email" id = "email" placeholder = "Email" class = "signup-input" autocomplete = "off" required>
                 <br>
                 <h3 style = "text-align: center;">Enter Full Name</h3>
-                <input type = "text" name = "full-name" placeholder = "Full Name" class = "signup-input" required>
+                <input type = "text" name = "fullname" id = "fullname" placeholder = "Full Name" class = "signup-input" required>
                 <br>
                 <h3 style = "text-align: center;">Create a Password</h3>
-                <input type = "password" name = "password" placeholder = "Password" class = "signup-input" required>
+                <input type = "password" name = "password" id = "password" placeholder = "Password" class = "signup-input" required>
                 <br>
                 <h3 style = "text-align: center;">Confirm Password</h3>
-                <input type = "password" name = "confirm-password" placeholder = "Confirm Password" class = "signup-input" required>
+                <input type = "password" name = "confirm-password" id = "cpassword" placeholder = "Confirm Password" class = "signup-input" required>
                 <br><br>
                 <div class = "msg">{{ msg }}</div>
-                <input type = "submit" value = "Sign In" class = "signup-button-1">
+                <input type = "submit" value = "Sign Up" class = "signup-button-1">
                 <br><br>
             </form>
             <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Have an account? <a href = "{{ url_for('signin') }}" class = "signup-link">Sign In</a></p>
@@ -102,10 +102,6 @@
 </div>
 
 <script>
-    function signupData() {
-        event.preventDefault();
-        var signupFormData = $("#signup-form").serializeArray();
-    }
 </script>
 
 </body>
