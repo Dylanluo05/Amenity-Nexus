@@ -149,5 +149,10 @@ def artofdentistry():
     return render_template("/servicebase/The Art of Destistry.html")
 
 
+@app.route('/The Art of Dentistry/')
+def artofdentistry():
+    return render_template("/servicebase/The Art of Destistry.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=777)
