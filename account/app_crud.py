@@ -1,14 +1,14 @@
 """control dependencies to support CRUD app routes and APIs"""
 from flask import Blueprint, render_template, request, url_for, redirect, jsonify, make_response
-from flask_login import login_required
-from cruddy.query import Users, users_all, user_by_id, users_ilike
-from cruddy.query import *
-from cruddy.query import logout
+
+from account.query import *
 
 # blueprint defaults https://flask.palletsprojects.com/en/2.0.x/api/#blueprint-objects
+from flask_login import login_required
+
 app_crud = Blueprint('crud', __name__,
                      url_prefix='/crud',
-                     template_folder='templates/account/',
+                     template_folder='templates/cruddy/',
                      static_folder='static',
                      static_url_path='static')
 
@@ -21,7 +21,7 @@ app_crud = Blueprint('crud', __name__,
 
 # Default URL for Blueprint
 @app_crud.route('/')
-@login_required  # Flask-Login uses this decorator to restrict acess to logged in users
+#@login_required  # Flask-Login uses this decorator to restrict access to logged in users
 def crud():
     """obtains all Users from table and loads Admin Form"""
     return render_template("crud.html", table=users_all())
@@ -42,18 +42,11 @@ def crud_login():
         email = request.form.get("email")
         password = request.form.get("password")
         if login(email, password):       # zero index [0] used as email is a tuple
-            return redirect(url_for('crud.crud'))
+            return render_template('index.html')
 
     # if not logged in, show the login page
-    return render_template("login2.html")
+    return render_template("login.html")
 
-@app_crud.route('/logout/', methods=["GET", "POST"])
-def crud_logout():
-    logout_user()
-    return render_template("login2.html")
-
-    logout_user()
-    return render_template("index.html")
 
 @app_crud.route('/authorize/', methods=["GET", "POST"])
 def crud_authorize():
@@ -62,14 +55,19 @@ def crud_authorize():
         # validation should be in HTML
         user_name = request.form.get("user_name")
         email = request.form.get("email")
-        grade = request.form.get("grade")
-        position = request.form.get("position")
         password1 = request.form.get("password1")
-        # password should be verified
-        if authorize(user_name, email, grade, position, password1):    # zero index [0] used as user_name and email are type tuple
+        password2 = request.form.get("password1")
+        phone = request.form.get("phone")                    # password should be verified
+        if authorize(user_name, email, password1, phone):    # zero index [0] used as user_name and email are type tuple
             return redirect(url_for('crud.crud_login'))
     # show the auth user page if the above fails for some reason
     return render_template("authorize.html")
+
+
+@app_crud.route('/logout/', methods=["GET", "POST"])
+def crud_logout():
+    logout_user()
+    return render_template("index.html")
 
 
 # CRUD create/add
@@ -80,22 +78,23 @@ def create():
         po = Users(
             request.form.get("name"),
             request.form.get("email"),
-            request.form.get("grade"),
-            request.form.get("position"),
-            request.form.get("password1")
+            request.form.get("password"),
+            request.form.get("phone")
         )
         po.create()
     return redirect(url_for('crud.crud'))
 
 
 # CRUD read
-@app_crud.route('/read/<userID>')
-def read(userID):
-    """gets userid from form action"""
+@app_crud.route('/read/', methods=["POST"])
+def read():
+    """gets userid from form and obtains corresponding data from Users table"""
     table = []
-    po = user_by_id(userID)
-    if po is not None:
-        table = [po.read()]  # placed in list for easier/consistent use within HTML
+    if request.form:
+        userid = request.form.get("userid")
+        po = user_by_id(userid)
+        if po is not None:
+            table = [po.read()]  # placed in list for easier/consistent use within HTML
     return render_template("crud.html", table=table)
 
 
@@ -106,21 +105,37 @@ def update():
     if request.form:
         userid = request.form.get("userid")
         name = request.form.get("name")
-        email = request.form.get("email")
-        grade = request.form.get("grade")
-        position = request.form.get("position")
-        password = request.form.get("password")
         po = user_by_id(userid)
         if po is not None:
-            po.update(name, email, position, grade, password)
+            po.update(name)
     return redirect(url_for('crud.crud'))
 
 
 # CRUD delete
-@app_crud.route('/delete/<userID>')
-def delete(userID):
-    """gets userid from action"""
-    po = user_by_id(userID)
-    if po is not None:
-        po.delete()
+@app_crud.route('/delete/', methods=["POST"])
+def delete():
+    """gets userid from form delete corresponding record from Users table"""
+    if request.form:
+        userid = request.form.get("userid")
+        po = user_by_id(userid)
+        if po is not None:
+            po.delete()
     return redirect(url_for('crud.crud'))
+
+
+# Search Form
+@app_crud.route('/search/')
+@login_required
+def search():
+    """loads form to search Users data"""
+    return render_template("search.html")
+
+
+# Search request and response
+@app_crud.route('/search/term/', methods=["POST"])
+def search_term():
+    """ obtain term/search request """
+    req = request.get_json()
+    term = req['term']
+    response = make_response(jsonify(users_ilike(term)), 200)
+    return response

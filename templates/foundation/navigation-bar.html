@@ -106,7 +106,7 @@
 <body>
 <div class="navigation-container">
     <div class="navigation-links-container">
-        <a href="/">Home</a>
+        <a href={{url_for('home')}}>Home</a>
         <a onclick="dropdownMain1();" type="button">About Us</a>
         <div class="navigation-dropdown-container" id="navigation-dropdown-container-1">
             <div class="navigation-dropdown-member"><a href="/about-adi/" style="position: relative; left: -21px;">Adi
@@ -126,9 +126,10 @@
         </div>
         <a href="/service-search/">Service Search</a>
         <a href="/personalization/">Personal Tools</a>
-        <a href="{{ url_for('signin') }}">Sign In</a>
+        <a href="/personalization/">Sign In</a>
         <a href="/userprofile/">View Your User Profile</a>
-        <a href="/crud-test/">Crud Test</a>
+        <a href={{ url_for('crud.crud') }}>Crud</a>
+        <a href=>Log In</a>
     </div>
     <img src="/static/assets/images/Service-Nexus-Logo-Transparent-Type.png" class = "service-nexus-logo" alt = "Logo" style = "height: 100px; width: 100px">
 </div>

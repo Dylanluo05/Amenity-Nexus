@@ -1,23 +1,20 @@
-# phone is no longer used, email now represents school grade, password now represents club position
-
 """control dependencies to support CRUD routes and APIs"""
 from flask import Blueprint, render_template
 from flask_restful import Api, Resource
 import requests
 
-from cruddy.query import *
+from account.sql import *
 
 # blueprint defaults https://flask.palletsprojects.com/en/2.0.x/api/#blueprint-objects
 
 app_crud_api = Blueprint('crud_api', __name__,
                          url_prefix='/crud_api',
-                         template_folder='templates/crud/',
+                         template_folder='templates/cruddy/',
                          static_folder='static',
                          static_url_path='static')
 
 # API generator https://flask-restful.readthedocs.io/en/latest/api.html#id1
 api = Api(app_crud_api)
-
 
 
 # Method #2 for CRUD
@@ -33,8 +30,8 @@ def crud_api():
 class UsersAPI:
     # class for create/post
     class _Create(Resource):
-        def post(self, name, email, password):
-            po = Users(name, email, password)
+        def post(self, name, email, password, phone):
+            po = Users(name, email, password, phone)
             person = po.create()
             if person:
                 return person.read()
@@ -78,11 +75,11 @@ class UsersAPI:
             return po.read()
 
     class _UpdateAll(Resource):
-        def put(self, email, name, password):
+        def put(self, email, name, password, phone):
             po = user_by_email(email)
             if po is None:
                 return {'message': f"{email} is not found"}, 210
-            po.update(name, password)
+            po.update(name, password, phone)
             return po.read()
 
     # class for delete
@@ -97,13 +94,13 @@ class UsersAPI:
 
     # building RESTapi resource
     # building RESTapi resource
-    api.add_resource(_Create, '/create/<string:name>/<string:email>/<string:password>')
+    api.add_resource(_Create, '/create/<string:name>/<string:email>/<string:password>/<string:phone>')
     api.add_resource(_Read, '/read/')
     api.add_resource(_ReadID, '/read/<int:userid>')
     api.add_resource(_ReadILike, '/read/ilike/<string:term>')
     api.add_resource(_Update, '/update/<string:email>/<string:name>')
     api.add_resource(_UpdateName, '/update/<int:userid>/<string:name>')
-    api.add_resource(_UpdateAll, '/update/<string:email>/<string:name>/<string:password>')
+    api.add_resource(_UpdateAll, '/update/<string:email>/<string:name>/<string:password>/<string:phone>')
     api.add_resource(_Delete, '/delete/<int:userid>')
 
 
