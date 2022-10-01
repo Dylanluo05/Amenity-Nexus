@@ -3,9 +3,9 @@
 import MySQLdb.cursors
 from flask import render_template, redirect, url_for, session, request
 
-
 # create a Flask instance
-# app = Flask(__name__)
+app = Flask(__name__)
+
 
 # app.secret_key = 'service-NEXUS-a72387as349sjidla02'
 
@@ -149,9 +149,14 @@ def artofdentistry():
     return render_template("/servicebase/The Art of Destistry.html")
 
 
-@app.route('/The Art of Dentistry/')
-def artofdentistry():
-    return render_template("/servicebase/The Art of Destistry.html")
+@app.route('/cyclebar/')
+def cyclebar():
+    return render_template("/servicebase/cyclebar.html")
+
+
+@app.route('/orangetheory-fitness/')
+def orangetheory():
+    return render_template("/servicebase/orangetheory-fitness.html")
 
 
 if __name__ == "__main__":
