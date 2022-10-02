@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap"
           rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 <style>
@@ -50,12 +51,24 @@
         text-decoration: none;
     }
 
-    .navigation-links-container > .navigation-dropdown-container {
+    .navigation-links-container > .navigation-dropdown-container-1 {
         height: 200px;
         width: 150px;
         background-color: black;
         position: absolute;
         margin-left: 80px;
+        border: 1px solid lightgray;
+        border-radius: 4px;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.4);
+        padding: 10px;
+    }
+
+    .navigation-links-container > .navigation-dropdown-container-2 {
+        height: 90px;
+        width: 150px;
+        background-color: black;
+        position: absolute;
+        margin-left: 830px;
         border: 1px solid lightgray;
         border-radius: 4px;
         box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.4);
@@ -107,8 +120,8 @@
 <div class="navigation-container">
     <div class="navigation-links-container">
         <a href={{url_for('home')}}>Home</a>
-        <a onclick="dropdownMain1();" type="button">About Us</a>
-        <div class="navigation-dropdown-container" id="navigation-dropdown-container-1">
+        <a class = "navigation-dropdown-link" onclick="dropdownMain1();" type="button">About Us</a>
+        <div class="navigation-dropdown-container navigation-dropdown-container-1">
             <div class="navigation-dropdown-member"><a href="/about-adi/" style="position: relative; left: -21px;">Adi
                 Nawandhar</a></div>
             <div class="navigation-dropdown-member"><a href="/about-aryan/" style="position: relative; left: -21px;">Aryan
@@ -126,27 +139,42 @@
         </div>
         <a href="/service-search/">Service Search</a>
         <a href="/personalization/">Personal Tools</a>
-        <a href={{ url_for('crud.crud_login') }}>Sign In</a>
+        <a href={{url_for('crud.crud_login')}}>Sign In</a>
         <a href="/userprofile/">View Your User Profile</a>
-        <a href={{ url_for('crud.crud') }}>Crud</a>
+        <a class = "navigation-dropdown-link" onclick="dropdownMain2();" type="button">CRUD</a>
+        <div class="navigation-dropdown-container navigation-dropdown-container-2">
+            <div class="navigation-dropdown-member">
+                <a href={{url_for('crud.crud')}} style="position: relative; left: -21px;">Crud</a></div>
+            <div class="navigation-dropdown-member">
+                <a href={{url_for('crud_api.crud_api')}} style="position: relative; left: -21px;">Crud Async</a></div>
+            <div class="navigation-dropdown-member">
+                <a href={{url_for('crud.search')}} style="position: relative; left: -21px;">Search</a></div>
+        </div>
     </div>
     <img src="/static/assets/images/Service-Nexus-Logo-Transparent-Type.png" class = "service-nexus-logo" alt = "Logo" style = "height: 100px; width: 100px">
 </div>
 
 <script>
-        var dropdown1 = document.getElementById("navigation-dropdown-container-1");
-        dropdown1.style.display = "none";
+    $(".navigation-dropdown-link").on("click", dropdownMain);
+    $(".navigation-dropdown-container").css("display", "none");
 
-        function dropdownMain1 () {
-        if (dropdown1.style.display == "none") {
-            dropdown1.style.display = "block";
+    function dropdownMain() {
+        var navigationDropdownLinkIndex = $(this).index();
+        console.log(navigationDropdownLinkIndex)
+        if (navigationDropdownLinkIndex == 1) {
+            if ($(".navigation-dropdown-container").eq(0).css("display") == "none") {
+                $(".navigation-dropdown-container").eq(0).css("display", "block");
+            } else if ($(".navigation-dropdown-container").eq(0).css("display") == "block") {
+                $(".navigation-dropdown-container").eq(0).css("display", "none");
+            }
+        } else if (navigationDropdownLinkIndex == 7) {
+            if ($(".navigation-dropdown-container").eq(1).css("display") == "none") {
+                $(".navigation-dropdown-container").eq(1).css("display", "block");
+            } else if ($(".navigation-dropdown-container").eq(1).css("display") == "block") {
+                $(".navigation-dropdown-container").eq(1).css("display", "none");
+            }
         }
-        else if (dropdown1.style.display == "block"){
-            dropdown1.style.display = "none";
-        }
-
     }
-
 
 </script>
 

@@ -120,7 +120,7 @@ def delete():
 
 # Search Form
 @app_crud.route('/search/')
-@login_required
+#@login_required
 def search():
     """loads form to search Users data"""
     return render_template("search.html")
