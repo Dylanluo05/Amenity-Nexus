@@ -42,8 +42,8 @@
                         <tr>
                             <td></td>
                             <td></td>
-                            <td><a href={{url_for('crud.crud')}}>Full Table</a></td>
-                            <td><a href="https://github.com/JakubPonulak/5_hackers/tree/main/crud">GitHub Source</a></td>
+                            <td><a style = "color: black;" href={{url_for('crud.crud')}}>Full Table</a></td>
+                            <td><a style = "color: black;" href="https://github.com/JakubPonulak/5_hackers/tree/main/crud">GitHub Source</a></td>
                         </tr>
                         </tbody>
                     </table>
@@ -57,6 +57,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Password</th>
+                                <th>Privilege</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -71,6 +72,7 @@
                                 <td>{{ row['name'] }}</td>
                                 <td>{{ row['email'] }}</td>
                                 <td>{{ row['password'] }}</td>
+                                <td>{{ row['privilege'] }}</td>
                             </tr>
                             {% endfor %}
                             </tbody>
@@ -168,8 +170,8 @@
                 <div class="col-md-3">
                     <div class="p-5 mb-4 bg-success text-dark rounded-3">
                         <h2>Delete</h2>
-                        <form method="POST" ID="read" action={{url_for('crud.delete')}} >
-                            <table id="read_table">
+                        <form method="POST" ID="delete" action={{url_for('crud.delete')}} >
+                            <table id="delete_table">
                                 <tr><th><label for="delete_userid">ID</label></th></tr>
                                 <tr>
                                     <td>

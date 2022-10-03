@@ -50,9 +50,9 @@ def about_sohan():
 def service_search():
     return render_template("service-search.html")
 
-@app.route('/personalization/')
-def personalization():
-    return render_template("personalization.html")
+@app.route('/user-profile/')
+def user_profile():
+    return render_template("user-profile.html")
 
 #Service Base URLs
 @app.route('/kumon/')

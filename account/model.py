@@ -18,12 +18,14 @@ class Users(UserMixin, db.Model):
     name = db.Column(db.String(255), unique=False, nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), unique=False, nullable=False)
+    privilege = db.Column(db.Integer, unique=False, nullable=False)
 
     # constructor of a User object, initializes of instance variables within object
-    def __init__(self, name, email, password):
+    def __init__(self, name, email, password, privilege):
         self.name = name
         self.email = email
         self.set_password(password)
+        self.privilege = privilege
 
     # CRUD create/add a new record to the table
     # returns self or None on error
@@ -45,6 +47,7 @@ class Users(UserMixin, db.Model):
             "name": self.name,
             "email": self.email,
             "password": self.password,
+            "privilege": self.privilege,
             "query": "by_alc"  # This is for fun, a little watermark
         }
 
@@ -91,15 +94,16 @@ def model_tester():
     print("--------------------------")
     db.create_all()
     """Tester data for table"""
-    u1 = Users(name='Thomas Edison', email='tedison@example.com', password='123toby')
-    u2 = Users(name='Nicholas Tesla', email='ntesla@example.com', password='123niko')
-    u3 = Users(name='Alexander Graham Bell', email='agbell@example.com', password='123lex')
-    u4 = Users(name='Eli Whitney', email='eliw@example.com', password='123whit')
-    u5 = Users(name='John Mortensen', email='jmort1021@gmail.com', password='123qwerty')
-    u6 = Users(name='John Mortensen', email='jmort1021@yahoo.com', password='123qwerty')
-    # U7 intended to fail as duplicate key
-    u7 = Users(name='John Mortensen', email='jmort1021@yahoo.com', password='123qwerty')
-    table = [u1, u2, u3, u4, u5, u6, u7]
+    u1 = Users(name='Dylan Luo', email='dylanluo@example.com', password='12345678', privilege=0)
+    u2 = Users(name='Sohan Sankuratri', email='sohan@example.com', password='12345678', privilege=0)
+    u3 = Users(name='Adi Nawandhar', email='adi@example.com', password='12345678', privilege=0)
+    u4 = Users(name='Jean Kim', email='jean@example.com', password='123456780', privilege=0)
+    u5 = Users(name='Dev Kantari', email='dev@example.com', password='12345678', privilege=0)
+    u6 = Users(name='Ritvik Keerthi', email='ritvik@example.com', password='12345678', privilege=0)
+    u7 = Users(name='Ritvik Keerthi', email='ritvik@yahoo.com', password='12345678', privilege=0)
+    # U8 intended to fail as duplicate key
+    u8 = Users(name='Ritvik Keerthi', email='ritvik@yahoo.com', password='12345678', privilege=0)
+    table = [u1, u2, u3, u4, u5, u6, u7, u8]
     for row in table:
         try:
             db.session.add(row)

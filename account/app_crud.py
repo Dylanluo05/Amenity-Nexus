@@ -1,5 +1,5 @@
 """control dependencies to support CRUD app routes and APIs"""
-from flask import Blueprint, render_template, request, url_for, redirect, jsonify, make_response
+from flask import Blueprint, render_template, request, url_for, redirect, jsonify, make_response, abort
 
 from account.query import *
 
@@ -19,6 +19,16 @@ app_crud = Blueprint('crud', __name__,
 """
 
 
+def admin():
+    try:
+        if current_user.privilege == 0:
+            return 0
+        elif current_user.privilege == 1:
+            return 1
+        else:
+            return 2
+    except AttributeError:
+        abort(404)
 # Default URL for Blueprint
 @app_crud.route('/')
 #@login_required  # Flask-Login uses this decorator to restrict access to logged in users
@@ -54,7 +64,7 @@ def crud_authorize():
         user_name = request.form.get("user_name")
         email = request.form.get("email")
         password1 = request.form.get("password1")                 # password should be verified
-        if authorize(user_name, email, password1):    # zero index [0] used as user_name and email are type tuple
+        if authorize(user_name, email, password1, 2):    # zero index [0] used as user_name and email are type tuple
             return redirect(url_for('crud.crud_login'))
     # show the auth user page if the above fails for some reason
     return render_template("authorize.html")
@@ -74,7 +84,8 @@ def create():
         po = Users(
             request.form.get("name"),
             request.form.get("email"),
-            request.form.get("password")
+            request.form.get("password"),
+            2
         )
         po.create()
     return redirect(url_for('crud.crud'))
