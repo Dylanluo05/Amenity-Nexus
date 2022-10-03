@@ -1,0 +1,1 @@
+GRANT INSERT, SELECT, DELETE, UPDATE ON nexusdatabase.* TO 'service-nexus'@'localhost' IDENTIFIED BY 'password';
