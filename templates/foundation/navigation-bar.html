@@ -68,7 +68,19 @@
         width: 150px;
         background-color: black;
         position: absolute;
-        margin-left: 720px;
+        margin-left: 620px;
+        border: 1px solid lightgray;
+        border-radius: 4px;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.4);
+        padding: 10px;
+    }
+
+    .navigation-links-container > .navigation-dropdown-container-3 {
+        height: 40px;
+        width: 100px;
+        background-color: black;
+        position: absolute;
+        margin-left: 700px;
         border: 1px solid lightgray;
         border-radius: 4px;
         box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.4);
@@ -115,12 +127,24 @@
         }
     }
     */
+
+    .logout-button {
+        color: white;
+        position: absolute;
+        left: 15px;
+        font-size: 21px;
+        height: 40px;
+        width: 90px;
+        background-color: black;
+        cursor: pointer;
+    }
+
 </style>
 <body>
 <div class="navigation-container">
     <div class="navigation-links-container">
         <a style = "margin-left: 28px;" href={{url_for('home')}}>Home</a>
-        <a style = "margin-left: 28px;" class = "navigation-dropdown-link" onclick="dropdownMain1();" type="button">About Us</a>
+        <a style = "margin-left: 28px;" class = "navigation-dropdown-link" type="button">About Us</a>
         <div class="navigation-dropdown-container navigation-dropdown-container-1">
             <div class="navigation-dropdown-member"><a href="/about-adi/" style="position: relative; left: -21px;">Adi
                 Nawandhar</a></div>
@@ -138,11 +162,13 @@
                 Sankuratri</a></div>
         </div>
         <a style = "margin-left: 28px;" href="/service-search/">Service Search</a>
+        {% if current_user.is_authenticated == False %}
         <a style = "margin-left: 28px;" href={{url_for('crud.crud_login')}}>Sign In</a>
-        {% if current_user.is_authenticated %}
+        {% endif %}
+        {% if current_user.is_authenticated == True %}
             <a style = "margin-left: 28px;" href={{url_for('user_profile')}}>View Your Personal Profile</a>
             {% if current_user.privilege == 0 %}
-                <a style = "margin-left: 28px;" class = "navigation-dropdown-link" onclick="dropdownMain2();" type="button">CRUD</a>
+                <a style = "margin-left: 28px;" class = "navigation-dropdown-link" type="button">CRUD</a>
                 <div class="navigation-dropdown-container navigation-dropdown-container-2">
                     <div class="navigation-dropdown-member">
                         <a href={{url_for('crud.crud')}} style="position: relative; left: -21px;">Crud</a></div>
@@ -153,6 +179,14 @@
                 </div>
             {% endif %}
         {% endif %}
+        {% if current_user.is_authenticated == True %}
+            <a style = "margin-right: auto;" class = "navigation-dropdown-link" type="button">{{ current_user.name }}</a>
+        {% endif %}
+        <div class = "navigation-dropdown-container navigation-dropdown-container-3">
+            <form style="margin-left: 15px" action={{url_for('crud.crud_logout')}}>
+                <input class = "logout-button" type="submit" value="Log Out"/>
+            </form>
+        </div>
     </div>
     <img src="/static/assets/images/Service-Nexus-Logo-Transparent-Type.png" class = "service-nexus-logo" alt = "Logo" style = "height: 100px; width: 100px">
 </div>
@@ -170,11 +204,17 @@
             } else if ($(".navigation-dropdown-container").eq(0).css("display") == "block") {
                 $(".navigation-dropdown-container").eq(0).css("display", "none");
             }
-        } else if (navigationDropdownLinkIndex == 6) {
+        } else if (navigationDropdownLinkIndex == 5) {
             if ($(".navigation-dropdown-container").eq(1).css("display") == "none") {
                 $(".navigation-dropdown-container").eq(1).css("display", "block");
             } else if ($(".navigation-dropdown-container").eq(1).css("display") == "block") {
                 $(".navigation-dropdown-container").eq(1).css("display", "none");
+            }
+        } else if (navigationDropdownLinkIndex == 7) {
+            if ($(".navigation-dropdown-container").eq(2).css("display") == "none") {
+                $(".navigation-dropdown-container").eq(2).css("display", "block");
+            } else if ($(".navigation-dropdown-container").eq(2).css("display") == "block") {
+                $(".navigation-dropdown-container").eq(2).css("display", "none");
             }
         }
     }
