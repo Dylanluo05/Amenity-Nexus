@@ -26,9 +26,9 @@
 
     .navigation-links-container {
         height: 60px;
-        width: 150%;
+        width: 95%;
         margin: 10px;
-        margin-left: 28px;
+        margin-left: 10%px;
         /*display: flex;
         flex-direction: row;*/
         position: relative;
@@ -80,7 +80,7 @@
         width: 100px;
         background-color: black;
         position: absolute;
-        margin-left: 700px;
+        right: -30px;
         border: 1px solid lightgray;
         border-radius: 4px;
         box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.4);
@@ -94,24 +94,6 @@
         overflow: hidden;
         white-space: nowrap;
         margin-top: 4px;
-    }
-
-    .service-nexus-logo {
-        display: inline-block;
-        position: relative;
-        top: -100px;
-        /*margin-left: 1400px;
-        float: right;
-        position: relative;
-        right: 10px;*/
-        transition-duration: 0.7s;
-        position: absolute;
-        right: 0px;
-    }
-
-    .service-nexus-logo:hover {
-        box-shadow: 0 5px 5px 0 rgba(0,0,0,0.6);
-        transform: translatey(-11px);
     }
 
     /*
@@ -174,7 +156,7 @@
             {% endif %}
         {% endif %}
         {% if current_user.is_authenticated == True %}
-            <a style = "margin-right: auto;" class = "navigation-dropdown-link" type="button">{{ current_user.name }}</a>
+            <a style = "float: right;" type="button" class = "navigation-dropdown-link">{{ current_user.name }}</a>
         {% endif %}
         <div class = "navigation-dropdown-container navigation-dropdown-container-3">
             <form style="margin-left: 15px" action={{url_for('crud.crud_logout')}}>
@@ -182,7 +164,6 @@
             </form>
         </div>
     </div>
-    <img src="/static/assets/images/Service-Nexus-Logo-Transparent-Type.png" class = "service-nexus-logo" alt = "Logo" style = "height: 100px; width: 100px">
 </div>
 
 <script>
