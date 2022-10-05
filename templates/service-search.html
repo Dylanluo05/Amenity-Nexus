@@ -20,6 +20,7 @@
         padding: 0;
         overflow-x: hidden;
         background-color: whitesmoke;
+        scroll-behavior: smooth;
     }
 
     .search-heading-1 {
@@ -185,11 +186,13 @@
     }
 
     .circles-container {
+        height: 0;
+        width: 100;
         display: flex;
         flex-direction: row;
+        margin: auto;
         position: relative;
-        top: -65%;
-        left: 5%;
+        top: 15%;
     }
 
     .circle-1 {
@@ -199,19 +202,6 @@
         background-color: black;
         margin-left: 5%;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
 
 <!--<div class = "search-introduction">
@@ -223,8 +213,6 @@
     <div class="search-background-diagonal-1T">
         <h1 style="text-align: center; margin-top: 210px; color: black; position: relative; top: 10px">Service
             Search</h1>
-    </div>
-    <div class="search-background-diagonal-1B">
         <div class="circles-container">
             <div class="circle-1">
                 <h2 style="color: white; text-align: center; font-size: 30px; margin: 0;">Select a category</h2>
@@ -241,18 +229,20 @@
             </div>
         </div>
     </div>
+    <div class="search-background-diagonal-1B">
+    </div>
 
     <div class="categories-container">
         <div class="category-dropdown-container">
             <h1 style="text-align: center; margin-top: 21px">Maintenance</h1>
         </div>
-        <div class="category-dropdown-content">
+        <div class="category-dropdown-content" id = "category-dropdown-container-1">
         </div>
 
         <div class="category-dropdown-container">
             <h1 style="text-align: center; margin-top: 21px">Amenity</h1>
         </div>
-        <div class="category-dropdown-content">
+        <div class="category-dropdown-content" id = "category-dropdown-container-2">
             <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">The best educational
                 services in San Diego</p>
             <a href="/teqneeq-24-hour-gym/">Taneeq 24 Hour Gym</a>
@@ -262,13 +252,13 @@
         <div class="category-dropdown-container">
             <h1 style="text-align: center; margin-top: 21px">Medical</h1>
         </div>
-        <div class="category-dropdown-content">
+        <div class="category-dropdown-content" id = "category-dropdown-container-3">
         </div>
 
         <div class="category-dropdown-container">
             <h1 style="text-align: center; margin-top: 21px">Education</h1>
         </div>
-        <div class="category-dropdown-content">
+        <div class="category-dropdown-content" id = "category-dropdown-container-4">
             <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">The best educational
                 services in San Diego</p>
             <a href="/kumon/">Kumon</a>
@@ -299,68 +289,120 @@
         </div>
     </div>
 </div>
+<script src="/static/assets/javascript/service-search-startup.js"></script>
 <script>
 
         $(".category-dropdown-container").on("click", dropdownAnimation1);
 
-        $(".category-dropdown-content").css("display", "none");
-        $(".category-dropdown-content").css("height", "0px");
-
         function dropdownAnimation1() {
             if ($(this).children(0).text() == 'Maintenance') {
-                if ($(".category-dropdown-content").eq(0).css("display") == "none") {
-                    $(".category-dropdown-content").eq(0).css("display", "block");
-                    $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000);
-                }
-                else if ($(".category-dropdown-content").eq(0).css("display") == "block") {
-                    $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
-                    $(".category-dropdown-content").eq(0).css("display", "none");
-                    });
+                if (localStorage.getItem("maintenanceDropdownStatus")) {
+                    if (localStorage.getItem("maintenanceDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(0).css("display", "block");
+                        $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("maintenanceDropdownStatus", "Shown");
+                        });
+                    } else if (localStorage.getItem("maintenanceDropdownStatus") == "Shown") {
+                        $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(0).css("display", "none");
+                            localStorage.setItem("maintenanceDropdownStatus", "Hidden");
+                        });
+                    }
+                } else {
+                    if ($(".category-dropdown-content").eq(0).css("display") == "none") {
+                        $(".category-dropdown-content").eq(0).css("display", "block");
+                        $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("maintenanceDropdownStatus", "Shown");
+                        });
+                    } else if ($(".category-dropdown-content").eq(0).css("display") == "block") {
+                        $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(0).css("display", "none");
+                            localStorage.setItem("maintenanceDropdownStatus", "Hidden");
+                        });
+                    }
                 }
             } else if ($(this).children(0).text() == 'Amenity') {
-                if ($(".category-dropdown-content").eq(1).css("display") == "none") {
-                    $(".category-dropdown-content").eq(1).css("display", "block");
-                    $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000);
-                }
-                else if ($(".category-dropdown-content").eq(1).css("display") == "block") {
-                    $(".category-dropdown-content").eq(1).animate({height: "0px"}, 1000, function(){
-                    $(".category-dropdown-content").eq(1).css("display", "none");
-                    });
+                if (localStorage.getItem("amenityDropdownStatus")) {
+                    if (localStorage.getItem("amenityDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(1).css("display", "block");
+                        $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("amenityDropdownStatus", "Shown");
+                        });
+                    } else if (localStorage.getItem("amenityDropdownStatus") == "Shown") {
+                        $(".category-dropdown-content").eq(1).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(1).css("display", "none");
+                            localStorage.setItem("amenityDropdownStatus", "Hidden");
+                        });
+                    }
+                } else {
+                    if ($(".category-dropdown-content").eq(1).css("display") == "none") {
+                        $(".category-dropdown-content").eq(1).css("display", "block");
+                        $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("amenityDropdownStatus", "Shown");
+                        });
+                    } else if ($(".category-dropdown-content").eq(1).css("display") == "block") {
+                        $(".category-dropdown-content").eq(1).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(1).css("display", "none");
+                            localStorage.setItem("amenityDropdownStatus", "Hidden");
+                        });
+                    }
                 }
             } else if ($(this).children(0).text() == 'Medical') {
-                if ($(".category-dropdown-content").eq(2).css("display") == "none") {
-                    $(".category-dropdown-content").eq(2).css("display", "block");
-                    $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000);
-                }
-                else if ($(".category-dropdown-content").eq(2).css("display") == "block") {
-                    $(".category-dropdown-content").eq(2).animate({height: "0px"}, 1000, function(){
-                    $(".category-dropdown-content").eq(2).css("display", "none");
-                    });
+                if (localStorage.getItem("medicalDropdownStatus")) {
+                   if (localStorage.getItem("medicalDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(2).css("display", "block");
+                        $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("medicalDropdownStatus", "Shown");
+                        });
+                   } else if (localStorage.getItem("medicalDropdownStatus") == "Shown") {
+                       $(".category-dropdown-content").eq(2).animate({height: "0px"}, 1000, function(){
+                          $(".category-dropdown-content").eq(2).css("display", "none");
+                          localStorage.setItem("medicalDropdownStatus", "Hidden");
+                       });
+                   }
+                } else {
+                    if ($(".category-dropdown-content").eq(2).css("display") == "none") {
+                        $(".category-dropdown-content").eq(2).css("display", "block");
+                        $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("medicalDropdownStatus", "Shown");
+                        });
+                    } else if ($(".category-dropdown-content").eq(2).css("display") == "block") {
+                        $(".category-dropdown-content").eq(2).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(2).css("display", "none");
+                            localStorage.setItem("medicalDropdownStatus", "Hidden");
+                        });
+                    }
                 }
             } else if ($(this).children(0).text() == 'Education') {
-                if ($(".category-dropdown-content").eq(3).css("display") == "none") {
-                    $(".category-dropdown-content").eq(3).css("display", "block");
-                    $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000);
-                }
-                else if ($(".category-dropdown-content").eq(3).css("display") == "block") {
-                    $(".category-dropdown-content").eq(3).animate({height: "0px"}, 1000, function(){
-                    $(".category-dropdown-content").eq(3).css("display", "none");
-                    });
+                if (localStorage.getItem("educationDropdownStatus")) {
+                    if (localStorage.getItem("educationDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(3).css("display", "block");
+                        $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("educationDropdownStatus", "Shown");
+                        });
+                    }
+                    else if (localStorage.getItem("educationDropdownStatus") == "Shown") {
+                        $(".category-dropdown-content").eq(3).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(3).css("display", "none");
+                            localStorage.setItem("educationDropdownStatus", "Hidden");
+                        });
+                    }
+                } else {
+                    if ($(".category-dropdown-content").eq(3).css("display") == "none") {
+                        $(".category-dropdown-content").eq(3).css("display", "block");
+                        $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("educationDropdownStatus", "Shown");
+                        });
+                    }
+                    else if ($(".category-dropdown-content").eq(3).css("display") == "block") {
+                        $(".category-dropdown-content").eq(3).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(3).css("display", "none");
+                            localStorage.setItem("educationDropdownStatus", "Hidden");
+                        });
+                    }
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 </script>
 </body>

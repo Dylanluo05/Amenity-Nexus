@@ -44,7 +44,9 @@ def about_jean():
 def about_sohan():
     return render_template("about-sohan.html")
 
-
+@app.route('/about-kurtis/')
+def about_kurtis():
+    return render_template("about-kurtis.html")
 
 @app.route('/service-search/')
 def service_search():
