@@ -24,7 +24,7 @@
     }
 
     .navigation-container, .navigation-dropdown-container {
-            z-index: 4;
+        z-index: 4;
     }
 
     #personalization-background-1 {
@@ -342,10 +342,6 @@
         background-color: dodgerblue;
     }
 
-    * {
-        box-sizing: border-box;
-    }
-
     .title-container {
         height: 30%;
         width: 100%;
@@ -354,16 +350,6 @@
 
     .title {
         text-align: center;
-    }
-
-    a {
-        color: white;
-        margin-left: 21px;
-        cursor: pointer;
-    }
-
-    a:link {
-        text-decoration: none;
     }
 
     .service-phonebook-lobby-container {
@@ -488,7 +474,7 @@
     <div class = "personalization-background-1-image"></div>
     <div class = "personalization-background-1-overlay"></div>
     <div class = "personalization-background-1-content">
-        <h1 style = "margin: 0; color: white; text-align: center; font-size: 48px; position: relative; top: 40%;">Personalization</h1>
+        <h1 style = "margin: 0; color: white; text-align: center; font-size: 48px; position: relative; top: 40%;">Hello {{ current_user.name }}!</h1>
     </div>
 </div>
 <div id = "personalization-background-2">

@@ -77,18 +77,17 @@
     <div class="signin-container">
         <h1 style = "margin-top: 10%; text-align: center; color: black;">Sign In</h1><br>
         <hr style = "display: block; margin-top: -5%;">
-        <form onsubmit = "event.preventDefault();" action="{{ url_for('signin') }}" method="post" autocomplete = "off" style = "margin-top: 10%;">
+        <form id="signin" method="post" action="" style = "margin-top: 10%;">
             <h3 style = "text-align: center;">Email</h3>
-            <input type = "email" name = "email" id = "email" placeholder="Email" class = "signin-input" required>
+            <input type = "email" name = "email" placeholder="Email" class = "signin-input" required>
             <br><br>
             <h3 style = "text-align: center;">Password</h3>
-            <input type = "password" name = "password" id = "password" placeholder="Password" class = "signin-input" required>
+            <input type = "password" name = "password" placeholder="Password" class = "signin-input" required>
             <br><br>
-            <div class = "msg"> {{ msg }} </div>
             <input type = "submit" value = "Sign In" class = "signin-button-1">
             <br><br>
         </form>
-        <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Don't have an account? <a href = "{{ url_for('signup') }}" class = "signup-link">Sign Up</a></p>
+        <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Don't have an account? <a href = "/sign-up/" class = "signup-link">Sign Up</a></p>
     </div>
 </div>
 

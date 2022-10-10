@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  {% set project = "Authorize" %}
+
+  {% block body %}
+  {% include "foundation/navigation-bar.html" %}
+  </head>
+  <style>
+    html, body {
+      font-family: 'Roboto Flex', san-serif;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+    }
+
+      #account-background-2 {
+          height: 1000px;
+          background: linear-gradient(to top right, darkblue 0%, purple 100%);
+      }
+
+      .signup-link {
+          color: blue;
+          font-size: 21px;
+          text-decoration: underline;
+          margin-top: 0px;
+          margin-left: 5px;
+      }
+
+      .signup-container {
+          height: 650px;
+          width: 35%;
+          background-color: white;
+          padding: 11px;
+          margin: auto;
+          margin-top: 125px;
+          box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+      }
+
+      .signup-input {
+          display: block;
+          margin: auto;
+          height: 30px;
+          padding-left: 7px;
+          width: 90%;
+          background-color: lightgray;
+          border: none;
+      }
+
+      .signup-button-1 {
+          height: 30px;
+          width: 250px;
+          color: white;
+          background-color: blue;
+          border: none;
+          display: block;
+          margin: auto;
+          transition-duration: 0.7s;
+      }
+
+      .signup-button-1:hover {
+          background-color: lightskyblue;
+      }
+  </style>
+
+  <div id = "account-background-2">
+    <br><br>
+    <div class="signup-container">
+      <h1 style = "margin-top: 10%; text-align: center; color: black;">Sign Up</h1><br>
+      <hr style = "display: block; margin-top: -5%;">
+      <form method="POST" ID="authUser" action = {{url_for('crud.crud_authorize')}}  autocomplete = "off" style = "margin-top: 5%;">
+        <label for = "email" style = "display: block; font-size: 21px; text-align: center;">Enter Email</label>
+        <br>
+        <input type = "email" name = "email" id = "email" placeholder = "Email" class = "signup-input" required>
+        <br>
+        <label for = "user_name" style = "display: block; font-size: 21px; text-align: center;">Enter Full Name</label>
+        <br>
+        <input type = "text" name = "user_name" id = "user_name" placeholder = "Full Name" class = "signup-input" required>
+        <br>
+        <label for = "password1" style = "display: block; font-size: 21px; text-align: center;">Create a Password</label>
+        <br>
+        <input type = "password" name = "password1" id = "password1" placeholder = "Password" class = "signup-input" required>
+        <br>
+        <label for = "password2" style = "display: block; font-size: 21px; text-align: center;">Confirm Password</label>
+        <br>
+        <input type = "password" name = "password2" id = "password2" placeholder = "Confirm Password" class = "signup-input" required>
+        <br><br>
+        <input type = "submit" value = "Sign Up" class = "signup-button-1">
+        <br><br>
+      </form>
+      <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Have an account? <a href = {{url_for('crud.crud_login')}} class = "signup-link">Sign In</a></p>
+    </div>
+  </div>
+
+  {% endblock %}
+</html>

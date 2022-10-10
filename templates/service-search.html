@@ -20,6 +20,7 @@
         padding: 0;
         overflow-x: hidden;
         background-color: whitesmoke;
+        scroll-behavior: smooth;
     }
 
     .search-heading-1 {
@@ -29,44 +30,34 @@
         margin: auto;
     }
 
-    .search-background-diagonal-1T {
-        margin-top: 100px;
-        height: 400px;
-        background: linear-gradient(to top right, steelblue 50%, whitesmoke 50%);
-    }
-
-    .search-background-diagonal-1B {
-        height: 400px;
-        background: linear-gradient(to top right, whitesmoke 50%, steelblue 50%);
-    }
-
-    .search-introduction {
-        height: 500px;
-        width: 1000px;
-        margin: auto;
-        margin-top: -21px;
-        z-index: 1;
-        background: url(/static/assets/images/customer_support.jpeg)
-    }
-
-    .search-introduction-overlay {
-        height: 500px;
-        width: 1000px;
-        margin: auto;
-        z-index 2;
-        background-color: rgba(0, 0, 255, 30%);
-    }
-
     #search-background-1 {
-        height: 2400px;
+        height: 1600px;
         width: 100%;
-        margin-top: -70px;
         background-color: whitesmoke;
         background-repeat: no-repeat;
     }
 
-    .categories-container {
-        margin-top: -200px;
+    .search-background-2 {
+        height: 200px;
+        width: 100%;
+        background-color: lightgray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 150px;
+        position: relative;
+    }
+
+    .search-image-1 {
+        height: 350px;
+        width: 550px;
+        border-radius: 15px;
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.4);
+        transition-duration: 0.4s;
+    }
+
+    .search-image-1:hover {
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.5);
     }
 
     .category-dropdown-container {
@@ -126,70 +117,10 @@
         border-image: linear-gradient(45deg, dodgerblue, cyan) 1;
     } */
 
-    .arrow-container-1 {
-        position: relative;
-        top: -225px;
-        left: 475px;
-    }
-
-    .arrow-1 {
-        border: 2px solid black;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        padding: 28px;
-        transform: rotate(335deg);
-    }
-
-    .arrow-2 {
-        border: 2px solid gray;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        position: relative;
-        top: 30px;
-        left: 0px;
-        padding: 28px;
-        transform: rotate(335deg);
-    }
-
-    .arrow-3 {
-        border: 2px solid silver;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        position: relative;
-        top: 60px;
-        left: 10px;
-        padding: 28px;
-        transform: rotate(335deg);
-    }
-
-    .arrow-4 {
-        border: 2px solid lightgray;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        position: relative;
-        top: 90px;
-        left: 20px;
-        padding: 28px;
-        transform: rotate(335deg);
-    }
-
-    .arrow-5 {
-        border: 2px solid white;
-        border-width: 0 2px 2px 0;
-        display: inline-block;
-        position: relative;
-        top: 120px;
-        left: 30px;
-        padding: 28px;
-        transform: rotate(335deg);
-    }
-
     .circles-container {
         display: flex;
         flex-direction: row;
-        position: relative;
-        top: -65%;
-        left: 5%;
+        margin: auto;
     }
 
     .circle-1 {
@@ -197,36 +128,54 @@
         width: 250px;
         border-radius: 100%;
         background-color: black;
-        margin-left: 5%;
     }
 
+    table {
+        border-collapse: collapse;
+        margin: auto;
+    }
 
+    th {
+        background-color: black;
+        color: black;
+        padding: 10px;
+    }
 
+    td {
+        height: 40px;
+        width: 150px;
+        padding-left: 25px;
+        background-color: white;
+        border: 4px solid royalblue;
+    }
 
+    /*td:nth-child(odd) {
+        background-color: white;
+        border: 2px solid mediumseagreen;
+    }
 
+    td:nth-child(even) {
+        background-color: white;
+        border: 2px solid dodgerblue;
+    }*/
 
-
-
-
-
-
-
-
+    td > a {
+        margin: auto;
+        color: black;
+    }
 
 </style>
 
-<!--<div class = "search-introduction">
-            <div class = "search-introduction-overlay">
-                <h1 style = "text-align: center; color: white; z-index: 2;">Service Search</h1>
-            </div>
-    </div>-->
+
+
 <div id="search-background-1">
-    <div class="search-background-diagonal-1T">
-        <h1 style="text-align: center; margin-top: 210px; color: black; position: relative; top: 10px">Service
-            Search</h1>
+    <h1 style="text-align: center; color: black; margin-top: 70px;">Service Search</h1>
+    <div class = "search-background-2">
+        <div class = "search-image-1">
+            <img src = "/static/assets/images/service-search-picture-1.jpg" class = "search-image-1">
+        </div>
     </div>
-    <div class="search-background-diagonal-1B">
-        <div class="circles-container">
+        <!--<div class="circles-container">
             <div class="circle-1">
                 <h2 style="color: white; text-align: center; font-size: 30px; margin: 0;">Select a category</h2>
             </div>
@@ -240,51 +189,48 @@
             <div class="circle-1" style="margin-top: 16.5%;">
                 <h2 style="color: white; text-align: center; font-size: 30px">Connect with the service provider</h2>
             </div>
-        </div>
-    </div>
+        </div>-->
 
     <div class="categories-container">
-        <div class="category-dropdown-container">
+        <div class="category-dropdown-container" id = "category-dropdown-container-1">
             <h1 style="text-align: center; margin-top: 21px">Maintenance</h1>
         </div>
         <div class="category-dropdown-content">
         </div>
 
-        <div class="category-dropdown-container">
+        <div class="category-dropdown-container" id = "category-dropdown-container-2">
             <h1 style="text-align: center; margin-top: 21px">Amenity</h1>
         </div>
         <div class="category-dropdown-content">
             <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">The best educational
                 services in San Diego</p>
             <a href="/teqneeq-24-hour-gym/">Taneeq 24 Hour Gym</a>
-            <br>
             <a href="/cyclebar/">Taneeq 24 Hour Gym</a>
-            <br>
-            <a href="/orangetheory-fitness/">Orangetheory Fitness</a>
         </div>
 
-        <div class="category-dropdown-container">
+        <div class="category-dropdown-container" id = "category-dropdown-container-3">
             <h1 style="text-align: center; margin-top: 21px">Medical</h1>
         </div>
         <div class="category-dropdown-content">
         </div>
 
-        <div class="category-dropdown-container">
+        <div class="category-dropdown-container" id = "category-dropdown-container-4">
             <h1 style="text-align: center; margin-top: 21px">Education</h1>
         </div>
         <div class="category-dropdown-content">
             <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">The best educational
                 services in San Diego</p>
-            <a href="/kumon/">Kumon</a>
-            <br>
-            <a href="/mathnasium/">Mathnasium</a>
-            <br>
-            <a href="/khan-academy">Khan Academy</a>
+            <table style = "margin-top: 30px;">
+                <tr>
+                    <td><a href="/kumon/">Kumon</a></td>
+                    <td><a href="/mathnasium/">Mathnasium</a></td>
+                    <td><a href="/khan-academy">Khan Academy</a></td>
+                    <td><a href="/kumon/">Kumon</a></td>
+                </tr>
+            </table>
         </div>
     </div>
-
-    <div class="search-background-diagonal-1T"></div>
-    <div class="search-background-diagonal-1B">
+    <!--
         <div class="circle-1" style="position: relative; top: -265px; left: 100px;">
             <h2 style="color: white; text-align: center; position: absolute; top: 110px; left: 32px; font-size: 30px; margin: 0;">
                 To be determined</h2>
@@ -301,71 +247,122 @@
             <h2 style="color: white; text-align: center; position: absolute; top: 70px; left: 1px; font-size: 30px">To
                 be determined</h2>
         </div>
-    </div>
+    -->
 </div>
+<script src="/static/assets/javascript/service-search-startup.js"></script>
 <script>
 
         $(".category-dropdown-container").on("click", dropdownAnimation1);
 
-        $(".category-dropdown-content").css("display", "none");
-        $(".category-dropdown-content").css("height", "0px");
-
         function dropdownAnimation1() {
             if ($(this).children(0).text() == 'Maintenance') {
-                if ($(".category-dropdown-content").eq(0).css("display") == "none") {
-                    $(".category-dropdown-content").eq(0).css("display", "block");
-                    $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000);
-                }
-                else if ($(".category-dropdown-content").eq(0).css("display") == "block") {
-                    $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
-                    $(".category-dropdown-content").eq(0).css("display", "none");
-                    });
+                if (localStorage.getItem("maintenanceDropdownStatus")) {
+                    if (localStorage.getItem("maintenanceDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(0).css("display", "block");
+                        $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("maintenanceDropdownStatus", "Shown");
+                        });
+                    } else if (localStorage.getItem("maintenanceDropdownStatus") == "Shown") {
+                        $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(0).css("display", "none");
+                            localStorage.setItem("maintenanceDropdownStatus", "Hidden");
+                        });
+                    }
+                } else {
+                    if ($(".category-dropdown-content").eq(0).css("display") == "none") {
+                        $(".category-dropdown-content").eq(0).css("display", "block");
+                        $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("maintenanceDropdownStatus", "Shown");
+                        });
+                    } else if ($(".category-dropdown-content").eq(0).css("display") == "block") {
+                        $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(0).css("display", "none");
+                            localStorage.setItem("maintenanceDropdownStatus", "Hidden");
+                        });
+                    }
                 }
             } else if ($(this).children(0).text() == 'Amenity') {
-                if ($(".category-dropdown-content").eq(1).css("display") == "none") {
-                    $(".category-dropdown-content").eq(1).css("display", "block");
-                    $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000);
-                }
-                else if ($(".category-dropdown-content").eq(1).css("display") == "block") {
-                    $(".category-dropdown-content").eq(1).animate({height: "0px"}, 1000, function(){
-                    $(".category-dropdown-content").eq(1).css("display", "none");
-                    });
+                if (localStorage.getItem("amenityDropdownStatus")) {
+                    if (localStorage.getItem("amenityDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(1).css("display", "block");
+                        $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("amenityDropdownStatus", "Shown");
+                        });
+                    } else if (localStorage.getItem("amenityDropdownStatus") == "Shown") {
+                        $(".category-dropdown-content").eq(1).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(1).css("display", "none");
+                            localStorage.setItem("amenityDropdownStatus", "Hidden");
+                        });
+                    }
+                } else {
+                    if ($(".category-dropdown-content").eq(1).css("display") == "none") {
+                        $(".category-dropdown-content").eq(1).css("display", "block");
+                        $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("amenityDropdownStatus", "Shown");
+                        });
+                    } else if ($(".category-dropdown-content").eq(1).css("display") == "block") {
+                        $(".category-dropdown-content").eq(1).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(1).css("display", "none");
+                            localStorage.setItem("amenityDropdownStatus", "Hidden");
+                        });
+                    }
                 }
             } else if ($(this).children(0).text() == 'Medical') {
-                if ($(".category-dropdown-content").eq(2).css("display") == "none") {
-                    $(".category-dropdown-content").eq(2).css("display", "block");
-                    $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000);
-                }
-                else if ($(".category-dropdown-content").eq(2).css("display") == "block") {
-                    $(".category-dropdown-content").eq(2).animate({height: "0px"}, 1000, function(){
-                    $(".category-dropdown-content").eq(2).css("display", "none");
-                    });
+                if (localStorage.getItem("medicalDropdownStatus")) {
+                   if (localStorage.getItem("medicalDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(2).css("display", "block");
+                        $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("medicalDropdownStatus", "Shown");
+                        });
+                   } else if (localStorage.getItem("medicalDropdownStatus") == "Shown") {
+                       $(".category-dropdown-content").eq(2).animate({height: "0px"}, 1000, function(){
+                          $(".category-dropdown-content").eq(2).css("display", "none");
+                          localStorage.setItem("medicalDropdownStatus", "Hidden");
+                       });
+                   }
+                } else {
+                    if ($(".category-dropdown-content").eq(2).css("display") == "none") {
+                        $(".category-dropdown-content").eq(2).css("display", "block");
+                        $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("medicalDropdownStatus", "Shown");
+                        });
+                    } else if ($(".category-dropdown-content").eq(2).css("display") == "block") {
+                        $(".category-dropdown-content").eq(2).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(2).css("display", "none");
+                            localStorage.setItem("medicalDropdownStatus", "Hidden");
+                        });
+                    }
                 }
             } else if ($(this).children(0).text() == 'Education') {
-                if ($(".category-dropdown-content").eq(3).css("display") == "none") {
-                    $(".category-dropdown-content").eq(3).css("display", "block");
-                    $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000);
-                }
-                else if ($(".category-dropdown-content").eq(3).css("display") == "block") {
-                    $(".category-dropdown-content").eq(3).animate({height: "0px"}, 1000, function(){
-                    $(".category-dropdown-content").eq(3).css("display", "none");
-                    });
+                if (localStorage.getItem("educationDropdownStatus")) {
+                    if (localStorage.getItem("educationDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(3).css("display", "block");
+                        $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("educationDropdownStatus", "Shown");
+                        });
+                    }
+                    else if (localStorage.getItem("educationDropdownStatus") == "Shown") {
+                        $(".category-dropdown-content").eq(3).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(3).css("display", "none");
+                            localStorage.setItem("educationDropdownStatus", "Hidden");
+                        });
+                    }
+                } else {
+                    if ($(".category-dropdown-content").eq(3).css("display") == "none") {
+                        $(".category-dropdown-content").eq(3).css("display", "block");
+                        $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000, function(){
+                            localStorage.setItem("educationDropdownStatus", "Shown");
+                        });
+                    }
+                    else if ($(".category-dropdown-content").eq(3).css("display") == "block") {
+                        $(".category-dropdown-content").eq(3).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(3).css("display", "none");
+                            localStorage.setItem("educationDropdownStatus", "Hidden");
+                        });
+                    }
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </script>
 </body>

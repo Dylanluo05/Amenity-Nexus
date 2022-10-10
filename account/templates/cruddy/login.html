@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    {% set project = "Login" %}
+
+    {% block meta %}
+    <title>Login</title>
+    {% endblock %}
+
+
+    {% block body %}
+    {% include "foundation/navigation-bar.html" %}
+    </head>
+    <style>
+        html, body {
+            font-family: 'Roboto Flex', san-serif;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        #account-background-1 {
+            height: 800px;
+            background: linear-gradient(to top right, purple 0%, darkblue 100%);
+        }
+
+        .signup-link {
+            color: blue;
+            font-size: 21px;
+            text-decoration: underline;
+            margin-top: 0px;
+            margin-left: 5px;
+        }
+
+        .signin-container {
+            height: 500px;
+            width: 25%;
+            background-color: white;
+            padding: 11px;
+            margin: auto;
+            margin-top: 100px;
+            box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+        }
+
+        .signin-input {
+            display: block;
+            margin: auto;
+            height: 30px;
+            padding-left: 7px;
+            width: 90%;
+            background-color: lightgray;
+            border: none;
+        }
+
+        .signin-button-1 {
+            height: 30px;
+            width: 250px;
+            color: white;
+            background-color: blue;
+            border: none;
+            display: block;
+            margin: auto;
+            transition-duration: 0.7s;
+        }
+
+        .signin-button-1:hover {
+            background-color: lightskyblue;
+        }
+    </style>
+
+
+
+    <div id = "account-background-1">
+        <br><br>
+        <div class="signin-container">
+            <h1 style = "text-align: center; color: black;">Sign In</h1><br>
+            <hr style = "display: block; margin-top: -5%;">
+            <form method="POST" ID="login" action = {{url_for('crud.crud_login')}} autocomplete = "off" style = "margin-top: 10%;">
+                <label for = "email" style = "display: block; font-size: 21px; text-align: center;">Email</label>
+                <br>
+                <input type = "email" name = "email" id = "email" placeholder="Email" class = "signin-input" required>
+                <br><br>
+                <label for = "password" style = "display: block; font-size: 21px; text-align: center;">Password</label>
+                <br>
+                <input type = "password" name = "password" id = "password" placeholder="Password" class = "signin-input" required>
+                <br><br>
+                <input type = "submit" value = "Sign In" class = "signin-button-1">
+                <br><br>
+            </form>
+            <p style = "text-align: center; font-size: 21px; margin-top: 0px;">Don't have an account? <a href = {{url_for('crud.crud_authorize')}} class = "signup-link">Sign Up</a></p>
+        </div>
+    </div>
+
+
+    {% endblock %}
+</html>
