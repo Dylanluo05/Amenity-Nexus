@@ -73,30 +73,23 @@ def khanacademy():
     return render_template("/servicebase/khan-academy.html")
 
 
-@app.route('/teqneeq-24-hour-gym/')
-def teqneeq24hourgym():
-    return render_template("/servicebase/teqneeq-24-hour-gym.html")
+@app.route('/mathnasium/')
+def mathnasium():
+    return render_template("/servicebase/mathnasium.html")
 
 
-@app.route('/teqneeq-24-hour-gym/')
-def teqneeq24hourgym():
-    return render_template("/servicebase/teqneeq-24-hour-gym.html")
+@app.route('/orange-theory/')
+def orangetheory():
+    return render_template("/servicebase/orange-theory.html")
 
 
-@app.route('/teqneeq-24-hour-gym/')
-def teqneeq24hourgym():
-    return render_template("/servicebase/teqneeq-24-hour-gym.html")
+@app.route('/cycle-bar/')
+def cyclebar():
+    return render_template("/servicebase/cycle-bar.html")
 
-
-@app.route('/teqneeq-24-hour-gym/')
-def teqneeq24hourgym():
-    return render_template("/servicebase/teqneeq-24-hour-gym.html")
-
-
-@app.route('/teqneeq-24-hour-gym/')
-def teqneeq24hourgym():
-    return render_template("/servicebase/teqneeq-24-hour-gym.html")
-
+@app.route('/the-art-of-dentistry/')
+def theartofdentistry():
+    return render_template("/servicebase/the-art-of-dentistry.html")
 
 if __name__ == "__main__":
     app.run(debug=True, port=777)
