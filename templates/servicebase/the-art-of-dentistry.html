@@ -6,7 +6,8 @@
     <title>The Art of Dentistry</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -152,78 +153,90 @@
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
     }
 
+
+
 </style>
 <body>
 
 
-<div id = "service-template-background-1"></div>
+<div id="service-template-background-1"></div>
 
-<div class = "service-template-background-transition"></div>
+<div class="service-template-background-transition"></div>
 
-<div id = "service-template-background-2">
-    <h1 style = "margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">The Art of Dentistry</h1>
+<div id="service-template-background-2">
+    <h1 style="margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">The Art of
+        Dentistry</h1>
     <br>
 
-    <div style = "margin-top: 100px; margin-left: 100px;" class = "service-template-container-1">
+    <div style="margin-top: 100px; margin-left: 100px;" class="service-template-container-1">
         <center><h1>Contact Information</h1></center>
         <hr>
-        <p class = "bold">Customer Service Phone Number:</p>
+        <p class="bold">Customer Service Phone Number:</p>
         <p>619-304-3143 </p>
-        <p class = "bold">Email Address:</p>
+        <p class="bold">Email Address:</p>
         <p>n/a</p>
-        <p class = "bold">Locations in San Diego:</p>
-        <ul class = "locations-list">
+        <p class="bold">Locations in San Diego:</p>
+        <ul class="locations-list">
             <li>2840 Fifth Ave Suite 300, San Diego, CA 92103</li>
 
         </ul>
-        <ul class = "locations-list" style = "margin-top: -57px; margin-left: 110px;">
+        <ul class="locations-list" style="margin-top: -57px; margin-left: 110px;">
 
         </ul>
-        <ul class = "locations-list" style = "margin-top: -57px; margin-left: 210px;">
+        <ul class="locations-list" style="margin-top: -57px; margin-left: 210px;">
 
         </ul>
         <br>
-        <form action = https://www.sandiegoartofdentistry.com/
+        <form action=https://www.sandiegoartofdentistry.com/>
+
         </form>
     </div>
 
-    <div class = "service-template-container-1" style = "margin: auto; margin-top: -470px;">
+    <div class="service-template-container-1" style="margin: auto; margin-top: -470px;">
         <center><h1>General Description</h1></center>
         <hr>
-        <div style = "margin-left: 40px;">
-            <img src="/static/assets/images/KumonLogo.jpg" alt="Picture of Company" style = "height: 100px; width: 300px;">
+        <div style="margin-left: 40px;">
+            <img src="/static/assets/images/KumonLogo.jpg" alt="Picture of Company"
+                 style="height: 100px; width: 300px;">
         </div>
-        <p style = "margin-top: 28px; text-align: center; font-size: 21px;">Kumon is an academic institution for students from grades pre-K to 12th. It offers effective practice worksheets
-            designed to help students take on vigorous work habits as well as to aid them in sharpening their skills in core education subjects
+        <p style="margin-top: 28px; text-align: center; font-size: 21px;">Kumon is an academic institution for students
+            from grades pre-K to 12th. It offers effective practice worksheets
+            designed to help students take on vigorous work habits as well as to aid them in sharpening their skills in
+            core education subjects
             such as math and reading.</p>
     </div>
 
-    <div class = "service-template-container-1" style = "float: right; margin-top: -470px; margin-right: 100px;">
+    <div class="service-template-container-1" style="float: right; margin-top: -470px; margin-right: 100px;">
 
         <h1 style="text-align: center;">Personalization Tools</h1>
         <hr>
-        <p style = "text-align: center; font-size: 21px;">Add a reminder for Kumon, or add the phone number of Kumon to your own personal service phonebook.</p>
-        <button id = "reminder-button" class = "button-2">Add to Reminders</button>
-        <button id = "phonebook-button" class = "button-2" style = "margin-top: 50px;">Add to Service Phonebook</button>
-        <div id = "reminder-input-container" class = "reminder-input-container">
-            <p id = "reminder-input-container-exit" style = "float: right; color: black; margin-top: 0px; margin-right: 5px; cursor: pointer;">&#x2716;</p>
+        <p style="text-align: center; font-size: 21px;">Add a reminder for Kumon, or add the phone number of Kumon to
+            your own personal service phonebook.</p>
+        <button id="reminder-button" class="button-2">Add to Reminders</button>
+        <button id="phonebook-button" class="button-2" style="margin-top: 50px;">Add to Service Phonebook</button>
+        <div id="reminder-input-container" class="reminder-input-container">
+            <p id="reminder-input-container-exit"
+               style="float: right; color: black; margin-top: 0px; margin-right: 5px; cursor: pointer;">&#x2716;</p>
             <br>
-            <h2 style = "color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
+            <h2 style="color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
             <hr>
-            <form id = "reminder-form" onsubmit = "addReminderExternal()">
-                <label for = "user-input-1" style = "text-align: center;">Write the name of the service</label>
-                <input type = "text" name = "reminder-name" id = "user-input-1" class = "user-input-1" required>
+            <form id="reminder-form" onsubmit="addReminderExternal()">
+                <label for="user-input-1" style="text-align: center;">Write the name of the service</label>
+                <input type="text" name="reminder-name" id="user-input-1" class="user-input-1" required>
                 <br>
-                <label for = "user-date-1" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
-                <input type = "date" name = "reminder-date" id = "user-date-1" class = "user-date-1" required>
+                <label for="user-date-1" style="text-align: center;">Select the date when you want to be notified for
+                    this reminder</label>
+                <input type="date" name="reminder-date" id="user-date-1" class="user-date-1" required>
                 <br>
-                <label for = "user-time-1" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
-                <input type = "time" name = "reminder-time" id = "user-time-1" class = "user-time-1" required>
-                <input type = "submit" id = "add-reminder-button" class = "button-3" value = "Add Reminder">
+                <label for="user-time-1" style="text-align: center;">Select the time when you want to be notified for
+                    this reminder</label>
+                <input type="time" name="reminder-time" id="user-time-1" class="user-time-1" required>
+                <input type="submit" id="add-reminder-button" class="button-3" value="Add Reminder">
             </form>
         </div>
-        <div id = "phonebook-lobby-container" class = "phonebook-lobby-container">
-            <p id = "phonebook-lobby-container-exit" style = "float: right; color: white; margin-top: 1%; margin-right: 3%; cursor: pointer;">&#x2716;</p>
+        <div id="phonebook-lobby-container" class="phonebook-lobby-container">
+            <p id="phonebook-lobby-container-exit"
+               style="float: right; color: white; margin-top: 1%; margin-right: 3%; cursor: pointer;">&#x2716;</p>
             <br>
         </div>
     </div>
@@ -234,6 +247,8 @@
         var userInput1 = document.getElementById("user-input-1");
         userInput1.value = "Kumon";
 
-        </script>
+
+
+</script>
 </body>
 </html>
