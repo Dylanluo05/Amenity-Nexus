@@ -133,20 +133,17 @@
 
     .reminders-description-container-1 {
         display: flex;
+        margin: auto;
         max-width: 450px;
         font-weight: bolder;
         line-height: 30px;
         text-align: center;
         border: none;
-        margin-top: -55px;
-        margin-left: 370px;
     }
 
     .reminders-image-1 {
         height: 450px;
         width: 450px;
-        margin-top: -170px;
-        margin-left: 225px;
         transform: translateY(0px);
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
         transition-duration: 1s;
@@ -161,8 +158,7 @@
         height: 40px;
         width: 400px;
         display: block;
-        margin-top: 25px;
-        margin-left: 255px;
+        margin: auto;
         border: none;
         background-color: royalblue;
         color: white;
@@ -182,9 +178,7 @@
         position: relative;
         z-index: 2;
         margin: auto;
-        top: -75%;
-        /*top: 10%;
-        left: 35%;*/
+        margin-top: -30%;
         box-shadow: 0 5px 20px 0 rgba(255, 255, 255, 0.7);
     }
 
@@ -498,18 +492,22 @@
     </div>
 </div>
 <div id = "reminders-background-1">
-    <h1 style = "margin: 0; center; position: relative; top: 80px; left: 395px;">Reminders</h1>
-    <div style = "display: flex; flex-direction: row; margin-top: 10%; margin-left: -9%;">
-        <div class = "reminders-description-container-1"><h3>Life can be busy, so it is often hard to keep track of things.
-            Our website offers a helpful reminders feature that helps you take note of the different services you are interested in.
-            Use the Service Search page to find a viable service for your needs, then save the name of that service in your reminders,
-            as well as when you want to be notified.</h3>
+    <div style = "height: 100%; width: 100%; display: flex; flex-direction: row;">
+        <div style = "width: 55%;">
+            <h1 style = "margin-top: 12%; text-align: center;">Reminders</h1>
+            <div class = "reminders-description-container-1"><h3>Life can be busy, so it is often hard to keep track of things.
+                Our website offers a helpful reminders feature that helps you take note of the different services you are interested in.
+                Use the Service Search page to find a viable service for your needs, then save the name of that service in your reminders,
+                as well as when you want to be notified.</h3>
+            </div>
+            <button id = "reminder-button-1" class = "reminder-button-1">Add a Reminder</button>
         </div>
-        <div style = "height: 0; width: 0;">
-            <img src = "/static/assets/images/calender-stock-photo-2.jpg" class = "reminders-image-1">
+        <div style = "width: 45%; display: flex; justify-content: center; align-items: center;">
+            <div>
+                <img src = "/static/assets/images/calender-stock-photo-2.jpg" class = "reminders-image-1">
+            </div>
         </div>
     </div>
-    <button id = "reminder-button-1" class = "reminder-button-1">Add a Reminder</button>
     <div id = "reminder-input-container" class = "reminder-input-container">
         <p id = "reminder-input-container-exit" style = "float: right; color: black; margin-top: 0px; margin-right: 5px; cursor: pointer;">&#x2716;</p>
         <br>
