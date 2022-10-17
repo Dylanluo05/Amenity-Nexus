@@ -73,12 +73,13 @@
         flex-direction: row;
         position: relative;
         top: 25%;
+        justify-content: space-evenly;
+
     }
 
     .intro-circle-container-1 {
         height: 250px;
         width: 250px;
-        margin-left: 21%;
         border-radius: 100%;
         background-color: darkgray;
         z-index: 1;
@@ -178,7 +179,6 @@
         position: relative;
         z-index: 2;
         margin: auto;
-        margin-top: -30%;
         box-shadow: 0 5px 20px 0 rgba(255, 255, 255, 0.7);
     }
 
@@ -295,8 +295,6 @@
     .phonebook-image-1 {
         height: 350px;
         width: 500px;
-        margin-top: 3%;
-        margin-left: 10%;
         box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
         transform: translateY(0px);
         transition-duration: 1s;
@@ -309,23 +307,19 @@
 
     .phonebook-description-container-1 {
         display: flex;
+        margin: auto;
         max-width: 450px;
-        float: right;
         font-weight: bolder;
         line-height: 30px;
         text-align: center;
         border: none;
-        margin-top: 8%;
-        position: relative;
-        left: -15%;
     }
 
     .phonebook-button-1 {
         height: 40px;
         width: 400px;
         display: block;
-        margin-top: -7%;
-        margin-left: 57%;
+        margin: auto;
         border: none;
         background-color: royalblue;
         color: white;
@@ -347,17 +341,17 @@
     }
 
     .service-phonebook-lobby-container {
-        height: 80%;
-        width: 30%;
+        height: 400px;
+        width: 500px;
         display: none;
         overflow-y: auto;
         margin: auto;
         padding: 10px;
-        position: relative;
-        top: -65%;
-        left: 20%;
         background-color: black;
         color: white;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 5px 25px 5px rgba(0, 0, 0, 0.7);
     }
 
     .service-phonebook-lobby-contact {
@@ -396,12 +390,11 @@
     }
 
     .personal-service-phonebook-container {
-        height: 80%;
-        width: 30%;
+        height: 550px;
+        width: 450px;
         margin: auto;
         padding: 10px;
         position: relative;
-        top: 10%;
         background-color: black;
         color: white;
     }
@@ -420,7 +413,7 @@
         height: 90%;
         width: 80%;
         margin: auto;
-        margin-top: 5%;
+        margin-top: 3.5%;
         padding: 10px;
         background-color: black;
         color: white;
@@ -448,7 +441,7 @@
         display: inline-block;
         float: left;
         margin-left: 10%;
-        margin-top: -5%;
+        margin-top: 5%;
         font-size: 37px;
         color: white;
     }
@@ -457,7 +450,7 @@
         display: inline-block;
         float: right;
         margin-right: 10%;
-        margin-top: -5%;
+        margin-top: 5%;
         font-size: 37px;
         color: white;
     }
@@ -492,9 +485,9 @@
     </div>
 </div>
 <div id = "reminders-background-1">
-    <div style = "height: 100%; width: 100%; display: flex; flex-direction: row;">
+    <div style = "height: 100%; width: 100%; display: flex; flex-direction: row; align-items: center;">
         <div style = "width: 55%;">
-            <h1 style = "margin-top: 12%; text-align: center;">Reminders</h1>
+            <h1 style = "text-align: center;">Reminders</h1>
             <div class = "reminders-description-container-1"><h3>Life can be busy, so it is often hard to keep track of things.
                 Our website offers a helpful reminders feature that helps you take note of the different services you are interested in.
                 Use the Service Search page to find a viable service for your needs, then save the name of that service in your reminders,
@@ -502,31 +495,33 @@
             </div>
             <button id = "reminder-button-1" class = "reminder-button-1">Add a Reminder</button>
         </div>
+        <div style = "width: 100%; position: absolute;">
+            <div id = "reminder-input-container" class = "reminder-input-container">
+                <p id = "reminder-input-container-exit" style = "float: right; color: black; margin-top: 0px; margin-right: 5px; cursor: pointer;">&#x2716;</p>
+                <br>
+                <h2 style = "color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
+                <hr>
+                <form id = "reminder-form" onsubmit = "addReminder()">
+                    <label for = "user-input-1" style = "text-align: center;">Write the name of the service</label>
+                    <br>
+                    <input type = "text" name = "reminder-name" id = "user-input-1" class = "user-input-1" required>
+                    <br>
+                    <label for = "user-date-1" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
+                    <br>
+                    <input type = "date" name = "reminder-date" id = "user-date-1" class = "user-date-1" required>
+                    <br>
+                    <label for = "user-time-1" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
+                    <br>
+                    <input type = "time" name = "reminder-time" id = "user-time-1" class = "user-time-1" required>
+                    <input type = "submit" id = "reminder-button-2" class = "reminder-button-2" value = "Add Reminder">
+                </form>
+            </div>
+        </div>
         <div style = "width: 45%; display: flex; justify-content: center; align-items: center;">
             <div>
                 <img src = "/static/assets/images/calender-stock-photo-2.jpg" class = "reminders-image-1">
             </div>
         </div>
-    </div>
-    <div id = "reminder-input-container" class = "reminder-input-container">
-        <p id = "reminder-input-container-exit" style = "float: right; color: black; margin-top: 0px; margin-right: 5px; cursor: pointer;">&#x2716;</p>
-        <br>
-        <h2 style = "color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
-        <hr>
-        <form id = "reminder-form" onsubmit = "addReminder()">
-            <label for = "user-input-1" style = "text-align: center;">Write the name of the service</label>
-            <br>
-            <input type = "text" name = "reminder-name" id = "user-input-1" class = "user-input-1" required>
-            <br>
-            <label for = "user-date-1" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
-            <br>
-            <input type = "date" name = "reminder-date" id = "user-date-1" class = "user-date-1" required>
-            <br>
-            <label for = "user-time-1" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
-            <br>
-            <input type = "time" name = "reminder-time" id = "user-time-1" class = "user-time-1" required>
-            <input type = "submit" id = "reminder-button-2" class = "reminder-button-2" value = "Add Reminder">
-        </form>
     </div>
 </div>
 <div id = "reminders-background-2">
@@ -536,101 +531,111 @@
     <ul id="my-service-reminds"></ul>
 </div>
 <div id = "phonebook-background-1">
-    <h1 style = "margin: 0; text-align: center; position: relative; top: 25%; left: 20%;">Service Phonebook</h1>
-    <img src = "/static/assets/images/phonebook-stock-photo-2.jpg" class = "phonebook-image-1">
-    <div class = "phonebook-description-container-1"><h3>
-        In life, organization is essential to time efficiency.
-        Search for the phone contacts of services you need in the service phone number lobby,
-        and keep them in your own personal service phonebook.
-    </h3></div>
-    <button id = "phonebook-button-1" class = "phonebook-button-1">Access Service Phone Contact Lobby</button>
-    <div id = "service-phonebook-lobby-container" class = "service-phonebook-lobby-container">
-        <p id = "service-phonebook-lobby-container-exit" style = "float: right; color: white; position: relative; top: -5%; right: 5%; cursor: pointer;">&#x2716;</p>
-        <br>
-        <h2 style = "text-align: center;">Service Phone Contact Lobby</h2>
-        <hr>
-        <div class = "service-phonebook-lobby-contact">
-            <div style = "position: relative; top: -3px;">
-                <h4 style = "display: inline-block;" class = "title">WIRED AV:</h4>
-                <h4 style = "display: inline-block;" class = "phone-number">(619) 348-4142</h4>
-                <button class = "button-1">Add to Personal Phonebook</button>
-                <h4 class = "reveal-1">Added!</h4>
-            </div>
+    <div style = "height: 100%; width: 100%; display: flex; flex-direction: row; align-items: center;">
+        <div style = "width: 45%; display: flex; justify-content: center; align-items: center;">
+            <img src = "/static/assets/images/phonebook-stock-photo-2.jpg" class = "phonebook-image-1">
         </div>
-        <div class = "service-phonebook-lobby-contact">
-            <div style = "position: relative; top: -3px;">
-                <h4 style = "display: inline-block;" class = "title">The Painting Company San Diego:</h4>
-                <h4 style = "display: inline-block;" class = "phone-number">(619) 937-2468</h4>
-                <button class = "button-1">Add to Personal Phonebook</button>
-                <h4 class = "reveal-1">Added!</h4>
-            </div>
+        <div style = "width: 55%;">
+            <h1 style = "text-align: center;">Service Phonebook</h1>
+            <div class = "phonebook-description-container-1"><h3>
+                In life, organization is essential to time efficiency.
+                Search for the phone contacts of services you need in the service phone number lobby,
+                and keep them in your own personal service phonebook.
+            </h3></div>
+            <button id = "phonebook-button-1" class = "phonebook-button-1">Access Service Phone Contact Lobby</button>
         </div>
-        <div class = "service-phonebook-lobby-contact">
-            <div style = "position: relative; top: -3px;">
-                <h4 style = "display: inline-block;" class = "title">LA Fitness:</h4>
-                <h4 style = "display: inline-block;" class = "phone-number">(858) 676-6806</h4>
-                <button class = "button-1">Add to Personal Phonebook</button>
-                <h4 class = "reveal-1">Added!</h4>
-            </div>
-        </div>
-        <div class = "service-phonebook-lobby-contact">
-            <div style = "position: relative; top: -3px;">
-                <h4 style = "display: inline-block;" class = "title">Fit Athletic Club:</h4>
-                <h4 style = "display: inline-block;" class = "phone-number">(858) 674-4480</h4>
-                <button class = "button-1">Add to Personal Phonebook</button>
-                <h4 class = "reveal-1">Added!</h4>
-            </div>
-        </div>
-        <div class = "service-phonebook-lobby-contact">
-            <div style = "position: relative; top: -3px;">
-                <h4 style = "display: inline-block;" class = "title">Kumon:</h4>
-                <h4 style = "display: inline-block;" class = "phone-number">(858) 472-8341</h4>
-                <button class = "button-1">Add to Personal Phonebook</button>
-                <h4 class = "reveal-1">Added!</h4>
-            </div>
-        </div>
-        <div class = "service-phonebook-lobby-contact">
-            <div style = "position: relative; top: -3px;">
-                <h4 style = "display: inline-block;" class = "title">Mathnasium:</h4>
-                <h4 style = "display: inline-block;" class = "phone-number">(858) 312-8888</h4>
-                <button class = "button-1">Add to Personal Phonebook</button>
-                <h4 class = "reveal-1">Added!</h4>
-            </div>
-        </div>
-        <div class = "service-phonebook-lobby-contact">
-            <div style = "position: relative; top: -3px;">
-                <h4 style = "display: inline-block;" class = "title">Rady's Children's Hospital:</h4>
-                <h4 style = "display: inline-block;" class = "phone-number">(858) 576-1700</h4>
-                <button class = "button-1">Add to Personal Phonebook</button>
-                <h4 class = "reveal-1">Added!</h4>
-            </div>
-        </div>
-        <div class = "service-phonebook-lobby-contact">
-            <div style = "position: relative; top: -3px;">
-                <h4 style = "display: inline-block;" class = "title">Scripps Clinic Rancho Bernardo:</h4>
-                <h4 style = "display: inline-block;" class = "phone-number">(858) 487-1800</h4>
-                <button class = "button-1">Add to Personal Phonebook</button>
-                <h4 class = "reveal-1">Added!</h4>
+        <div style = "width: 100%; position: absolute;">
+            <div id = "service-phonebook-lobby-container" class = "service-phonebook-lobby-container">
+                <p id = "service-phonebook-lobby-container-exit" style = "float: right; color: white; position: relative; top: -5%; right: 5%; cursor: pointer;">&#x2716;</p>
+                <br>
+                <h2 style = "text-align: center;">Service Phone Contact Lobby</h2>
+                <hr>
+                <div class = "service-phonebook-lobby-contact">
+                    <div style = "position: relative; top: -3px;">
+                        <h4 style = "display: inline-block;" class = "title">WIRED AV:</h4>
+                        <h4 style = "display: inline-block;" class = "phone-number">(619) 348-4142</h4>
+                        <button class = "button-1">Add to Personal Phonebook</button>
+                        <h4 class = "reveal-1">Added!</h4>
+                    </div>
+                </div>
+                <div class = "service-phonebook-lobby-contact">
+                    <div style = "position: relative; top: -3px;">
+                        <h4 style = "display: inline-block;" class = "title">The Painting Company San Diego:</h4>
+                        <h4 style = "display: inline-block;" class = "phone-number">(619) 937-2468</h4>
+                        <button class = "button-1">Add to Personal Phonebook</button>
+                        <h4 class = "reveal-1">Added!</h4>
+                    </div>
+                </div>
+                <div class = "service-phonebook-lobby-contact">
+                    <div style = "position: relative; top: -3px;">
+                        <h4 style = "display: inline-block;" class = "title">LA Fitness:</h4>
+                        <h4 style = "display: inline-block;" class = "phone-number">(858) 676-6806</h4>
+                        <button class = "button-1">Add to Personal Phonebook</button>
+                        <h4 class = "reveal-1">Added!</h4>
+                    </div>
+                </div>
+                <div class = "service-phonebook-lobby-contact">
+                    <div style = "position: relative; top: -3px;">
+                        <h4 style = "display: inline-block;" class = "title">Fit Athletic Club:</h4>
+                        <h4 style = "display: inline-block;" class = "phone-number">(858) 674-4480</h4>
+                        <button class = "button-1">Add to Personal Phonebook</button>
+                        <h4 class = "reveal-1">Added!</h4>
+                    </div>
+                </div>
+                <div class = "service-phonebook-lobby-contact">
+                    <div style = "position: relative; top: -3px;">
+                        <h4 style = "display: inline-block;" class = "title">Kumon:</h4>
+                        <h4 style = "display: inline-block;" class = "phone-number">(858) 472-8341</h4>
+                        <button class = "button-1">Add to Personal Phonebook</button>
+                        <h4 class = "reveal-1">Added!</h4>
+                    </div>
+                </div>
+                <div class = "service-phonebook-lobby-contact">
+                    <div style = "position: relative; top: -3px;">
+                        <h4 style = "display: inline-block;" class = "title">Mathnasium:</h4>
+                        <h4 style = "display: inline-block;" class = "phone-number">(858) 312-8888</h4>
+                        <button class = "button-1">Add to Personal Phonebook</button>
+                        <h4 class = "reveal-1">Added!</h4>
+                    </div>
+                </div>
+                <div class = "service-phonebook-lobby-contact">
+                    <div style = "position: relative; top: -3px;">
+                        <h4 style = "display: inline-block;" class = "title">Rady's Children's Hospital:</h4>
+                        <h4 style = "display: inline-block;" class = "phone-number">(858) 576-1700</h4>
+                        <button class = "button-1">Add to Personal Phonebook</button>
+                        <h4 class = "reveal-1">Added!</h4>
+                    </div>
+                </div>
+                <div class = "service-phonebook-lobby-contact">
+                    <div style = "position: relative; top: -3px;">
+                        <h4 style = "display: inline-block;" class = "title">Scripps Clinic Rancho Bernardo:</h4>
+                        <h4 style = "display: inline-block;" class = "phone-number">(858) 487-1800</h4>
+                        <button class = "button-1">Add to Personal Phonebook</button>
+                        <h4 class = "reveal-1">Added!</h4>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <div id = "phonebook-background-2">
-    <div class = "personal-service-phonebook-container">
-        <h2 style = "text-align: center;">Personal Service Phonebook</h2>
-        <hr>
-        <div class = "personal-service-phonebook-contact">
-            <div class = "current-service-phonebook-contact">
-                <h3 style = "text-align: center;" class = "service-name">Service Name</h3>
-                <hr>
-                <h3 style = "text-align: center;">Contact Information:</h3>
-                <h4 style = "text-align: center;">Service Name: </h4>
-                <h4 style = "text-align: center;" id = "service-phonebook-name"></h4>
-                <h4 style = "text-align: center;">Phone Number: </h4>
-                <h4 style = "text-align: center;" id = "service-phonebook-phone-number"></h4>
-                <button class = "button-2" id = "button-2">Remove Contact</button>
-                <p class = "prev" id = "prev">&#8678;</p>
-                <p class = "next" id = "next">&#8680;</p>
+    <div style = "height: 100%; width: 100%; display: flex; justify-content: center; align-items: center;">
+        <div class = "personal-service-phonebook-container">
+            <h2 style = "text-align: center;">Personal Service Phonebook</h2>
+            <hr>
+            <div class = "personal-service-phonebook-contact">
+                <div class = "current-service-phonebook-contact">
+                    <h3 style = "text-align: center;" class = "service-name">Service Name</h3>
+                    <hr>
+                    <h3 style = "text-align: center;">Contact Information:</h3>
+                    <h4 style = "text-align: center;">Service Name: </h4>
+                    <h4 style = "text-align: center;" id = "service-phonebook-name"></h4>
+                    <h4 style = "text-align: center;">Phone Number: </h4>
+                    <h4 style = "text-align: center;" id = "service-phonebook-phone-number"></h4>
+                    <button class = "button-2" id = "button-2">Remove Contact</button>
+                    <p class = "prev" id = "prev">&#8678;</p>
+                    <p class = "next" id = "next">&#8680;</p>
+                </div>
             </div>
         </div>
     </div>
