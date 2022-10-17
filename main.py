@@ -87,9 +87,26 @@ def orangetheory():
 def cyclebar():
     return render_template("/servicebase/cycle-bar.html")
 
+
 @app.route('/the-art-of-dentistry/')
 def theartofdentistry():
     return render_template("/servicebase/the-art-of-dentistry.html")
+
+
+@app.route('/balboapark/')
+def balboapark():
+    return render_template("/servicebase/balboapark.html")
+
+
+@app.route('/4sboysandgirlsclub/')
+def boysandgirlsclub():
+    return render_template("/servicebase/4sboysandgirlsclub.html")
+
+
+@app.route('/joshuatreenationalpark/')
+def joshuatreenationalpark():
+    return render_template("/servicebase/joshuatreenationalpark.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=777)
