@@ -13,6 +13,7 @@
 
     {% include "foundation/navigation-bar.html" %}
 </head>
+{% block body %}
 <style>
     html, body {
         font-family: 'Roboto Flex', sans-serif;
@@ -245,6 +246,8 @@
         margin-right: 10px;
         font-weight: lighter;
         cursor: pointer;
+        background: transparent;
+        border: none;
     }
 
     .reminder-item-container {
@@ -501,18 +504,18 @@
                 <br>
                 <h2 style = "color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
                 <hr>
-                <form id = "reminder-form" onsubmit = "addReminder()">
-                    <label for = "user-input-1" style = "text-align: center;">Write the name of the service</label>
+                <form id = "reminder-form" method = "POST" ID = "create" action={{url_for('personalization.create')}}>
+                    <label for = "name" style = "text-align: center;">Write the name of the service</label>
                     <br>
-                    <input type = "text" name = "reminder-name" id = "user-input-1" class = "user-input-1" required>
+                    <input type = "text" name = "name" id = "name" class = "user-input-1" required>
                     <br>
-                    <label for = "user-date-1" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
+                    <label for = "date" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
                     <br>
-                    <input type = "date" name = "reminder-date" id = "user-date-1" class = "user-date-1" required>
+                    <input type = "date" name = "date" id = "date" class = "user-date-1" required>
                     <br>
-                    <label for = "user-time-1" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
+                    <label for = "time" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
                     <br>
-                    <input type = "time" name = "reminder-time" id = "user-time-1" class = "user-time-1" required>
+                    <input type = "time" name = "time" id = "time" class = "user-time-1" required>
                     <input type = "submit" id = "reminder-button-2" class = "reminder-button-2" value = "Add Reminder">
                 </form>
             </div>
@@ -528,7 +531,21 @@
     <div class="reminders-heading">
         <h2 style = "margin: 0; text-align: center;">Your Reminder List</h2>
     </div>
-    <ul id="my-service-reminds"></ul>
+    {% for row in personalization %}
+        {% if current_user.userID == row.userID %}
+        <ul id="my-service-reminds">
+            <div class = "reminder-item-container">
+                <li class = "reminder-item-title">{{ row.name | safe }}</li>
+                <p class = "reminder-item-date">{{ row.date | safe }}</p>
+                <p class = "reminder-item-time">{{ row.time | safe }}</p>
+                <form method = "POST" ID = "delete" action = {{url_for('personalization.delete')}}>
+                    <input type = "text" name = "id" id = "id" value = "{{ row.id | safe }}" style = "display: none;">
+                    <input type = "submit" class = "reminder-item-check" value = "&#x2716;">
+                </form>
+            </div>
+        </ul>
+        {% endif %}
+    {% endfor %}
 </div>
 <div id = "phonebook-background-1">
     <div style = "height: 100%; width: 100%; display: flex; flex-direction: row; align-items: center;">
@@ -642,4 +659,5 @@
 </div>
 <script src= "/static/assets/javascript/personalization.js"></script>
 </body>
+{% endblock %}
 </html>

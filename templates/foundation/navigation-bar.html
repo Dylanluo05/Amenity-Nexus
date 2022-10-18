@@ -142,7 +142,7 @@
         <a style = "margin-left: 28px;" href={{url_for('crud.crud_login')}}>Sign In</a>
         {% endif %}
         {% if current_user.is_authenticated == True %}
-            <a style = "margin-left: 28px;" href={{url_for('user_profile')}}>View Your Personal Profile</a>
+            <a style = "margin-left: 28px;" href={{url_for('personalization.personalization')}}>View Your Personal Profile</a>
             {% if current_user.privilege == 0 %}
                 <a style = "margin-left: 28px;" class = "navigation-dropdown-link" type="button">CRUD</a>
                 <div class="navigation-dropdown-container navigation-dropdown-container-2">
