@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap"
           rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 <style>
@@ -25,9 +26,9 @@
 
     .navigation-links-container {
         height: 60px;
-        width: 150%;
+        width: 95%;
         margin: 10px;
-        margin-left: 28px;
+        margin-left: 10%px;
         /*display: flex;
         flex-direction: row;*/
         position: relative;
@@ -37,7 +38,7 @@
     a {
         color: white;
         font-size: 21px;
-        margin-left: 28px;
+        margin-left: 21px;
         cursor: pointer;
         user-select: none; /* supported by Chrome and Opera */
        -webkit-user-select: none; /* Safari */
@@ -50,12 +51,36 @@
         text-decoration: none;
     }
 
-    .navigation-links-container > .navigation-dropdown-container {
-        height: 200px;
+    .navigation-links-container > .navigation-dropdown-container-1 {
+        height: 110px;
         width: 150px;
         background-color: black;
         position: absolute;
         margin-left: 80px;
+        border: 1px solid lightgray;
+        border-radius: 4px;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.4);
+        padding: 10px;
+    }
+
+    .navigation-links-container > .navigation-dropdown-container-2 {
+        height: 90px;
+        width: 150px;
+        background-color: black;
+        position: absolute;
+        margin-left: 620px;
+        border: 1px solid lightgray;
+        border-radius: 4px;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.4);
+        padding: 10px;
+    }
+
+    .navigation-links-container > .navigation-dropdown-container-3 {
+        height: 40px;
+        width: 100px;
+        background-color: black;
+        position: absolute;
+        right: -30px;
         border: 1px solid lightgray;
         border-radius: 4px;
         box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.4);
@@ -71,24 +96,6 @@
         margin-top: 4px;
     }
 
-    .service-nexus-logo {
-        display: inline-block;
-        position: relative;
-        top: -100px;
-        /*margin-left: 1400px;
-        float: right;
-        position: relative;
-        right: 10px;*/
-        transition-duration: 0.7s;
-        position: absolute;
-        right: 0px;
-    }
-
-    .service-nexus-logo:hover {
-        box-shadow: 0 5px 5px 0 rgba(0,0,0,0.6);
-        transform: translatey(-11px);
-    }
-
     /*
     @keyframes float {
         0%,
@@ -102,52 +109,90 @@
         }
     }
     */
+
+    .logout-button {
+        color: white;
+        position: absolute;
+        left: 15px;
+        font-size: 21px;
+        height: 40px;
+        width: 90px;
+        background-color: black;
+        cursor: pointer;
+    }
+
 </style>
 <body>
 <div class="navigation-container">
     <div class="navigation-links-container">
-        <a href={{url_for('home')}}>Home</a>
-        <a onclick="dropdownMain1();" type="button">About Us</a>
-        <div class="navigation-dropdown-container" id="navigation-dropdown-container-1">
+        <a style = "margin-left: 28px;" href={{url_for('home')}}>Home</a>
+        <a style = "margin-left: 28px;" class = "navigation-dropdown-link" type="button">About Us</a>
+        <div class="navigation-dropdown-container navigation-dropdown-container-1">
             <div class="navigation-dropdown-member"><a href="/about-adi/" style="position: relative; left: -21px;">Adi
                 Nawandhar</a></div>
-            <div class="navigation-dropdown-member"><a href="/about-aryan/" style="position: relative; left: -21px;">Aryan
-                Shah</a></div>
             <div class="navigation-dropdown-member"><a href="/about-dylan/" style="position: relative; left: -21px;">Dylan
                 Luo</a></div>
             <div class="navigation-dropdown-member"><a href="/about-jean/" style="position: relative; left: -21px;">Jean
                 Kim</a></div>
-            <div class="navigation-dropdown-member"><a href="/about-kurtis/" style="position: relative; left: -21px;">Kurtis
-                Kwan</a></div>
-            <div class="navigation-dropdown-member"><a href="/about-ritvik/" style="position: relative; left: -21px;">Ritvik
-                Keerthi</a></div>
             <div class="navigation-dropdown-member"><a href="/about-sohan/" style="position: relative; left: -21px;">Sohan
                 Sankuratri</a></div>
         </div>
-        <a href="/service-search/">Service Search</a>
-        <a href="/personalization/">Personal Tools</a>
-        <a href="/personalization/">Sign In</a>
-        <a href="/userprofile/">View Your User Profile</a>
-        <a href={{ url_for('crud.crud') }}>Crud</a>
-        <a href=>Log In</a>
+        <a style = "margin-left: 28px;" href="/service-search/">Service Search</a>
+        {% if current_user.is_authenticated == False %}
+        <a style = "margin-left: 28px;" href={{url_for('crud.crud_login')}}>Sign In</a>
+        {% endif %}
+        {% if current_user.is_authenticated == True %}
+            <a style = "margin-left: 28px;" href={{url_for('personalization.personalization')}}>View Your Personal Profile</a>
+            {% if current_user.privilege == 0 %}
+                <a style = "margin-left: 28px;" class = "navigation-dropdown-link" type="button">CRUD</a>
+                <div class="navigation-dropdown-container navigation-dropdown-container-2">
+                    <div class="navigation-dropdown-member">
+                        <a href={{url_for('crud.crud')}} style="position: relative; left: -21px;">Crud</a></div>
+                    <div class="navigation-dropdown-member">
+                        <a href={{url_for('crud_api.crud_api')}} style="position: relative; left: -21px;">Crud Async</a></div>
+                    <div class="navigation-dropdown-member">
+                        <a href={{url_for('crud.search')}} style="position: relative; left: -21px;">Search</a></div>
+                </div>
+            {% endif %}
+        {% endif %}
+        {% if current_user.is_authenticated == True %}
+            <a style = "float: right;" type="button" class = "navigation-dropdown-link">{{ current_user.name }}</a>
+        {% endif %}
+        <div class = "navigation-dropdown-container navigation-dropdown-container-3">
+            <form style="margin-left: 15px" action={{url_for('crud.crud_logout')}}>
+                <input class = "logout-button" type="submit" value="Log Out"/>
+            </form>
+        </div>
     </div>
-    <img src="/static/assets/images/Service-Nexus-Logo-Transparent-Type.png" class = "service-nexus-logo" alt = "Logo" style = "height: 100px; width: 100px">
 </div>
 
 <script>
-        var dropdown1 = document.getElementById("navigation-dropdown-container-1");
-        dropdown1.style.display = "none";
+    $(".navigation-dropdown-link").on("click", dropdownMain);
+    $(".navigation-dropdown-container").css("display", "none");
 
-        function dropdownMain1 () {
-        if (dropdown1.style.display == "none") {
-            dropdown1.style.display = "block";
+    function dropdownMain() {
+        var navigationDropdownLinkIndex = $(this).index();
+        console.log(navigationDropdownLinkIndex)
+        if (navigationDropdownLinkIndex == 1) {
+            if ($(".navigation-dropdown-container").eq(0).css("display") == "none") {
+                $(".navigation-dropdown-container").eq(0).css("display", "block");
+            } else if ($(".navigation-dropdown-container").eq(0).css("display") == "block") {
+                $(".navigation-dropdown-container").eq(0).css("display", "none");
+            }
+        } else if (navigationDropdownLinkIndex == 5) {
+            if ($(".navigation-dropdown-container").eq(1).css("display") == "none") {
+                $(".navigation-dropdown-container").eq(1).css("display", "block");
+            } else if ($(".navigation-dropdown-container").eq(1).css("display") == "block") {
+                $(".navigation-dropdown-container").eq(1).css("display", "none");
+            }
+        } else if (navigationDropdownLinkIndex == 7) {
+            if ($(".navigation-dropdown-container").eq(2).css("display") == "none") {
+                $(".navigation-dropdown-container").eq(2).css("display", "block");
+            } else if ($(".navigation-dropdown-container").eq(2).css("display") == "block") {
+                $(".navigation-dropdown-container").eq(2).css("display", "none");
+            }
         }
-        else if (dropdown1.style.display == "block"){
-            dropdown1.style.display = "none";
-        }
-
     }
-
 
 </script>
 

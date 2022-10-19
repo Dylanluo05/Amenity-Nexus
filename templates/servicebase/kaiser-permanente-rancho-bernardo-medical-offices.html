@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Kumon</title>
+    <title>Kaiser Permanente Rancho Bernardo Medical Offices</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
@@ -161,38 +161,25 @@
 <div class = "service-template-background-transition"></div>
 
 <div id = "service-template-background-2">
-    <h1 style = "margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">Kumon</h1>
+    <h1 style = "margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">Kaiser Permanente</h1>
     <br>
 
     <div style = "margin-top: 100px; margin-left: 100px;" class = "service-template-container-1">
         <center><h1>Contact Information</h1></center>
         <hr>
         <p class = "bold">Customer Service Phone Number:</p>
-        <p>1-800-222-6284</p>
+        <p>1-833-574-2273</p>
         <p class = "bold">Email Address:</p>
-        <p>contacto@kumon.com</p>
+        <p> kpautoresponse@kp.org</p>
         <p class = "bold">Locations in San Diego:</p>
+        <p class = "bold"> address: 17140 Bernardo Center Dr, San Diego, CA 92128:</p>
         <ul class = "locations-list">
-            <li>4s Ranch</li>
-            <li>Point Loma</li>
             <li>Rancho Bernardo</li>
-            <li>Rancho Penasquitos</li>
-        </ul>
-        <ul class = "locations-list" style = "margin-top: -57px; margin-left: 110px;">
-            <li>Kearny Mesa</li>
-            <li>Mira Mesa</li>
-            <li>Carmel Valley</li>
-            <li>University City</li>
-        </ul>
-        <ul class = "locations-list" style = "margin-top: -57px; margin-left: 210px;">
-            <li>Rancho Santa Fe</li>
-            <li>La Jolla</li>
-            <li>Poway</li>
-            <li>Escondido</li>
+            
         </ul>
         <br>
-        <form action = "https://www.kumon.com/carlsbad-la-costa-oaks?gclid=Cj0KCQjwz96WBhC8ARIsAATR253tGRI4dlHhoxJCGl1uzHMtsnEPy9VpPh6YXMUNotAR4KdwKHcnnvkaAsMsEALw_wcB">
-            <input type = "submit" class = "button-1" value = "Kumon's Website">
+        <form action = "https://healthy.kaiserpermanente.org/southern-california/facilities/rancho-bernardo-medical-offices-100094">
+            <input type = "submit" class = "button-1" value = "Kaiser Permanente's Website">
         </form>
     </div>
 
@@ -202,16 +189,15 @@
         <div style = "margin-left: 40px;">
             <img src="/static/assets/images/KumonLogo.jpg" alt="Picture of Company" style = "height: 100px; width: 300px;">
         </div>
-        <p style = "margin-top: 28px; text-align: center; font-size: 21px;">Kumon is an academic institution for all students from grades pre-K to 12th. Focusing
-        on core subjects such as Math and Reading, they provide students with effective practice worksheets
-        as well as aid in sharpening work habits.</p>
+        <p style = "margin-top: 28px; text-align: center; font-size: 21px;"> Kaiser Permanente Rancho Bernardo Medical Offices is a medical group practice within the community of 
+            Rancho Bernardo in San Diego, CA that helps those that seek medical attention and care in Family Medicine and Internal Medicine.</p>
     </div>
 
     <div class = "service-template-container-1" style = "float: right; margin-top: -470px; margin-right: 100px;">
 
         <h1 style="text-align: center;">Personalization Tools</h1>
         <hr>
-        <p style = "text-align: center; font-size: 21px;">Add a reminder for Kumon, or add the phone number of Kumon to your own personal service phonebook.</p>
+        <p style = "text-align: center; font-size: 21px;">Add a reminder for Kaiser Permanente, or add the phone number of Kaiser Permanente to your own personal service phonebook.</p>
         <button id = "reminder-button" class = "button-2">Add to Reminders</button>
         <button id = "phonebook-button" class = "button-2" style = "margin-top: 50px;">Add to Service Phonebook</button>
         <div id = "reminder-input-container" class = "reminder-input-container">
@@ -219,15 +205,15 @@
             <br>
             <h2 style = "color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
             <hr>
-            <form id = "reminder-form" method = "POST" ID = "create" action="{{url_for('personalization.create')}}">
-                <label for = "name" style = "text-align: center;">Write the name of the service</label>
-                <input type = "text" name = "name" id = "name" class = "user-input-1" required>
+            <form id = "reminder-form" onsubmit = "addReminderExternal()">
+                <label for = "user-input-1" style = "text-align: center;">Write the name of the service</label>
+                <input type = "text" name = "reminder-name" id = "user-input-1" class = "user-input-1" required>
                 <br>
-                <label for = "date" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
-                <input type = "date" name = "date" id = "date" class = "user-date-1" required>
+                <label for = "user-date-1" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
+                <input type = "date" name = "reminder-date" id = "user-date-1" class = "user-date-1" required>
                 <br>
-                <label for = "time" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
-                <input type = "time" name = "time" id = "time" class = "user-time-1" required>
+                <label for = "user-time-1" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
+                <input type = "time" name = "reminder-time" id = "user-time-1" class = "user-time-1" required>
                 <input type = "submit" id = "add-reminder-button" class = "button-3" value = "Add Reminder">
             </form>
         </div>
@@ -240,8 +226,8 @@
         <script src='/static/assets/javascript/personalization_service_search_scripts.js'></script>
         <script>
 
-        var userInput1 = document.getElementById("name");
-        userInput1.value = "Kumon";
+        var userInput1 = document.getElementById("user-input-1");
+        userInput1.value = "Kaiser Permanente";
 
         </script>
     </body>

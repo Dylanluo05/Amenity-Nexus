@@ -18,14 +18,14 @@ class Users(UserMixin, db.Model):
     name = db.Column(db.String(255), unique=False, nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), unique=False, nullable=False)
-    phone = db.Column(db.String(255), unique=False, nullable=False)
+    privilege = db.Column(db.Integer, unique=False, nullable=False)
 
     # constructor of a User object, initializes of instance variables within object
-    def __init__(self, name, email, password, phone):
+    def __init__(self, name, email, password, privilege):
         self.name = name
         self.email = email
         self.set_password(password)
-        self.phone = phone
+        self.privilege = privilege
 
     # CRUD create/add a new record to the table
     # returns self or None on error
@@ -47,20 +47,18 @@ class Users(UserMixin, db.Model):
             "name": self.name,
             "email": self.email,
             "password": self.password,
-            "phone": self.phone,
+            "privilege": self.privilege,
             "query": "by_alc"  # This is for fun, a little watermark
         }
 
     # CRUD update: updates users name, password, phone
     # returns self
-    def update(self, name, password="", phone=""):
+    def update(self, name, password=""):
         """only updates values with length"""
         if len(name) > 0:
             self.name = name
         if len(password) > 0:
             self.set_password(password)
-        if len(phone) > 0:
-            self.phone = phone
         db.session.commit()
         return self
 
@@ -96,15 +94,16 @@ def model_tester():
     print("--------------------------")
     db.create_all()
     """Tester data for table"""
-    u1 = Users(name='Thomas Edison', email='tedison@example.com', password='123toby', phone="1111111111")
-    u2 = Users(name='Nicholas Tesla', email='ntesla@example.com', password='123niko', phone="1111112222")
-    u3 = Users(name='Alexander Graham Bell', email='agbell@example.com', password='123lex', phone="1111113333")
-    u4 = Users(name='Eli Whitney', email='eliw@example.com', password='123whit', phone="1111114444")
-    u5 = Users(name='John Mortensen', email='jmort1021@gmail.com', password='123qwerty', phone="8587754956")
-    u6 = Users(name='John Mortensen', email='jmort1021@yahoo.com', password='123qwerty', phone="8587754956")
-    # U7 intended to fail as duplicate key
-    u7 = Users(name='John Mortensen', email='jmort1021@yahoo.com', password='123qwerty', phone="8586791294")
-    table = [u1, u2, u3, u4, u5, u6, u7]
+    u1 = Users(name='Dylan Luo', email='dylanluo@example.com', password='12345678', privilege=0)
+    u2 = Users(name='Sohan Sankuratri', email='sohan@example.com', password='12345678', privilege=0)
+    u3 = Users(name='Adi Nawandhar', email='adi@example.com', password='12345678', privilege=0)
+    u4 = Users(name='Jean Kim', email='jean@example.com', password='123456780', privilege=0)
+    u5 = Users(name='Dev Kantari', email='dev@example.com', password='12345678', privilege=0)
+    u6 = Users(name='Ritvik Keerthi', email='ritvik@example.com', password='12345678', privilege=0)
+    u7 = Users(name='Ritvik Keerthi', email='ritvik@yahoo.com', password='12345678', privilege=0)
+    # U8 intended to fail as duplicate key
+    u8 = Users(name='Ritvik Keerthi', email='ritvik@yahoo.com', password='12345678', privilege=0)
+    table = [u1, u2, u3, u4, u5, u6, u7, u8]
     for row in table:
         try:
             db.session.add(row)

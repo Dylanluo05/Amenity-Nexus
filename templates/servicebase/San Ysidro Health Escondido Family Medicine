@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8">
 
-    <title>The Art of Dentistry</title>
+    <title>San Ysidro Health Escondido Family Medicine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    {% include "foundation/navigation_bar.html" %}
+    {% include "foundation/navigation-bar.html" %}
 </head>
 
 <style>
@@ -161,29 +161,25 @@
 <div class = "service-template-background-transition"></div>
 
 <div id = "service-template-background-2">
-    <h1 style = "margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">The Art of Dentistry</h1>
+    <h1 style = "margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">San Ysidro Health Escondido Family Medicine</h1>
     <br>
 
     <div style = "margin-top: 100px; margin-left: 100px;" class = "service-template-container-1">
         <center><h1>Contact Information</h1></center>
         <hr>
         <p class = "bold">Customer Service Phone Number:</p>
-        <p>619-304-3143 </p>
-        <p class = "bold">Email Address:</p>
-        <p>n/a</p>
+        <p>1-619-662-4100</p>
+        <p class = "bold">Address:</p>
+        <p>704 E Grand Ave, Escondido, CA 92025</p>
         <p class = "bold">Locations in San Diego:</p>
         <ul class = "locations-list">
-            <li>2840 Fifth Ave Suite 300, San Diego, CA 92103</li>
-
-        </ul>
-        <ul class = "locations-list" style = "margin-top: -57px; margin-left: 110px;">
-
-        </ul>
-        <ul class = "locations-list" style = "margin-top: -57px; margin-left: 210px;">
-
+            <li>Escondido</li>
+            <li>Chula Vista</li>
+            <li>San Diego</li>
         </ul>
         <br>
-        <form action = https://www.sandiegoartofdentistry.com/
+        <form action = "https://www.syhc.org/">
+            <input type = "submit" class = "button-1" value = "San Ysidro Health Escondido Family Medicine's Website">
         </form>
     </div>
 
@@ -193,9 +189,8 @@
         <div style = "margin-left: 40px;">
             <img src="/static/assets/images/KumonLogo.jpg" alt="Picture of Company" style = "height: 100px; width: 300px;">
         </div>
-        <p style = "margin-top: 28px; text-align: center; font-size: 21px;">Kumon is an academic institution for students from grades pre-K to 12th. It offers effective practice worksheets
-            designed to help students take on vigorous work habits as well as to aid them in sharpening their skills in core education subjects
-            such as math and reading.</p>
+        <p style = "margin-top: 28px; text-align: center; font-size: 21px;">San Ysidro Health Escondido Family Medicine is a medical center that offers clinic services such as Family 
+            Medicine, Adult Medicine, Pediatrics and Dental Services. Same day appointments are available as well.</p>
     </div>
 
     <div class = "service-template-container-1" style = "float: right; margin-top: -470px; margin-right: 100px;">
@@ -228,12 +223,12 @@
         </div>
     </div>
 </div>
-<script src='/static/assets/javascript/personalization_service_search_scripts.js'></script>
-<script>
+        <script src='/static/assets/javascript/personalization_service_search_scripts.js'></script>
+        <script>
 
         var userInput1 = document.getElementById("user-input-1");
-        userInput1.value = "Kumon";
+        userInput1.value = "San Ysidro Health Escondido Family Medicine";
 
         </script>
-</body>
+    </body>
 </html>

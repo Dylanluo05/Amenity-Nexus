@@ -1,5 +1,5 @@
 """control dependencies to support CRUD app routes and APIs"""
-from flask import Blueprint, render_template, request, url_for, redirect, jsonify, make_response
+from flask import Blueprint, render_template, request, url_for, redirect, jsonify, make_response, abort
 
 from account.query import *
 
@@ -19,6 +19,16 @@ app_crud = Blueprint('crud', __name__,
 """
 
 
+def admin():
+    try:
+        if current_user.privilege == 0:
+            return 0
+        elif current_user.privilege == 1:
+            return 1
+        else:
+            return 2
+    except AttributeError:
+        abort(404)
 # Default URL for Blueprint
 @app_crud.route('/')
 #@login_required  # Flask-Login uses this decorator to restrict access to logged in users
@@ -42,9 +52,7 @@ def crud_login():
         email = request.form.get("email")
         password = request.form.get("password")
         if login(email, password):       # zero index [0] used as email is a tuple
-            return render_template('index.html')
-
-    # if not logged in, show the login page
+            return render_template('/foundation/home.html')
     return render_template("login.html")
 
 
@@ -55,10 +63,8 @@ def crud_authorize():
         # validation should be in HTML
         user_name = request.form.get("user_name")
         email = request.form.get("email")
-        password1 = request.form.get("password1")
-        password2 = request.form.get("password1")
-        phone = request.form.get("phone")                    # password should be verified
-        if authorize(user_name, email, password1, phone):    # zero index [0] used as user_name and email are type tuple
+        password1 = request.form.get("password1") # password should be verified
+        if authorize(user_name, email, password1, 2):    # zero index [0] used as user_name and email are type tuple
             return redirect(url_for('crud.crud_login'))
     # show the auth user page if the above fails for some reason
     return render_template("authorize.html")
@@ -67,7 +73,7 @@ def crud_authorize():
 @app_crud.route('/logout/', methods=["GET", "POST"])
 def crud_logout():
     logout_user()
-    return render_template("index.html")
+    return render_template("login.html")
 
 
 # CRUD create/add
@@ -79,7 +85,7 @@ def create():
             request.form.get("name"),
             request.form.get("email"),
             request.form.get("password"),
-            request.form.get("phone")
+            2
         )
         po.create()
     return redirect(url_for('crud.crud'))
@@ -125,7 +131,7 @@ def delete():
 
 # Search Form
 @app_crud.route('/search/')
-@login_required
+#@login_required
 def search():
     """loads form to search Users data"""
     return render_template("search.html")

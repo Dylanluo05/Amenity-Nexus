@@ -370,16 +370,15 @@
     <script src = "Home.js">
     -->
     <script>
-
         var introText = document.getElementById("intro-text");
         var slogan = "Anytime, Anywhere";
         var sloganArray = slogan.split("");
         var a = 0;
-        var w = 0;
+        /*var w = 0;
         var caretAnimate = document.getElementById("caret-animate");
         caretAnimate.style.display = "none";
         caretAnimate.style.left = "772px";
-        var LEFT = 772;
+        var LEFT = 772;*/
 
         function sloganAnimation() {
             introText.innerHTML += sloganArray[a];
@@ -389,7 +388,7 @@
             }
         }
 
-        function typingAnimation() {
+        /*function typingAnimation() {
             caretAnimate.style.left = LEFT + "px";
             if (w < 2) {
                 LEFT += 8;
@@ -415,19 +414,19 @@
             if (w >= sloganArray.length - 1) {
                 clearTimer(typingAnimation);
             }
-        }
+        }*/
 
-        function blinkAnimation() {
+        /*function blinkAnimation() {
             if (caretAnimate.style.display == "none") {
                 caretAnimate.style.display = "inline-block";
             } else if (caretAnimate.style.display == "inline-block") {
                 caretAnimate.style.display = "none";
             }
-        }
+        }*/
 
         var sloganTimer = setInterval(sloganAnimation, 200);
-        var typingTimer = setInterval(typingAnimation, 200);
-        var blinkTimer = setInterval(blinkAnimation, 400);
+        /*var typingTimer = setInterval(typingAnimation, 200);
+        var blinkTimer = setInterval(blinkAnimation, 400);*/
 
 
         $(".maintenance-picture-content").on("click", redirect1);
@@ -443,7 +442,23 @@
         $(".education-picture-content").hover(subBackgroundAnimation7, subBackgroundAnimation8);
 
         function redirect1() {
-            location.href = "/servicesearch/";
+            if ($(this).children().html() == "Maintenance") {
+                location.href = "/service-search/";
+                localStorage.setItem("maintenanceDropdownStatus", "Shown");
+                localStorage.setItem("maintenanceAutomaticScroll", "On");
+            } else if ($(this).children().html() == "Amenity") {
+                location.href = "/service-search/";
+                localStorage.setItem("amenityDropdownStatus", "Shown");
+                localStorage.setItem("amenityAutomaticScroll", "On");
+            } else if ($(this).children().html() == "Medical") {
+                location.href = "/service-search/";
+                localStorage.setItem("medicalDropdownStatus", "Shown");
+                localStorage.setItem("medicalAutomaticScroll", "On");
+            } else if ($(this).children().html() == "Education") {
+                location.href = "/service-search/";
+                localStorage.setItem("educationDropdownStatus", "Shown");
+                localStorage.setItem("educationAutomaticScroll", "On");
+            }
         }
 
         function subBackgroundAnimation1() {
