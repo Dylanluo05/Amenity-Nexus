@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-
-    <title>Mathnasium</title>
+    <meta charset="UTF-8">
+    <title>Royal Pain Services</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap"
@@ -26,7 +25,7 @@
     #service-template-background-1 {
         height: 400px;
         margin: 0;
-        background: url("https://www.kumon.com/resources/wp-content/uploads/2020/03/Blog-header.jpg");
+        background: url("http://royalpaint.com/en/home-page/);
         background-size: cover;
     }
 
@@ -158,9 +157,6 @@
 
 
 
-
-
-
 </style>
 <body>
 
@@ -171,39 +167,28 @@
 
 <div id="service-template-background-2">
     <h1 style="margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">
-        Mathnasium</h1>
+        cyclebar</h1>
     <br>
 
     <div style="margin-top: 100px; margin-left: 100px;" class="service-template-container-1">
         <center><h1>Contact Information</h1></center>
         <hr>
-        <p class="bold">Customer Service Phone Number:</p>
-        <p>877-601-6284</p>
-        <p class="bold">Email Address:</p>
-        <p>4sranch@mathnasium.com</p>
-        <p class="bold">Locations in San Diego:</p>
-        <ul class="locations-list">
-            <li>4s Commons</li>
-            <li>Point Loma</li>
-            <li>Rancho Bernardo</li>
-            <li>Rancho Penasquitos</li>
-        </ul>
-        <ul class="locations-list" style="margin-top: -57px; margin-left: 110px;">
-            <li>Kearny Mesa</li>
-            <li>Mira Mesa</li>
-            <li>Carmel Valley</li>
-            <li>University City</li>
-        </ul>
-        <ul class="locations-list" style="margin-top: -57px; margin-left: 210px;">
-            <li>Rancho Santa Fe</li>
-            <li>La Jolla</li>
-            <li>Poway</li>
-            <li>Escondido</li>
-        </ul>
-        <br>
-        <form action="www.mathnasium.com">
-            <input type="submit" class="button-1" value="Kumon's Website">
-        </form>
+        <p class="bold">Customer Service Phone Numbers:</p>
+        <ul>
+       
+            <li>(858) 722-6296 - Carmel country road</li>
+            <p class="bold">Email Address:</p>
+            <p>RoyalPaints@gmail.com</p>
+            <p class="bold">Locations:</p>
+            <ul class="locations-list">
+                <li>7514 Girard Ave Encinitas, CA 92037
+                </li>
+                <li>12720 Carmel Country Rd Suite 110, San Diego, CA 92130</li>
+            </ul>
+            <br>
+            <form action="https://www.bing.com/maps?osid=9a0317f2-2bab-4930-9dab-679f12154912&cp=32.843337~-117.2972&lvl=13&v=2&sV=2&form=S00027">
+                <input type="submit" class="button-1" value="LJPS Website">
+            </form>
     </div>
 
     <div class="service-template-container-1" style="margin: auto; margin-top: -470px;">
@@ -213,19 +198,17 @@
             <img src="/static/assets/images/KumonLogo.jpg" alt="Picture of Company"
                  style="height: 100px; width: 300px;">
         </div>
-        <p style="margin-top: 28px; text-align: center; font-size: 21px;">Mathnasium is an American education brand and
-            supplemental math learning franchise consisting of over 1,000 learning centers in North America,
-            South America, Europe, the Middle East, and Asia that provides instruction to students in pre-kindergarten
-            through high school.</p>
+        <p style="margin-top: 28px; text-align: center; font-size: 21px;"> 
+        </p>
     </div>
 
     <div class="service-template-container-1" style="float: right; margin-top: -470px; margin-right: 90px;">
 
         <h1 style="text-align: center;">Personalization Tools</h1>
         <hr>
-        <p style="text-align: center; font-size: 21px;">Add a reminder for Mathnasium, or add the phone number of
-            Mathnasium to
-            your own personal service phonebook.</p>
+        <p style="text-align: center; font-size: 21px;">Add a reminder for Khan Academy, or add the phone number of
+            cyclebar
+            to your own personal service phonebook.</p>
         <button id="reminder-button" class="button-2">Add to Reminders</button>
         <button id="phonebook-button" class="button-2" style="margin-top: 50px;">Add to Service Phonebook</button>
         <div id="reminder-input-container" class="reminder-input-container">
@@ -259,10 +242,30 @@
 <script>
 
         var userInput1 = document.getElementById("user-input-1");
-        userInput1.value = "Kumon";
+        userInput1.value = "cyclebar";
 
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
