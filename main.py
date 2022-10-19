@@ -5,11 +5,14 @@ from __init__ import app
 from account.app_crud import app_crud
 from account.app_crud_api import app_crud_api
 
+from personalization.app_personalization import app_personalization
+
 # redirect and url_for can be used for redirecting users to the login page if they are attempting to access their user profile,
 # but they are not yet logged in.
 
 app.register_blueprint(app_crud)
 app.register_blueprint(app_crud_api)
+app.register_blueprint(app_personalization)
 
 
 @app.route('/')
@@ -90,6 +93,10 @@ def cyclebar():
 @app.route('/the-art-of-dentistry/')
 def theartofdentistry():
     return render_template("/servicebase/the-art-of-dentistry.html")
+
+@app.route('/fairbanks-ridge-tutoring/')
+def fairbanksridgetutoring():
+    return render_template("/servicebase/fairbanks-ridge-tutoring.html")
 
 if __name__ == "__main__":
     app.run(debug=True, port=777)

@@ -83,7 +83,7 @@ function phonebookLobbyHide() {
     }
 }
 
-var reminderForm = document.getElementById("reminder-form");
+/*var reminderForm = document.getElementById("reminder-form");
 
 function addReminderExternal() {
     event.preventDefault();
@@ -114,4 +114,4 @@ function addReminderExternal() {
         var serviceRemindsList1 = [serviceRemindObject1];
         localStorage.setItem("myServiceRemindsKey", JSON.stringify(serviceRemindsList1));
     }
-}
+}*/
