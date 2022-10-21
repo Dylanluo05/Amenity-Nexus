@@ -4,7 +4,6 @@ from flask import render_template
 from __init__ import app
 from account.app_crud import app_crud
 from account.app_crud_api import app_crud_api
-
 from personalization.app_personalization import app_personalization
 
 # redirect and url_for can be used for redirecting users to the login page if they are attempting to access their user profile,
@@ -90,13 +89,31 @@ def orangetheory():
 def cyclebar():
     return render_template("/servicebase/cycle-bar.html")
 
+
 @app.route('/the-art-of-dentistry/')
 def theartofdentistry():
     return render_template("/servicebase/the-art-of-dentistry.html")
 
+
 @app.route('/fairbanks-ridge-tutoring/')
 def fairbanksridgetutoring():
     return render_template("/servicebase/fairbanks-ridge-tutoring.html")
+
+
+@app.route('/4sboysandgirlsclub/')
+def boysandgirlsclub():
+    return render_template("4sboysandgirlsclub.html")
+
+
+@app.route('/balboapark/')
+def balboapark():
+    return render_template("balboapark.html")
+
+
+@app.route('/joshuatreenationalpark/')
+def joshuatreenationalpark():
+    return render_template("joshuatreenationalpark.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=777)
