@@ -25,7 +25,6 @@
     #service-template-background-1 {
         height: 400px;
         margin: 0;
-        background: url("https://www.kumon.com/resources/wp-content/uploads/2020/03/Blog-header.jpg");
         background-size: cover;
     }
 
@@ -152,11 +151,6 @@
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
     }
 
-
-
-
-
-
 </style>
 <body>
 
@@ -243,35 +237,6 @@
 
         var userInput1 = document.getElementById("user-input-1");
         userInput1.value = "cyclebar";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 </body>
 </html>

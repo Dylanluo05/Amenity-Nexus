@@ -25,7 +25,6 @@
     #service-template-background-1 {
         height: 400px;
         margin: 0;
-        background: url("https://www.kumon.com/resources/wp-content/uploads/2020/03/Blog-header.jpg");
         background-size: cover;
     }
 
@@ -197,7 +196,7 @@
 
         <h1 style="text-align: center;">Personalization Tools</h1>
         <hr>
-        <p style = "text-align: center; font-size: 21px;">Add a reminder for Kumon, or add the phone number of Kumon to your own personal service phonebook.</p>
+        <p style = "text-align: center; font-size: 21px;">Add a reminder for San Ysidro Health Escondido Family Medicine, or add their phone number to your own personal service phonebook.</p>
         <button id = "reminder-button" class = "button-2">Add to Reminders</button>
         <button id = "phonebook-button" class = "button-2" style = "margin-top: 50px;">Add to Service Phonebook</button>
         <div id = "reminder-input-container" class = "reminder-input-container">
