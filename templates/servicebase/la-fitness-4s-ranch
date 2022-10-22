@@ -173,7 +173,6 @@
         <p class = "bold">Locations in San Diego:</p>
         <ul class = "locations-list">
             <li>4s Ranch</li>
-            <li>Various locations across San Diego as well</li>
         </ul>
         <br>
         <form action = "https://www.lafitness.com/Pages/clubhome.aspx?clubid=322&San+Diego-California+GYM">
@@ -196,7 +195,7 @@
 
         <h1 style="text-align: center;">Personalization Tools</h1>
         <hr>
-        <p style = "text-align: center; font-size: 21px;">Add a reminder for Kumon, or add the phone number of Kumon to your own personal service phonebook.</p>
+        <p style = "text-align: center; font-size: 21px;">Add a reminder for LA Fitness, or add the phone number of LA Fitness to your own personal service phonebook.</p>
         <button id = "reminder-button" class = "button-2">Add to Reminders</button>
         <button id = "phonebook-button" class = "button-2" style = "margin-top: 50px;">Add to Service Phonebook</button>
         <div id = "reminder-input-container" class = "reminder-input-container">
