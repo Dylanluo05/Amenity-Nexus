@@ -183,6 +183,7 @@ function phonebookLobbyHide() {
     }
 }
 
+/*
 $(".reveal-1").hide();
 $(".button-1").on("click", addContact);
 
@@ -223,11 +224,13 @@ function addContact() {
         localStorage.servicePhonebookKey = JSON.stringify(addedDataArray);
     }
 }
+*/
 
+/*
 var slideNumber = 0;
 
 if (localStorage.servicePhonebookKey) {
-    var addedDataArrayRetrieve3 = JSON.parse(localStorage.servicePhonebookKey);
+    var addedDataArrayRetrieve3 = JSON.parse(localStorage.servicePhonebookKey);*/
     /*var indexList = [];
     for (var a = 0; a < addedDataArrayRetrieve3.length; a++) {
         indexList.push(addedDataArrayRetrieve3[a].index);
@@ -239,9 +242,9 @@ if (localStorage.servicePhonebookKey) {
             $("#service-phonebook-phone-number").html(addedDataArrayRetrieve3[w].phoneNumber);
         }
     }*/
-    $("#service-phonebook-name").html(addedDataArrayRetrieve3[0].title);
+    /*$("#service-phonebook-name").html(addedDataArrayRetrieve3[0].title);
     $("#service-phonebook-phone-number").html(addedDataArrayRetrieve3[0].phoneNumber);
-}
+}*/
 
 var prevButton = document.getElementById("prev");
 prevButton.addEventListener("click", previous);

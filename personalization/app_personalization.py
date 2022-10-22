@@ -1,9 +1,9 @@
 import markdown
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required, current_user
-from account.query import user_by_id, sqlquery_2_list
+from account.query import user_by_id, sqlquery_2_list, task_by_id
 from personalization.model import Personalization
-from datetime import datetime
+from personalization.model2 import Phonebook
 from __init__ import login_manager, db
 import pytz
 
@@ -14,9 +14,23 @@ app_personalization = Blueprint('personalization', __name__,
                          static_folder='static',
                          static_url_path='static')
 
+app_phonebook = Blueprint('phonebook', __name__,
+                                url_prefix='/personalization',
+                                template_folder='templates/personalization/',
+                                static_folder='static',
+                                static_url_path='static')
+
+
 
 def personalization_all_alc():
     table = Personalization.query.filter(Personalization.userID == current_user.userID)
+    json_ready = [peep.read() for peep in table]
+    for peep in table:
+        print(peep.read())
+    return json_ready
+
+def phonebook_all_alc():
+    table = Phonebook.query.filter(Phonebook.userID == current_user.userID)
     json_ready = [peep.read() for peep in table]
     for peep in table:
         print(peep.read())
@@ -64,6 +78,39 @@ def personalization():
         user = uo.read()
     return render_template('user-profile.html', user=user, user_by_id=user_by_id, personalization=list_personalization)
 
+@app_phonebook.route('/')
+@login_required
+def phonebook():
+    # # defaults are empty, in case user data not found
+    # # print(timeline_all_sql())
+    # user = ""
+    # list_timeline = []
+    #
+    # # grab user database object based on current login
+    # uo = user_by_id(current_user.userID)
+    #
+    # # if user object is found
+    # if uo is not None:
+    #     user = uo.read()  # extract user record (Dictionary)
+    #     # print(uo)
+    #     # print(user)
+    #     # print(uo.timeline)
+    #     for content in uo.timeline:  # loop through each user note
+    #         # print(content)
+    #         content = content.read()  # extract note record (Dictionary)
+    #         content['content'] = markdown.markdown(content['content'])  # convert markdown to html
+    #         list_timeline.append(content)  # prepare note list for render_template
+    #     if list_timeline is not None:
+    #         list_timeline.reverse()
+    # # render user and note data in reverse chronological order(display latest notes rec on top)
+    # # print(list_timeline)
+    list_phonebook = phonebook_all_alc()
+    if list_phonebook is not None:
+        list_phonebook.reverse()
+    uo = user_by_id(current_user.userID)
+    if uo is not None:
+        user = uo.read()
+    return render_template('user-profile.html', user=user, user_by_id=user_by_id, phonebook=list_phonebook)
 
 # Notes create/add
 @app_personalization.route('/create/', methods=["POST"])
@@ -79,14 +126,25 @@ def create():
         content_object.create()
     return redirect(url_for('personalization.personalization'))
 
+@app_phonebook.route('/create2/', methods=["POST"])
+@login_required
+def create2():
+    """gets data from form and add to Notes table"""
+    if request.form:
+        # construct a Notes object
+        content_object = Phonebook(
+            request.form.get("servicename"), request.form.get("serviceid"), current_user.userID
+        )
+        # create a record in the Notes table with the Notes object
+        content_object.create()
+    return redirect(url_for('phonebook.phonebook'))
+
 @app_personalization.route('/delete/', methods=["POST"])
 def delete():
-    """gets id from form delete corresponding record from the Personalization table"""
+    """gets userid from form delete corresponding record from Users table"""
     if request.form:
         reminderid = request.form.get("id")
-        po = user_by_id(current_user.userID)
+        po = task_by_id(reminderid)
         if po is not None:
-            for x in po:
-                if x.id == reminderid:
-                    x.delete()
+            po.delete()
     return redirect(url_for('personalization.personalization'))
