@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>About Dev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% include "foundation/navigation-bar.html" %}
+</head>
+
+<style>
+    html, body {
+        font-family: 'Roboto Flex', san-serif;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+    .navigation-container, .navigation-dropdown-container {
+        z-index: 3;
+    }
+
+    #about-dev-background-1 {
+        max-height: 350vh;
+        background: linear-gradient(to top right, cyan 0%, dodgerblue 100%);
+        background-repeat: no-repeat;
+        padding: 38px;
+        z-index: 1;
+    }
+
+    .about-dev-background-1-barrier {
+        height: 800px;
+        margin: auto;
+        background: white;
+        background-repeat: no-repeat;
+        position: relative;
+        top: 140px;
+        opacity: 0.7;
+        z-index: 2;
+    }
+
+    .profile-container-1 {
+        height: 500px;
+        width: 500px;
+        background-color: white;
+        margin: auto;
+        position: relative;
+        top: -52pc;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+        z-index: 3;
+    }
+
+    .image-profile {
+        border-radius: 100%;
+        background-color: whitesmoke;
+        height: 240px;
+        width: 240px;
+        position: relative;
+        top: -31pc;
+        margin: auto;
+        z-index: 4;
+    }
+
+    .profile-container-2 {
+        height: 110px;
+        width: 380px;
+        background-color: white;
+        box-shadow: 0 10px 10px 0 rgba(0,0,0,0.7);
+        margin: auto;
+        position: relative;
+        top: -50pc;
+        z-index: 3;
+        padding: 10px;
+    }
+
+    .fa {
+        border-radius: 100%;
+        font-size: 24px;
+        height: 21px;
+        width: 21px;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .fa-instagram {
+        border: 2px solid lightcoral;
+        background-color: white;
+        color: lightcoral;
+        transition-duration: 0.8s;
+    }
+
+    .fa-instagram:hover {
+        color: white;
+        background: lightcoral;
+    }
+
+    .fa-linkedin {
+        border: 2px solid navy;
+        background-color: white;
+        color: navy;
+        transition-duration: 0.8s;
+    }
+
+    .fa-linkedin:hover {
+        color: white;
+        background-color: navy;
+    }
+
+    .fa-youtube {
+        border: 2px solid maroon;
+        background-color: white;
+        color: maroon;
+        transition-duration: 0.8s;
+    }
+
+    .fa-youtube:hover {
+        color: white;
+        background-color: maroon;
+    }
+
+    .fa-google {
+        border: 2px solid royalblue;
+        background-color: white;
+        color: royalblue;
+        transition-duration: 0.8s;
+    }
+
+    .fa-google:hover {
+        color: white;
+        background-color: royalblue;
+    }
+
+
+    .heading-style-1 {
+        color: slategray;
+        text-decoration-style: solid;
+        text-decoration-line: underline;
+        text-decoration-thickness: 1.5px;
+        font-size: 21px;
+    }
+
+    .profile-container-3 {
+        margin: auto;
+        height: 580px;
+        width: 800px;
+        background-color: white;
+        position: relative;
+        top: -39pc;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+        padding: 38px;
+        z-index: 3;
+    }
+
+    .image {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+
+    .profile-container-4 {
+        margin: auto;
+        height: 480px;
+        width: 700px;
+        background-color: white;
+        position: relative;
+        top: -28pc;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+        z-index: 3;
+        padding: 37px;
+    }
+</style>
+
+<body>
+    <div id = "about-dev-background-1">
+        <div class = "about-dev-background-1-barrier"></div>
+            <div class = "image-profile">
+                <img src = "/static/assets/images/ServiceNexusDylanLuo.png" alt = "Dev's Picture" class = "image">
+            </div>
+            <div class = "profile-container-1">
+                <h1 style = "text-align: center; position: relative; top: 348px;">Dylan Luo</h1>
+                <h2 style = "text-align: center; position: relative; top: 348px; font-weight: normal;">Team Leader and Program Manager</h2>
+            </div>
+            <div class = "profile-container-2">
+                <h2 class = "heading-style-1" style = "position: relative; top: -16px;">Socials</h2>
+                <a href = "https://www.instagram.com/dylanluo05/"  class = "fa fa-instagram" style = "margin-left: 34px; position: relative; top: -20px;"></a>
+                <a href = "https://www.linkedin.com/in/dylan-luo-04798321b/" class = "fa fa-linkedin" style = "margin-left: 34px; position: relative; top: -20px;"></a>
+                <a href = "https://www.youtube.com/channel/UC-UY6FG-hX00XyrmyCZKibA" class = "fa fa-youtube" style = "margin-left: 34px; position: relative; top: -20px;"></a>
+                <a href = "mailto:dragonfly.luo@gmail.com" class = "fa fa-google" style = "margin-left: 34px; position: relative; top: -20px;"></a>
+            </div>
+            <div class = "profile-container-3">
+                <h1 style = "text-align: center;">Allow me to introduce myself...</h1>
+                <h3 style = "font-weight: normal;">Hey, my name is Dev, and I am currently a senior at Del Norte High School as of the 2022-2023 school year.
+                In my day-to-day life, I enjoy reading, volunteering at the hospital or at service locations to help those that are unfortunate. I have been tutoring for years
+            and have a passion for the medical field.</h3>
+                <br>
+
+                <h3 style = "font-weight: normal;">After school and in my free time, I attend a variety of clubs and extracurriculars:
+                    <ol>
+                        <li>Helping Hands Club</li>
+                        <li>Education in America</li>
+                        <li>Volunteering at Sharp Grossmont Hospital</li>
+                        <li>HOSA (health based club)</li>
+                        <li>Amatuer Astronomers club</li>
+                    </ol>
+                </h3>
+
+                <br>
+                <h3 style = "font-weight: normal;">Ever since I was in elementary school, I have always been fascinated with the medical field including the study of the human body but also 
+                . I started my interest through shadowing a doctor at a hospital when I began high school. Around that same time my interest peaked in shadowing so I continued shadowing 
+                multiple medical proffessions virtually as well as volunteering at the hospital when the pandemic started to slow down. Around the summer into my last year in high school I  
+                became interested in coding and Dylan introduced me to into the basics of CSS, Javascipt and HTML. I was interested in helping introduce the health aspect to the project and 
+                believed it was a crucial factor to resources that a community needs. </h3>
+            </div>
+            <div class = "profile-container-4">
+                <h1 style = "text-align: center;">Mission Statement</h1>
+                <h2 style = "font-weight: normal;"> I always have loved to contribute to the community in many diverse ways and with my new interest with coding I will be dedicated 
+                    to help with this project and those who will be impacted through our hard work as a team.</h2>
+                <img src = "/static/assets/images/Service-Nexus-Logo-Transparent-Type.png" alt = "Service Nexus Logo" width = "340px" height = "340px" style = "display: block; margin: auto; margin-top: -70px;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>
