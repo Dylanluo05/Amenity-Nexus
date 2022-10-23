@@ -86,40 +86,28 @@
         100% {background-color: dodgerblue;}
     }
 
-    .category-dropdown-content1 {
+    .category-dropdown-content {
+        height: auto;
         width: 720px;
         border-left: 7px solid transparent;
         margin: auto;
         position: relative;
         top: 110px;
-        background-color: #AC9362;
-    }
-    .category-dropdown-content2 {
-            width: 720px;
-            border-left: 7px solid transparent;
-            margin: auto;
-            position: relative;
-            top: 110px;
-            background-color: #AC9362;
+        background-color: darkblue;
     }
 
-    .category-dropdown-content3 {
-        width: 720px;
-        border-left: 7px solid transparent;
-        margin: auto;
-        position: relative;
-        top: 110px;
-        background-color: #AC9362;
+    #category-dropdown-content-1, #category-dropdown-content-4 {
+        padding-bottom: 10px;
     }
 
-    .category-dropdown-content4 {
-        width: 720px;
-        border-left: 7px solid transparent;
-        margin: auto;
-        position: relative;
-        top: 110px;
-        background-color: #AC9362;
+    #category-dropdown-content-2 {
+        padding-bottom: 60px;
     }
+
+    #category-dropdown-content-3 {
+        padding-bottom: 160px;
+    }
+
     /*.category-dropdown-marking {
         height: 100px;
         width: 7px;
@@ -162,9 +150,9 @@
 
     td {
         height: 40px;
-        width: 700px;
-        background-color: #e0e0d1;
-        border: 2px solid #c2c2b2;
+        width: 150px;
+        background-color: white;
+        border: 4px solid royalblue;
     }
 
     /*td:nth-child(odd) {
@@ -182,34 +170,6 @@
         margin: auto;
         color: black;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
 
 
@@ -240,7 +200,7 @@
         <div class="category-dropdown-container" id="category-dropdown-container-1">
             <h1 style="text-align: center; margin-top: 21px">Maintenance</h1>
         </div>
-        <div class="category-dropdown-content1">
+        <div class="category-dropdown-content" id = "category-dropdown-content-1">
             <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">The best maintenance
                 services in San Diego</p>
             <table style="margin-top: 18px;">
@@ -265,13 +225,12 @@
         <div class="category-dropdown-container" id="category-dropdown-container-2">
             <h1 style="text-align: center; margin-top: 21px">Amenity</h1>
         </div>
-        <div class="category-dropdown-content2">
+        <div class="category-dropdown-content" id = "category-dropdown-content-2">
             <p style="color: white; margin: 0; text-align: center; position: relative; top: 8px;">The best amenity
                 services in San Diego</p>
             <table style="margin-top: 18px;">
                 <tr>
-                    <td><a href="/4s-ranch-boys-and-girls-club/" class="service-link">4s Ranch Boys and Girls Club</a>
-                    </td>
+                    <td><a href="/4s-ranch-boys-and-girls-club/" class="service-link">4s Ranch Boys and Girls Club</a></td>
                 </tr>
                 <tr>
                     <td><a href="/balboa-park/" class="service-link">Balboa Park</a></td>
@@ -294,28 +253,24 @@
         <div class="category-dropdown-container" id="category-dropdown-container-3">
             <h1 style="text-align: center; margin-top: 21px">Medical</h1>
         </div>
-        <div class="category-dropdown-content3">
+        <div class="category-dropdown-content" id = "category-dropdown-content-3">
             <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">The best medical
                 services in San Diego</p>
             <table style="margin-top: 18px;">
                 <tr>
-                    <td><a href="/kaiser-permanente-rancho-bernardo/" class="service-link">Kaiser Permanente - Rancho
-                        Bernardo</a></td>
+                    <td><a href="/kaiser-permanente-rancho-bernardo/" class="service-link">Kaiser Permanente - Rancho Bernardo</a></td>
                 </tr>
                 <tr>
-                    <td><a href="/rady-childrens-hopsital-san-diego/" class="service-link">Rady Children's Hospital -
-                        San Diego</a></td>
+                    <td><a href="/rady-childrens-hospital-san-diego/" class="service-link">Rady Children's Hospital - San Diego</a></td>
                 </tr>
                 <tr>
-                    <td><a href="/san-ysidro-health-escondido/" class="service-link">San Ysidro Health - Escondido</a>
-                    </td>
+                    <td><a href="/san-ysidro-health-escondido/" class="service-link">San Ysidro Health - Escondido</a></td>
                 </tr>
                 <tr>
                     <td><a href="/the-art-of-dentistry/" class="service-link">The Art of Dentistry</a></td>
                 </tr>
                 <tr>
-                    <td><a href="/uc-san-diego-health-express-care-rancho-bernardo/" class="service-link">UC San Diego
-                        Health Express Care - Rancho Bernardo</a></td>
+                    <td><a href="/uc-san-diego-health-express-care-rancho-bernardo/" class="service-link">UC San Diego Health Express Care - Rancho Bernardo</a></td>
                 </tr>
             </table>
         </div>
@@ -323,7 +278,7 @@
         <div class="category-dropdown-container" id="category-dropdown-container-4">
             <h1 style="text-align: center; margin-top: 21px">Education</h1>
         </div>
-        <div class="category-dropdown-content4">
+        <div class="category-dropdown-content" id = "category-dropdown-content-4">
             <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">The best educational
                 services in San Diego</p>
             <table style="margin-top: 18px;">
@@ -373,25 +328,25 @@
             if ($(this).children(0).text() == 'Maintenance') {
                 if (localStorage.getItem("maintenanceDropdownStatus")) {
                     if (localStorage.getItem("maintenanceDropdownStatus") == "Hidden") {
-                        $(".category-dropdown-content1").eq(0).css("display", "block");
-                        $(".category-dropdown-content1").eq(0).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(0).css("display", "block");
+                        $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("maintenanceDropdownStatus", "Shown");
                         });
                     } else if (localStorage.getItem("maintenanceDropdownStatus") == "Shown") {
-                        $(".category-dropdown-content1").eq(0).animate({height: "0px"}, 1000, function(){
-                            $(".category-dropdown-content1").eq(0).css("display", "none");
+                        $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(0).css("display", "none");
                             localStorage.setItem("maintenanceDropdownStatus", "Hidden");
                         });
                     }
                 } else {
-                    if ($(".category-dropdown-content1").eq(0).css("display") == "none") {
-                        $(".category-dropdown-content1").eq(0).css("display", "block");
-                        $(".category-dropdown-content1").eq(0).animate({height: "300px"}, 1000, function(){
+                    if ($(".category-dropdown-content").eq(0).css("display") == "none") {
+                        $(".category-dropdown-content").eq(0).css("display", "block");
+                        $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("maintenanceDropdownStatus", "Shown");
                         });
-                    } else if ($(".category-dropdown-content1").eq(0).css("display") == "block") {
-                        $(".category-dropdown-content1").eq(0).animate({height: "0px"}, 1000, function(){
-                            $(".category-dropdown-content1").eq(0).css("display", "none");
+                    } else if ($(".category-dropdown-content").eq(0).css("display") == "block") {
+                        $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(0).css("display", "none");
                             localStorage.setItem("maintenanceDropdownStatus", "Hidden");
                         });
                     }
@@ -399,25 +354,25 @@
             } else if ($(this).children(0).text() == 'Amenity') {
                 if (localStorage.getItem("amenityDropdownStatus")) {
                     if (localStorage.getItem("amenityDropdownStatus") == "Hidden") {
-                        $(".category-dropdown-content2").eq(1).css("display", "block");
-                        $(".category-dropdown-content2").eq(1).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(1).css("display", "block");
+                        $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("amenityDropdownStatus", "Shown");
                         });
                     } else if (localStorage.getItem("amenityDropdownStatus") == "Shown") {
-                        $(".category-dropdown-content2").eq(1).animate({height: "0px"}, 1000, function(){
-                            $(".category-dropdown-content2").eq(1).css("display", "none");
+                        $(".category-dropdown-content").eq(1).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(1).css("display", "none");
                             localStorage.setItem("amenityDropdownStatus", "Hidden");
                         });
                     }
                 } else {
-                    if ($(".category-dropdown-content2").eq(1).css("display") == "none") {
-                        $(".category-dropdown-content2").eq(1).css("display", "block");
-                        $(".category-dropdown-content2").eq(1).animate({height: "300px"}, 1000, function(){
+                    if ($(".category-dropdown-content").eq(1).css("display") == "none") {
+                        $(".category-dropdown-content").eq(1).css("display", "block");
+                        $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("amenityDropdownStatus", "Shown");
                         });
-                    } else if ($(".category-dropdown-content2").eq(1).css("display") == "block") {
-                        $(".category-dropdown-content2").eq(1).animate({height: "0px"}, 1000, function(){
-                            $(".category-dropdown-content2").eq(1).css("display", "none");
+                    } else if ($(".category-dropdown-content").eq(1).css("display") == "block") {
+                        $(".category-dropdown-content").eq(1).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(1).css("display", "none");
                             localStorage.setItem("amenityDropdownStatus", "Hidden");
                         });
                     }
@@ -425,25 +380,25 @@
             } else if ($(this).children(0).text() == 'Medical') {
                 if (localStorage.getItem("medicalDropdownStatus")) {
                    if (localStorage.getItem("medicalDropdownStatus") == "Hidden") {
-                        $(".category-dropdown-content3").eq(2).css("display", "block");
-                        $(".category-dropdown-content3").eq(2).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(2).css("display", "block");
+                        $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("medicalDropdownStatus", "Shown");
                         });
                    } else if (localStorage.getItem("medicalDropdownStatus") == "Shown") {
-                       $(".category-dropdown-content3").eq(2).animate({height: "0px"}, 1000, function(){
-                          $(".category-dropdown-content3").eq(2).css("display", "none");
+                       $(".category-dropdown-content").eq(2).animate({height: "0px"}, 1000, function(){
+                          $(".category-dropdown-content").eq(2).css("display", "none");
                           localStorage.setItem("medicalDropdownStatus", "Hidden");
                        });
                    }
                 } else {
-                    if ($(".category-dropdown-content3").eq(2).css("display") == "none") {
-                        $(".category-dropdown-content3").eq(2).css("display", "block");
-                        $(".category-dropdown-content3").eq(2).animate({height: "300px"}, 1000, function(){
+                    if ($(".category-dropdown-content").eq(2).css("display") == "none") {
+                        $(".category-dropdown-content").eq(2).css("display", "block");
+                        $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("medicalDropdownStatus", "Shown");
                         });
-                    } else if ($(".category-dropdown-content3").eq(2).css("display") == "block") {
-                        $(".category-dropdown-content3").eq(2).animate({height: "0px"}, 1000, function(){
-                            $(".category-dropdown-content3").eq(2).css("display", "none");
+                    } else if ($(".category-dropdown-content").eq(2).css("display") == "block") {
+                        $(".category-dropdown-content").eq(2).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(2).css("display", "none");
                             localStorage.setItem("medicalDropdownStatus", "Hidden");
                         });
                     }
@@ -451,61 +406,33 @@
             } else if ($(this).children(0).text() == 'Education') {
                 if (localStorage.getItem("educationDropdownStatus")) {
                     if (localStorage.getItem("educationDropdownStatus") == "Hidden") {
-                        $(".category-dropdown-content4").eq(3).css("display", "block");
-                        $(".category-dropdown-content4").eq(3).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(3).css("display", "block");
+                        $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("educationDropdownStatus", "Shown");
                         });
                     }
                     else if (localStorage.getItem("educationDropdownStatus") == "Shown") {
-                        $(".category-dropdown-content4").eq(3).animate({height: "0px"}, 1000, function(){
-                            $(".category-dropdown-content4").eq(3).css("display", "none");
+                        $(".category-dropdown-content").eq(3).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(3).css("display", "none");
                             localStorage.setItem("educationDropdownStatus", "Hidden");
                         });
                     }
                 } else {
-                    if ($(".category-dropdown-content4").eq(3).css("display") == "none") {
-                        $(".category-dropdown-content4").eq(3).css("display", "block");
-                        $(".category-dropdown-content4").eq(3).animate({height: "300px"}, 1000, function(){
+                    if ($(".category-dropdown-content").eq(3).css("display") == "none") {
+                        $(".category-dropdown-content").eq(3).css("display", "block");
+                        $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("educationDropdownStatus", "Shown");
                         });
                     }
-                    else if ($(".category-dropdown-content4").eq(3).css("display") == "block") {
-                        $(".category-dropdown-content4").eq(3).animate({height: "0px"}, 1000, function(){
-                            $(".category-dropdown-content4").eq(3).css("display", "none");
+                    else if ($(".category-dropdown-content").eq(3).css("display") == "block") {
+                        $(".category-dropdown-content").eq(3).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(3).css("display", "none");
                             localStorage.setItem("educationDropdownStatus", "Hidden");
                         });
                     }
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 </body>
 </html>

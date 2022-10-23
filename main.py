@@ -5,7 +5,6 @@ from __init__ import app
 from account.app_crud import app_crud
 from account.app_crud_api import app_crud_api
 from personalization.app_personalization import app_personalization
-from personalization.app_personalization import app_phonebook
 
 # redirect and url_for can be used for redirecting users to the login page if they are attempting to access their user profile,
 # but they are not yet logged in.
@@ -13,7 +12,6 @@ from personalization.app_personalization import app_phonebook
 app.register_blueprint(app_crud)
 app.register_blueprint(app_crud_api)
 app.register_blueprint(app_personalization)
-app.register_blueprint(app_phonebook)
 
 
 @app.route('/')
@@ -67,7 +65,7 @@ def boysandgirsclub():
 
 @app.route('/balboa-park/')
 def balboapark():
-    return render_template("balboa-park.html")
+    return render_template("/servicebase/balboa-park.html")
 
 @app.route('/cycle-bar/')
 def cyclebar():
@@ -87,11 +85,11 @@ def hamilton():
 
 @app.route('/joshua-tree-national-park/')
 def joshuatreenationalpark():
-    return render_template("joshua-tree-national-park.html")
+    return render_template("/servicebase/joshua-tree-national-park.html")
 
 @app.route('/kaiser-permanente-rancho-bernardo/')
 def kaiserpermanenteranchobernardo():
-    return render_template("kaiser-permanente-rancho-bernardo.html")
+    return render_template("/servicebase/kaiser-permanente-rancho-bernardo.html")
 
 @app.route('/khan-academy/')
 def khanacademy():

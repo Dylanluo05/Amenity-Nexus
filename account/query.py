@@ -1,14 +1,10 @@
 from __init__ import login_manager, db
 from account.model import Users
 from personalization.model import Personalization
-from personalization.model2 import Phonebook
 from flask_login import current_user, login_user, logout_user
 def task_by_id(id):
     """finds task in table matching id """
     return Personalization.query.filter_by(id=id).first()
-
-def phone_by_id(id):
-    return Phonebook.query.filter_by(id=id).first()
 
 # this is method called by frontend, it has been randomized between Alchemy and Native SQL for fun
 def users_all():
