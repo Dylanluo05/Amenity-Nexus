@@ -59,7 +59,7 @@ def personalization():
     uo = user_by_id(current_user.userID)
     if uo is not None:
         user = uo.read()
-    return render_template('user-profile.html', user=user, user_by_id=user_by_id, personalization=list_personalization)
+    return render_template('user-profile.html', user=user, user_by_id=user_by_id, personalization=list_personalization, msg = "Hello")
 
 # Notes create/add
 @app_personalization.route('/create/', methods=["POST"])
@@ -84,3 +84,4 @@ def delete():
         if po is not None:
             po.delete()
     return redirect(url_for('personalization.personalization'))
+

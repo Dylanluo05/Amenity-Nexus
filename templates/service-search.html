@@ -31,9 +31,11 @@
     }
 
     #search-background-1 {
-        height: 1600px;
+        height: auto;
+        min-height: 100%;
         width: 100%;
-        background-color: whitesmoke;
+        padding-bottom: 300px;
+        background: linear-gradient(to top right, black 0%, slategray 100%);
         background-repeat: no-repeat;
     }
 
@@ -67,46 +69,67 @@
         margin-top: 70px;
         position: relative;
         top: 110px;
-        background-color: navy;
-        border-left: 7px solid dodgerblue;
+        /*background-color: navy;*/
+        background: linear-gradient(to right, navy 0%, white 100%);
+        background-size: 200%;
+        background-position: 80%;
+        border-left: 7px solid navy;
         color: white;
         padding: 10px;
         transition-duration: 1.1s;
     }
 
     .category-dropdown-container:hover {
-        animation-name: dropdown-animation-background-color;
+        animation-name: dropdown-animation-background-color-1;
         animation-duration: 1.4s;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
+        animation-timing-function: linear;
     }
 
-    @keyframes dropdown-animation-background-color {
-        0% {background-color: navy;}
-        100% {background-color: dodgerblue;}
+    @keyframes dropdown-animation-background-color-1 {
+        0%{background-position:80%}
+        50%{background-position:50%}
+        100%{background-position:0%}
+    }
+
+    .category-dropdown-container:not(:hover) {
+        animation-name: dropdown-animation-background-color-2;
+        animation-duration: 1.4s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+    }
+
+    @keyframes dropdown-animation-background-color-2 {
+        0%{background-position:0%}
+        50%{background-position:50%}
+        100%{background-position:80%}
     }
 
     .category-dropdown-content {
-        height: auto;
+        height: 0px;
+        display: none;
         width: 720px;
-        border-left: 7px solid transparent;
+        border-left: 7px solid navy;
         margin: auto;
+        padding-bottom: 10px;
         position: relative;
         top: 110px;
-        background-color: #1A4645;
-    }
-
-    #category-dropdown-content-1, #category-dropdown-content-4 {
-        padding-bottom: 10px;
+        background-color: navy;
     }
 
     #category-dropdown-content-2 {
         padding-bottom: 60px;
     }
 
+    /*#category-dropdown-content-1, #category-dropdown-content-4 {
+        padding-bottom: 10px;
+    }
+
     #category-dropdown-content-3 {
         padding-bottom: 160px;
-    }
+    }*/
 
     /*.category-dropdown-marking {
         height: 100px;
@@ -167,27 +190,14 @@
 
     .service-link {
         display: block;
-        margin: auto;
+        text-align: center;
         color: black;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
 
 
 <div id="search-background-1">
-    <h1 style="text-align: center; color: black; margin-top: 70px;">Service Search</h1>
+    <h1 style="margin: 0; text-align: center; color: white; position: relative; top: 30px;">Service Search</h1>
     <div class="search-background-2">
         <div class="search-image-1">
             <img src="/static/assets/images/service-search-picture-1.jpg" class="search-image-1">
@@ -260,6 +270,9 @@
                 </tr>
                 <tr>
                     <td><a href="/orange-theory/" class="service-link">Orange Theory</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/taqneeq-24-hour-gym/" class="service-link">Taqneeq 24 Hour Gym</a></td>
                 </tr>
             </table>
         </div>
@@ -340,24 +353,36 @@
 <script src="/static/assets/javascript/service-search-startup.js"></script>
 <script>
 
+        $(".category-dropdown-container").hover(dropdownHoverAnimationOn, dropdownHoverAnimationOff)
+
+        function dropdownHoverAnimationOn() {
+            $(".category-dropdown-container").animate({background: "linear-gradient(to right, dodgerblue 100%, white 0%)"}, 1000);
+        }
+
+        function dropdownHoverAnimationOff() {
+            $(".category-dropdown-container").animate({background: "linear-gradient(to right, navy 0%, white 100%)"}, 1000);
+        }
+
         $(".category-dropdown-container").on("click", dropdownAnimation1);
 
         function dropdownAnimation1() {
             if ($(this).children(0).text() == 'Maintenance') {
                 if (localStorage.getItem("maintenanceDropdownStatus")) {
                     if (localStorage.getItem("maintenanceDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(0).css("height", "0px");
                         $(".category-dropdown-content").eq(0).css("display", "block");
                         $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("maintenanceDropdownStatus", "Shown");
                         });
                     } else if (localStorage.getItem("maintenanceDropdownStatus") == "Shown") {
-                        $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
+                            $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
                             $(".category-dropdown-content").eq(0).css("display", "none");
                             localStorage.setItem("maintenanceDropdownStatus", "Hidden");
                         });
                     }
                 } else {
                     if ($(".category-dropdown-content").eq(0).css("display") == "none") {
+                        $(".category-dropdown-content").eq(0).css("height", "0px");
                         $(".category-dropdown-content").eq(0).css("display", "block");
                         $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("maintenanceDropdownStatus", "Shown");
@@ -372,6 +397,7 @@
             } else if ($(this).children(0).text() == 'Amenity') {
                 if (localStorage.getItem("amenityDropdownStatus")) {
                     if (localStorage.getItem("amenityDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(1).css("height", "0px");
                         $(".category-dropdown-content").eq(1).css("display", "block");
                         $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("amenityDropdownStatus", "Shown");
@@ -384,6 +410,7 @@
                     }
                 } else {
                     if ($(".category-dropdown-content").eq(1).css("display") == "none") {
+                        $(".category-dropdown-content").eq(1).css("height", "0px");
                         $(".category-dropdown-content").eq(1).css("display", "block");
                         $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("amenityDropdownStatus", "Shown");
@@ -398,6 +425,7 @@
             } else if ($(this).children(0).text() == 'Medical') {
                 if (localStorage.getItem("medicalDropdownStatus")) {
                    if (localStorage.getItem("medicalDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(2).css("height", "0px");
                         $(".category-dropdown-content").eq(2).css("display", "block");
                         $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("medicalDropdownStatus", "Shown");
@@ -410,6 +438,7 @@
                    }
                 } else {
                     if ($(".category-dropdown-content").eq(2).css("display") == "none") {
+                        $(".category-dropdown-content").eq(2).css("height", "0px");
                         $(".category-dropdown-content").eq(2).css("display", "block");
                         $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("medicalDropdownStatus", "Shown");
@@ -424,6 +453,7 @@
             } else if ($(this).children(0).text() == 'Education') {
                 if (localStorage.getItem("educationDropdownStatus")) {
                     if (localStorage.getItem("educationDropdownStatus") == "Hidden") {
+                        $(".category-dropdown-content").eq(3).css("height", "0px");
                         $(".category-dropdown-content").eq(3).css("display", "block");
                         $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("educationDropdownStatus", "Shown");
@@ -437,6 +467,7 @@
                     }
                 } else {
                     if ($(".category-dropdown-content").eq(3).css("display") == "none") {
+                        $(".category-dropdown-content").eq(3).css("height", "0px");
                         $(".category-dropdown-content").eq(3).css("display", "block");
                         $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000, function(){
                             localStorage.setItem("educationDropdownStatus", "Shown");
@@ -451,19 +482,6 @@
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 </body>
 </html>

@@ -5,6 +5,7 @@ from __init__ import app
 from account.app_crud import app_crud
 from account.app_crud_api import app_crud_api
 from personalization.app_personalization import app_personalization
+from personalization.app_phonebook import app_phonebook
 
 # redirect and url_for can be used for redirecting users to the login page if they are attempting to access their user profile,
 # but they are not yet logged in.
@@ -12,7 +13,7 @@ from personalization.app_personalization import app_personalization
 app.register_blueprint(app_crud)
 app.register_blueprint(app_crud_api)
 app.register_blueprint(app_personalization)
-
+app.register_blueprint(app_phonebook)
 
 @app.route('/')
 def home():
@@ -66,6 +67,10 @@ def boysandgirsclub():
 @app.route('/balboa-park/')
 def balboapark():
     return render_template("/servicebase/balboa-park.html")
+
+@app.route('/brilliant/')
+def brilliant():
+    return render_template("/servicebase/brilliant.html")
 
 @app.route('/cycle-bar/')
 def cyclebar():
@@ -130,13 +135,17 @@ def royallpainting():
 def sanysidrohealthescondido():
     return render_template("/servicebase/san-ysidro-health-escondido.html")
 
+@app.route('/scripps-hospital-rancho-bernardo/')
+def scrippshospitalranchobernardo():
+    return render_template("/servicebase/scripps-hospital-rancho-bernardo.html")
+
 @app.route('/soapy-joes-car-wash/')
 def soapyjoescarwash():
     return render_template("/servicebase/soapy-joes-car-wash.html")
 
-@app.route('/teqneeq-24-hour-gym/')
-def teqneeq24hourgym():
-    return render_template("/servicebase/teqneeq-24-hour-gym.html")
+@app.route('/taqneeq-24-hour-gym/')
+def taqneeq24hourgym():
+    return render_template("/servicebase/taqneeq-24-hour-gym.html")
 
 @app.route('/the-art-of-dentistry/')
 def theartofdentistry():

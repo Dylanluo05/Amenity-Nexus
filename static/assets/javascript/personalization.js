@@ -140,6 +140,28 @@ function removeReminder() {
 }
 */
 
+$("#intro-button-1").hover(introButtonAnimation1, introButtonAnimation2);
+$("#intro-button-2").hover(introButtonAnimation1, introButtonAnimation2);
+
+function introButtonAnimation1() {
+    var introButtonID = $(this).index(".personalization-button-1");
+    if (introButtonID == 0) {
+        $("#intro-button-shadow-1").animate({top: "0px", left: "10px"}, 300);
+    } else if (introButtonID == 1) {
+        $("#intro-button-shadow-2").animate({top: "0px", left: "10px"}, 300);
+    }
+}
+
+function introButtonAnimation2() {
+    var introButtonID = $(this).index(".personalization-button-1");
+    if (introButtonID == 0) {
+        $("#intro-button-shadow-1").animate({top: "5px", left: "15px"}, 300);
+    }else if (introButtonID == 1) {
+        $("#intro-button-shadow-2").animate({top: "5px", left: "15px"}, 300);
+    }
+}
+
+
 var phonebookButton1 = document.getElementById("phonebook-button-1");
 phonebookButton1.addEventListener("click", phonebookLobbyShow);
 
@@ -246,7 +268,14 @@ if (localStorage.servicePhonebookKey) {
     $("#service-phonebook-phone-number").html(addedDataArrayRetrieve3[0].phoneNumber);
 }*/
 
-var prevButton = document.getElementById("prev");
+$(".button-1").on("click", addPhoneContact);
+
+function addPhoneContact() {
+    var buttonIndex = $(".button-1").index(".button-1");
+    console.log(buttonIndex);
+}
+
+/*var prevButton = document.getElementById("prev");
 prevButton.addEventListener("click", previous);
 
 var nextButton = document.getElementById("next");
@@ -259,13 +288,6 @@ function previous() {
     } else {
         slideNumber = addedDataArrayRetrieve4.length - 1;
     }
-    /*var indexListSortItem1 = indexListSort[slideNumber];
-    for (var y = 0; y < addedDataArrayRetrieve4.length; y++) {
-        if (indexListSortItem1 == addedDataArrayRetrieve4[y].index) {
-            $("#service-phonebook-name").html(addedDataArrayRetrieve4[y].title);
-            $("#service-phonebook-phone-number").html(addedDataArrayRetrieve4[y].phoneNumber);
-        }
-    }*/
     $("#service-phonebook-name").html(addedDataArrayRetrieve4[slideNumber].title);
     $("#service-phonebook-phone-number").html(addedDataArrayRetrieve4[slideNumber].phoneNumber);
 
@@ -278,13 +300,6 @@ function next() {
     } else {
         slideNumber = 0;
     }
-    /*var indexListSortItem2 = indexListSort[slideNumber];
-    for (var y = 0; y < addedDataArrayRetrieve5.length; y++) {
-        if (indexListSortItem2 == addedDataArrayRetrieve5[y].index) {
-            $("#service-phonebook-name").html(addedDataArrayRetrieve5[y].title);
-            $("#service-phonebook-phone-number").html(addedDataArrayRetrieve5[y].phoneNumber);
-        }
-    }*/
     $("#service-phonebook-name").html(addedDataArrayRetrieve5[slideNumber].title);
     $("#service-phonebook-phone-number").html(addedDataArrayRetrieve5[slideNumber].phoneNumber);
 }
@@ -300,22 +315,8 @@ function removeContact() {
     } else {
         slideNumber += 1;
     }
-    /*var indexListSortItem3 = indexListSort[slideNumber];
-    for (var b = 0; b < addedDataArrayRetrieveFinal.length; b++) {
-        if (indexListSortItem3 == addedDataArrayRetrieveFinal[b].index) {
-            $("#service-phonebook-name").html(addedDataArrayRetrieveFinal[b].title);
-            $("#service-phonebook-phone-number").html(addedDataArrayRetrieveFinal[b].phoneNumber);
-        }
-    }*/
     $("#service-phonebook-name").html(addedDataArrayRetrieveFinal[slideNumber].title);
     $("#service-phonebook-phone-number").html(addedDataArrayRetrieveFinal[slideNumber].phoneNumber);
-    /*indexListSort.splice(slideNumberTemp, 1);
-    for (var i = 0; i < addedDataArrayRetrieveFinal.length; i++) {
-       if (indexListSort[slideNumberTemp] == addedDataArrayRetrieveFinal[i].index) {
-           addedDataArrayRetrieveFinal.splice(i, 1);
-           localStorage.servicePhonebookKey = JSON.stringify(addedDataArrayRetrieveFinal);
-       }
-    }*/
     addedDataArrayRetrieveFinal.splice(slideNumberTemp, 1);
     localStorage.servicePhonebookKey = JSON.stringify(addedDataArrayRetrieveFinal);
-}
+}*/

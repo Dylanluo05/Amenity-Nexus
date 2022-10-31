@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% block body %}
 <head>
     <meta charset="utf-8">
 
@@ -13,7 +14,6 @@
 
     {% include "foundation/navigation-bar.html" %}
 </head>
-{% block body %}
 <style>
     html, body {
         font-family: 'Roboto Flex', sans-serif;
@@ -102,11 +102,16 @@
         width: 200px;
         display: block;
         margin: auto;
-        background-color: blue;
+        background-color: navy;
         border: none;
         color: white;
         position: relative;
         z-index: 4;
+        transition-duration: 0.4s;
+    }
+
+    .personalization-button-1:hover {
+        background-color: blue;
     }
 
     .personalization-button-1-shadow {
@@ -371,28 +376,24 @@
         font-size: 10px;
     }
 
-    .button-1 {
-        height: 25px;
-        width: 38%;
+    .checkbox-1 {
+        height: 20px;
+        width: 20px;
         float: right;
         background-color: white;
         color: navy;
         font-size: 10px;
         position: relative;
         top: 7px;
+        left: -20px;
         border: 2px solid navy;
         transition-duration: 0.7s;
     }
 
-    .button-1:hover {
-        background-color: navy;
-        color: white;
-    }
-
     .reveal-1 {
         float: right;
-        margin-right: -50px;
-        display: none;
+        margin-right: 17px;
+        display: block;
     }
 
     .personal-service-phonebook-container {
@@ -465,6 +466,23 @@
         margin-top: -37px;
     }
 
+    .button-3 {
+        height: 25px;
+        width: 200px;
+        display: block;
+        margin: auto;
+        margin-top: -10px;
+        background-color: white;
+        color: mediumseagreen;
+        border: 2px solid mediumseagreen;
+        transition-duration: 0.4s;
+    }
+
+    .button-3:hover {
+        background-color: mediumseagreen;
+        color: white;
+    }
+
 </style>
 <body>
 <div id = "personalization-background-1">
@@ -479,16 +497,16 @@
         <div class = "intro-circle-container-1">
             <div class = "intro-square-container-1">
                 <div style = "position: relative; top: 40%;">
-                    <button class = "personalization-button-1" onclick = "document.getElementById('reminders-background-1').scrollIntoView();">Reminders</button>
-                    <div class = "personalization-button-1-shadow"></div>
+                    <button class = "personalization-button-1" id = "intro-button-1" onclick = "document.getElementById('reminders-background-1').scrollIntoView();">Reminders</button>
+                    <div class = "personalization-button-1-shadow" id = "intro-button-shadow-1"></div>
                 </div>
             </div>
         </div>
         <div class = "intro-circle-container-1">
             <div class = "intro-square-container-1">
                 <div style = "position: relative; top: 40%;">
-                    <button class = "personalization-button-1" onclick = "document.getElementById('phonebook-background-1').scrollIntoView()">Phonebook</button>
-                    <div class = "personalization-button-1-shadow"></div>
+                    <button class = "personalization-button-1" id = "intro-button-2" onclick = "document.getElementById('phonebook-background-1').scrollIntoView()">Phonebook</button>
+                    <div class = "personalization-button-1-shadow" id = "intro-button-shadow-2"></div>
                 </div>
             </div>
         </div>
@@ -573,72 +591,336 @@
                 <p id = "service-phonebook-lobby-container-exit" style = "float: right; color: white; position: relative; top: -5%; right: 5%; cursor: pointer;">&#x2716;</p>
                 <br>
                 <h2 style = "text-align: center;">Service Phone Contact Lobby</h2>
+                <p></p>
                 <hr>
                 <h3 style = "text-align: center;">Select the phone contacts that you need, then submit the following form to add them to your personal phonebook</h3>
-                <div class = "service-phonebook-lobby-contact">
-                    <div style = "position: relative; top: -3px;">
-                        <h4 style = "display: inline-block;" class = "title">WIRED AV:</h4>
-                        <h4 style = "display: inline-block;" class = "phone-number">(619) 348-4142</h4>
-                        <button class = "button-1">Add to Personal Phonebook</button>
-                        <h4 class = "reveal-1" style = "display: block;">Selected</h4>
+                <form method = "POST" ID = "create2" action={{url_for('phonebook.create2')}}>
+                    <input type = "submit" value = "Submit" class = "button-3">
+                    <hr>
+                    <h4 style = "text-align: center;">Maintenance</h4>
+                    <hr style = "width: 50%;">
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Soapy Joe's Car Wash:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 201-7825</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber1 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber1" id = "servicephonenumber1" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <div class = "service-phonebook-lobby-contact">
-                    <div style = "position: relative; top: -3px;">
-                        <h4 style = "display: inline-block;" class = "title">The Painting Company San Diego:</h4>
-                        <h4 style = "display: inline-block;" class = "phone-number">(619) 937-2468</h4>
-                        <button class = "button-1">Add to Personal Phonebook</button>
-                        <h4 class = "reveal-1">Selected!</h4>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">ProTouch Pool Services:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 610-2635</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber2 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber2" id = "servicephonenumber2" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <div class = "service-phonebook-lobby-contact">
-                    <div style = "position: relative; top: -3px;">
-                        <h4 style = "display: inline-block;" class = "title">LA Fitness:</h4>
-                        <h4 style = "display: inline-block;" class = "phone-number">(858) 676-6806</h4>
-                        <button class = "button-1">Add to Personal Phonebook</button>
-                        <h4 class = "reveal-1">Selected!</h4>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">La Jolla Pool Services:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 722-6296</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber3 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber3" id = "servicephonenumber3" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <div class = "service-phonebook-lobby-contact">
-                    <div style = "position: relative; top: -3px;">
-                        <h4 style = "display: inline-block;" class = "title">Fit Athletic Club:</h4>
-                        <h4 style = "display: inline-block;" class = "phone-number">(858) 674-4480</h4>
-                        <button class = "button-1">Add to Personal Phonebook</button>
-                        <h4 class = "reveal-1">Selected!</h4>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">ECO Gardeners:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 277-1100</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber4 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber4" id = "servicephonenumber4" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <div class = "service-phonebook-lobby-contact">
-                    <div style = "position: relative; top: -3px;">
-                        <h4 style = "display: inline-block;" class = "title">Kumon:</h4>
-                        <h4 style = "display: inline-block;" class = "phone-number">(858) 472-8341</h4>
-                        <button class = "button-1">Add to Personal Phonebook</button>
-                        <h4 class = "reveal-1">Selected!</h4>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Royall Painting:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 525-1279</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber5 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber5" id = "servicephonenumber5" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <div class = "service-phonebook-lobby-contact">
-                    <div style = "position: relative; top: -3px;">
-                        <h4 style = "display: inline-block;" class = "title">Mathnasium:</h4>
-                        <h4 style = "display: inline-block;" class = "phone-number">(858) 312-8888</h4>
-                        <button class = "button-1">Add to Personal Phonebook</button>
-                        <h4 class = "reveal-1">Selected!</h4>
+                    <h4 style = "text-align: center;">Amenity</h4>
+                    <hr style = "width: 50%;">
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Taqneeq Gym:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 683-7800</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber6 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber6" id = "servicephonenumber6" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <div class = "service-phonebook-lobby-contact">
-                    <div style = "position: relative; top: -3px;">
-                        <h4 style = "display: inline-block;" class = "title">Rady's Children's Hospital:</h4>
-                        <h4 style = "display: inline-block;" class = "phone-number">(858) 576-1700</h4>
-                        <button class = "button-1">Add to Personal Phonebook</button>
-                        <h4 class = "reveal-1">Selected!</h4>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Cycle Bar:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 925-7777</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber7 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber7" id = "servicephonenumber7" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <div class = "service-phonebook-lobby-contact">
-                    <div style = "position: relative; top: -3px;">
-                        <h4 style = "display: inline-block;" class = "title">Scripps Clinic Rancho Bernardo:</h4>
-                        <h4 style = "display: inline-block;" class = "phone-number">(858) 487-1800</h4>
-                        <button class = "button-1">Add to Personal Phonebook</button>
-                        <h4 class = "reveal-1">Selected!</h4>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Orange Theory Fitness:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 999-3004</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber8 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber8" id = "servicephonenumber8" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Joshua Tree National Park:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(760) 367-5500</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber9 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber9" id = "servicephonenumber9" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Balboa Park:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(619) 239-0512</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber10 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber10" id = "servicephonenumber10" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">LA Fitness:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 676-6806</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber11 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber11" id = "servicephonenumber11" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">4S Ranch Boys and Girls Club:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 676-2230</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber12 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber12" id = "servicephonenumber12" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <h4 style = "text-align: center;">Medical</h4>
+                    <hr style = "width: 50%;">
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Kaiser Permanente - Rancho Bernardo:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(833) 574-2273</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber13 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber13" id = "servicephonenumber13" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">The Art of Dentistry:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(619) 304-3143</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber14 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber14" id = "servicephonenumber14" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">San Ysidro Health Center:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(619) 662-4100</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber15 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber15" id = "servicephonenumber15" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Scripps Hospital - Rancho Bernardo:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 487-1800</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber16 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber16" id = "servicephonenumber16" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">UCSD Health Center:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 605-4441</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber17 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber17" id = "servicephonenumber17" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Rady Children's Hospital:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 576-1700</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber18 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber18" id = "servicephonenumber18" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <h4 style = "text-align: center;">Education</h4>
+                    <hr style = "width: 50%;">
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Kumon:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(800) 222-6284</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber19 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber19" id = "servicephonenumber19" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Mathnasium:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(877) 601-6284</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber20 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber20" id = "servicephonenumber20" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class = "service-phonebook-lobby-contact">
+                        <div style = "position: relative; top: -3px;">
+                            <h4 style = "display: inline-block;" class = "title">Hamilton Education:</h4>
+                            <h4 style = "display: inline-block;" class = "phone-number">(858) 521-8181</h4>
+                            {% for row in phonebook %}
+                                {% if current_user.userID == row.userID %}
+                                    {% if row.servicephonenumber21 == "1" %}
+                                        <h4 class = "reveal-1">Added!</h4>
+                                    {% else %}
+                                        <input type = "checkbox" class = "checkbox-1" name = "servicephonenumber21" id = "servicephonenumber21" value = "1">
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
