@@ -143,9 +143,9 @@ def scrippshospitalranchobernardo():
 def soapyjoescarwash():
     return render_template("/servicebase/soapy-joes-car-wash.html")
 
-@app.route('/taqneeq-24-hour-gym/')
-def taqneeq24hourgym():
-    return render_template("/servicebase/taqneeq-24-hour-gym.html")
+@app.route('/teqneeq-24-hour-gym/')
+def teqneeq24hourgym():
+    return render_template("/servicebase/teqneeq-24-hour-gym.html")
 
 @app.route('/the-art-of-dentistry/')
 def theartofdentistry():

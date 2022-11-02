@@ -52,7 +52,7 @@
     }
 
     .button-1 {
-        margin-top: 11px;
+        margin-top: 0px;
         margin-left: 100px;
         height: 40px;
         width: 200px;
@@ -153,6 +153,22 @@
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
     }
 
+    .key-terms-container {
+        height: 40px;
+        width: 350px;
+        background-color: lightgray;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .key-term {
+        height: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+        margin-left: 10px;
+    }
+
 </style>
 <body>
 
@@ -162,7 +178,7 @@
 <div class = "service-template-background-transition"></div>
 
 <div id = "service-template-background-2">
-    <h1 style = "margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">Soapy Joe's Car Wash</h1>
+    <h1 style = "margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">Soapy Joe's Car Wash - Rancho Bernardo</h1>
     <br>
 
     <div style = "margin-top: 100px; margin-left: 100px;" class = "service-template-container-1">
@@ -173,7 +189,13 @@
         <p class = "bold">Email Address:</p>
         <p>info@soapyjoescw.com</p>
         <p class = "bold">Location:</p>
-        <p></p>
+        <p>16998 W Bernardo Dr, San Diego, CA 92127</p>
+        <p class = "bold">Key Terms:</p>
+        <div class = "key-terms-container">
+            <div class = "key-term">Organic</div>
+            <div class = "key-term">Eco-friendly</div>
+            <div class = "key-term">Local</div>
+        </div>
         <br>
         <form action = "https://soapyjoescarwash.com/">
             <input type = "submit" class = "button-1" value = "Soapy Joe's Car Wash Website">

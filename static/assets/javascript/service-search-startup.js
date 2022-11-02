@@ -28,7 +28,7 @@ if (localStorage.getItem("maintenanceDropdownStatus")) {
         $(".category-dropdown-content").eq(0).css("display", "none");
     } else if (localStorage.getItem("maintenanceDropdownStatus") == "Shown") {
         $(".category-dropdown-content").eq(0).css("display", "block");
-        $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000);
+        $(".category-dropdown-content").eq(0).animate({height: "250px"}, 1000);
     }
 }
 
@@ -37,7 +37,7 @@ if (localStorage.getItem("amenityDropdownStatus")) {
         $(".category-dropdown-content").eq(1).css("display", "none");
     } else if (localStorage.getItem("amenityDropdownStatus") == "Shown") {
         $(".category-dropdown-content").eq(1).css("display", "block");
-        $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000);
+        $(".category-dropdown-content").eq(1).animate({height: "250px"}, 1000);
     }
 }
 
@@ -46,7 +46,7 @@ if (localStorage.getItem("medicalDropdownStatus")) {
         $(".category-dropdown-content").eq(2).css("display", "none");
    } else if (localStorage.getItem("medicalDropdownStatus") == "Shown") {
        $(".category-dropdown-content").eq(2).css("display", "block");
-       $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000);
+       $(".category-dropdown-content").eq(2).animate({height: "250px"}, 1000);
    }
 }
 
@@ -56,6 +56,6 @@ if (localStorage.getItem("educationDropdownStatus")) {
     }
     else if (localStorage.getItem("educationDropdownStatus") == "Shown") {
         $(".category-dropdown-content").eq(3).css("display", "block");
-        $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000);
+        $(".category-dropdown-content").eq(3).animate({height: "250px"}, 1000);
     }
 }

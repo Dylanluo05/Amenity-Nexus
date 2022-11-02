@@ -39,7 +39,7 @@
     }
 
     .button-1 {
-        margin-top: 11px;
+        margin-top: 0px;
         margin-left: 100px;
         height: 40px;
         width: 200px;
@@ -140,6 +140,22 @@
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
     }
 
+    .key-terms-container {
+        height: 40px;
+        width: 350px;
+        background-color: lightgray;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .key-term {
+        height: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+        margin-left: 10px;
+    }
+
 </style>
 <body>
 
@@ -152,10 +168,16 @@
         <hr>
         <p class = "bold">Customer Service Phone Number:</p>
         <p>(858) 277-1100</p>
-        <p class = "bold">Email Address:</p>
-        <p>Visit this link: https://www.ecogardeners.com/contact/</p>
+        <p class = "bold">Additional Contact Information:</p>
+        <a style = "color: blue; text-decoration: underline; font-size: 17px; margin-left: 0px;" href = "https://www.ecogardeners.com/contact/">Contact Them</a>
         <p class = "bold">Location:</p>
-        <p></p>
+        <p>1525 Fort Stockton Dr, San Diego, CA 92103</p>
+        <p class = "bold">Key Terms:</p>
+        <div class = "key-terms-container">
+            <div class = "key-term">Organic</div>
+            <div class = "key-term">Eco-friendly</div>
+            <div class = "key-term">Local</div>
+        </div>
         <br>
         <form action = "https://www.ecogardeners.com/">
             <input type = "submit" class = "button-1" value = "ECO Gardeners's Website">
@@ -166,7 +188,7 @@
         <center><h1>General Description</h1></center>
         <hr>
         <div style = "margin-left: 40px;">
-            <img src="/static/assets/images/ecogardeners-logo.webp" alt="Picture of Company" style = "height: 120px; width: 300px;">
+            <img src="/static/assets/images/ecogardeners-logo.jpg" alt="Picture of Company" style = "height: 120px; width: 300px;">
         </div>
         <p style = "margin-top: 28px; text-align: center; font-size: 21px;">ECO Gardeners is a San Diego based gardening company which specializes in enhancing landscapes.
         They use natural and organic gardening techniques in order to provide eco-friendly services while maintaining quality results.</p>

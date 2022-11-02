@@ -110,8 +110,7 @@
     .category-dropdown-content {
         height: 0px;
         display: none;
-        width: 720px;
-        border-left: 7px solid navy;
+        width: 727px;
         margin: auto;
         padding-bottom: 10px;
         position: relative;
@@ -119,23 +118,17 @@
         background-color: navy;
     }
 
+    #category-dropdown-content-1 {
+        padding-bottom: 45px;
+    }
+
     #category-dropdown-content-2 {
-        padding-bottom: 60px;
+        padding-bottom: 130px;
     }
 
-    /*#category-dropdown-content-1, #category-dropdown-content-4 {
-        padding-bottom: 10px;
+    #category-dropdown-content-3, #category-dropdown-content-4 {
+        padding-bottom: 25px;
     }
-
-    #category-dropdown-content-3 {
-        padding-bottom: 160px;
-    }*/
-
-    /*.category-dropdown-marking {
-        height: 100px;
-        width: 7px;
-        background-color: dodgerblue;
-    }*/
 
     /* .search-button-1 {
         height: 24px;
@@ -174,25 +167,23 @@
     td {
         height: 40px;
         width: 700px;
-        background-color: #EFF0EB;
         border: 1px solid #266867;
     }
 
-    /*td:nth-child(odd) {
+    tr:nth-child(odd) {
         background-color: white;
-        border: 2px solid mediumseagreen;
     }
 
-    td:nth-child(even) {
-        background-color: white;
-        border: 2px solid dodgerblue;
-    }*/
+    tr:nth-child(even) {
+        background-color: lightgray;
+    }
 
     .service-link {
         display: block;
         text-align: center;
         color: black;
     }
+
 </style>
 
 
@@ -203,30 +194,15 @@
             <img src="/static/assets/images/service-search-picture-1.jpg" class="search-image-1">
         </div>
     </div>
-    <!--<div class="circles-container">
-        <div class="circle-1">
-            <h2 style="color: white; text-align: center; font-size: 30px; margin: 0;">Select a category</h2>
-        </div>
-        <div class="circle-1" style="margin-top: 5.5%;">
-            <h2 style="color: white; text-align: center; font-size: 30px;">Find the ideal service provider</h2>
-        </div>
-        <div class="circle-1" style="margin-top: 11%;">
-            <h2 style="color: white; text-align: center; font-size: 30px">Gain the information you need about
-                them</h2>
-        </div>
-        <div class="circle-1" style="margin-top: 16.5%;">
-            <h2 style="color: white; text-align: center; font-size: 30px">Connect with the service provider</h2>
-        </div>
-    </div>-->
 
     <div class="categories-container">
         <div class="category-dropdown-container" id="category-dropdown-container-1">
             <h1 style="text-align: center; margin-top: 21px">Maintenance</h1>
         </div>
         <div class="category-dropdown-content" id="category-dropdown-content-1">
-            <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">The best maintenance
-                services in San Diego</p>
-            <table style="margin-top: 18px;">
+            <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">Select from a variety of maintenance services below,
+            ranging from skilled gardeners adequate to pool services.</p>
+            <table style="margin-top: 25px;">
                 <tr>
                     <td><a href="/eco-gardeners/" class="service-link">Eco Gardeners</a></td>
                 </tr>
@@ -249,9 +225,9 @@
             <h1 style="text-align: center; margin-top: 21px">Amenity</h1>
         </div>
         <div class="category-dropdown-content" id="category-dropdown-content-2">
-            <p style="color: white; margin: 0; text-align: center; position: relative; top: 8px;">The best amenity
-                services in San Diego</p>
-            <table style="margin-top: 18px;">
+            <p style="color: white; margin: 0; text-align: center; position: relative; top: 8px;">Consider going
+            to the various gyms and sports parks we have below, as well as think about visiting the famous Balboa Park.</p>
+            <table style="margin-top: 25px;">
                 <tr>
                     <td><a href="/4s-ranch-boys-and-girls-club/" class="service-link">4s Ranch Boys and Girls Club</a>
                     </td>
@@ -272,7 +248,7 @@
                     <td><a href="/orange-theory/" class="service-link">Orange Theory</a></td>
                 </tr>
                 <tr>
-                    <td><a href="/taqneeq-24-hour-gym/" class="service-link">Taqneeq 24 Hour Gym</a></td>
+                    <td><a href="/teqneeq-24-hour-gym/" class="service-link">Teqneeq 24 Hour Gym</a></td>
                 </tr>
             </table>
         </div>
@@ -281,9 +257,8 @@
             <h1 style="text-align: center; margin-top: 21px">Medical</h1>
         </div>
         <div class="category-dropdown-content" id="category-dropdown-content-3">
-            <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">The best medical
-                services in San Diego</p>
-            <table style="margin-top: 18px;">
+            <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">Have a wide range of health provider options at your disposal.</p>
+            <table style="margin-top: 25px;">
                 <tr>
                     <td><a href="/kaiser-permanente-rancho-bernardo/" class="service-link">Kaiser Permanente - Rancho
                         Bernardo</a></td>
@@ -310,9 +285,9 @@
             <h1 style="text-align: center; margin-top: 21px">Education</h1>
         </div>
         <div class="category-dropdown-content" id="category-dropdown-content-4">
-            <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">The best educational
-                services in San Diego</p>
-            <table style="margin-top: 18px;">
+            <p style="color: white; margin: 0; text-align: center; position: relative; top: 10px;">The best in-person or online educational services
+                for accelerating academic growth.</p>
+            <table style="margin-top: 25px;">
                 <tr>
                     <td><a href="/hamilton/" class="service-link">Hamilton</a></td>
                 </tr>
@@ -331,37 +306,10 @@
             </table>
         </div>
     </div>
-    <!--
-        <div class="circle-1" style="position: relative; top: -265px; left: 100px;">
-            <h2 style="color: white; text-align: center; position: absolute; top: 110px; left: 32px; font-size: 30px; margin: 0;">
-                To be determined</h2>
-        </div>
-        <div class="circle-1" style="position: relative; top: -425px; left: 450px;">
-            <h2 style="color: white; text-align: center; position: absolute; top: 70px; left: 3px; font-size: 30px">To
-                be determined</h2>
-        </div>
-        <div class="circle-1" style="position: relative; top: -585px; left: 800px;">
-            <h2 style="color: white; text-align: center; position: absolute; top: 65px; left: 1px; font-size: 30px">To
-                be determined</h2>
-        </div>
-        <div class="circle-1" style="position: relative; top: -745px; left: 1150px;">
-            <h2 style="color: white; text-align: center; position: absolute; top: 70px; left: 1px; font-size: 30px">To
-                be determined</h2>
-        </div>
-    -->
+
 </div>
 <script src="/static/assets/javascript/service-search-startup.js"></script>
 <script>
-
-        $(".category-dropdown-container").hover(dropdownHoverAnimationOn, dropdownHoverAnimationOff)
-
-        function dropdownHoverAnimationOn() {
-            $(".category-dropdown-container").animate({background: "linear-gradient(to right, dodgerblue 100%, white 0%)"}, 1000);
-        }
-
-        function dropdownHoverAnimationOff() {
-            $(".category-dropdown-container").animate({background: "linear-gradient(to right, navy 0%, white 100%)"}, 1000);
-        }
 
         $(".category-dropdown-container").on("click", dropdownAnimation1);
 
@@ -371,11 +319,11 @@
                     if (localStorage.getItem("maintenanceDropdownStatus") == "Hidden") {
                         $(".category-dropdown-content").eq(0).css("height", "0px");
                         $(".category-dropdown-content").eq(0).css("display", "block");
-                        $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(0).animate({height: "250px"}, 1000, function(){
                             localStorage.setItem("maintenanceDropdownStatus", "Shown");
                         });
                     } else if (localStorage.getItem("maintenanceDropdownStatus") == "Shown") {
-                            $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(0).animate({height: "0px"}, 1000, function(){
                             $(".category-dropdown-content").eq(0).css("display", "none");
                             localStorage.setItem("maintenanceDropdownStatus", "Hidden");
                         });
@@ -384,7 +332,7 @@
                     if ($(".category-dropdown-content").eq(0).css("display") == "none") {
                         $(".category-dropdown-content").eq(0).css("height", "0px");
                         $(".category-dropdown-content").eq(0).css("display", "block");
-                        $(".category-dropdown-content").eq(0).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(0).animate({height: "250px"}, 1000, function(){
                             localStorage.setItem("maintenanceDropdownStatus", "Shown");
                         });
                     } else if ($(".category-dropdown-content").eq(0).css("display") == "block") {
@@ -399,7 +347,7 @@
                     if (localStorage.getItem("amenityDropdownStatus") == "Hidden") {
                         $(".category-dropdown-content").eq(1).css("height", "0px");
                         $(".category-dropdown-content").eq(1).css("display", "block");
-                        $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(1).animate({height: "250px"}, 1000, function(){
                             localStorage.setItem("amenityDropdownStatus", "Shown");
                         });
                     } else if (localStorage.getItem("amenityDropdownStatus") == "Shown") {
@@ -412,7 +360,7 @@
                     if ($(".category-dropdown-content").eq(1).css("display") == "none") {
                         $(".category-dropdown-content").eq(1).css("height", "0px");
                         $(".category-dropdown-content").eq(1).css("display", "block");
-                        $(".category-dropdown-content").eq(1).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(1).animate({height: "250px"}, 1000, function(){
                             localStorage.setItem("amenityDropdownStatus", "Shown");
                         });
                     } else if ($(".category-dropdown-content").eq(1).css("display") == "block") {
@@ -427,7 +375,7 @@
                    if (localStorage.getItem("medicalDropdownStatus") == "Hidden") {
                         $(".category-dropdown-content").eq(2).css("height", "0px");
                         $(".category-dropdown-content").eq(2).css("display", "block");
-                        $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(2).animate({height: "250px"}, 1000, function(){
                             localStorage.setItem("medicalDropdownStatus", "Shown");
                         });
                    } else if (localStorage.getItem("medicalDropdownStatus") == "Shown") {
@@ -440,7 +388,7 @@
                     if ($(".category-dropdown-content").eq(2).css("display") == "none") {
                         $(".category-dropdown-content").eq(2).css("height", "0px");
                         $(".category-dropdown-content").eq(2).css("display", "block");
-                        $(".category-dropdown-content").eq(2).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(2).animate({height: "250px"}, 1000, function(){
                             localStorage.setItem("medicalDropdownStatus", "Shown");
                         });
                     } else if ($(".category-dropdown-content").eq(2).css("display") == "block") {
@@ -455,7 +403,7 @@
                     if (localStorage.getItem("educationDropdownStatus") == "Hidden") {
                         $(".category-dropdown-content").eq(3).css("height", "0px");
                         $(".category-dropdown-content").eq(3).css("display", "block");
-                        $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(3).animate({height: "250px"}, 1000, function(){
                             localStorage.setItem("educationDropdownStatus", "Shown");
                         });
                     }
@@ -469,7 +417,7 @@
                     if ($(".category-dropdown-content").eq(3).css("display") == "none") {
                         $(".category-dropdown-content").eq(3).css("height", "0px");
                         $(".category-dropdown-content").eq(3).css("display", "block");
-                        $(".category-dropdown-content").eq(3).animate({height: "300px"}, 1000, function(){
+                        $(".category-dropdown-content").eq(3).animate({height: "250px"}, 1000, function(){
                             localStorage.setItem("educationDropdownStatus", "Shown");
                         });
                     }
