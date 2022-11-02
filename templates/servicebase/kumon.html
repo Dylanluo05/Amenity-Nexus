@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Kumon</title>
+    <title>Kumon - 4S Ranch</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
@@ -27,6 +27,7 @@
         margin: 0;
         background: url("https://www.kumon.com/resources/wp-content/uploads/2020/03/Blog-header.jpg");
         background-size: cover;
+        background-position: center 20%;
     }
 
     .service-template-background-transition {
@@ -36,7 +37,7 @@
 
     #service-template-background-2 {
         height: 800px;
-        background-color: dodgerblue;
+        background-color: royalblue;
     }
 
     .service-template-container-1 {
@@ -51,7 +52,7 @@
     }
 
     .button-1 {
-        margin-top: 11px;
+        margin-top: 0px;
         margin-left: 100px;
         height: 40px;
         width: 200px;
@@ -152,6 +153,22 @@
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
     }
 
+    .key-terms-container {
+        height: 40px;
+        width: 350px;
+        background-color: lightgray;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .key-term {
+        height: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+        margin-left: 10px;
+    }
+
 </style>
 <body>
 
@@ -160,37 +177,26 @@
 <div class = "service-template-background-transition"></div>
 
 <div id = "service-template-background-2">
-    <h1 style = "margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">Kumon</h1>
+    <h1 style = "margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">Kumon - 4S Ranch</h1>
     <br>
 
     <div style = "margin-top: 100px; margin-left: 100px;" class = "service-template-container-1">
         <center><h1>Contact Information</h1></center>
         <hr>
         <p class = "bold">Customer Service Phone Number:</p>
-        <p>1-800-222-6284</p>
+        <p>(800) 222-6284</p>
         <p class = "bold">Email Address:</p>
         <p>contacto@kumon.com</p>
-        <p class = "bold">Locations in San Diego:</p>
-        <ul class = "locations-list">
-            <li>4s Ranch</li>
-            <li>Point Loma</li>
-            <li>Rancho Bernardo</li>
-            <li>Rancho Penasquitos</li>
-        </ul>
-        <ul class = "locations-list" style = "margin-top: -57px; margin-left: 110px;">
-            <li>Kearny Mesa</li>
-            <li>Mira Mesa</li>
-            <li>Carmel Valley</li>
-            <li>University City</li>
-        </ul>
-        <ul class = "locations-list" style = "margin-top: -57px; margin-left: 210px;">
-            <li>Rancho Santa Fe</li>
-            <li>La Jolla</li>
-            <li>Poway</li>
-            <li>Escondido</li>
-        </ul>
+        <p class = "bold">Location:</p>
+        <p style = "font-size: 15px;">16615 Dove Canyon Rd SUITE #103, San Diego, CA 92127</p>
+        <p class = "bold">Key Terms:</p>
+        <div class = "key-terms-container">
+            <div class = "key-term">Organic</div>
+            <div class = "key-term">Eco-friendly</div>
+            <div class = "key-term">Local</div>
+        </div>
         <br>
-        <form action = "https://www.kumon.com/carlsbad-la-costa-oaks?gclid=Cj0KCQjwz96WBhC8ARIsAATR253tGRI4dlHhoxJCGl1uzHMtsnEPy9VpPh6YXMUNotAR4KdwKHcnnvkaAsMsEALw_wcB">
+        <form action = "https://www.kumon.com/4s-ranch">
             <input type = "submit" class = "button-1" value = "Kumon's Website">
         </form>
     </div>
@@ -202,7 +208,7 @@
             <img src="/static/assets/images/KumonLogo.jpg" alt="Picture of Company" style = "height: 100px; width: 300px;">
         </div>
         <p style = "margin-top: 28px; text-align: center; font-size: 21px;">Kumon is an academic institution for all students from grades pre-K to 12th. Focusing
-        on core subjects such as Math and Reading, they provide students with effective practice worksheets
+        on core subjects such as math and reading, they provide students with effective practice worksheets
         as well as aid in sharpening work habits.</p>
     </div>
 
@@ -218,7 +224,7 @@
             <br>
             <h2 style = "color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
             <hr>
-            <form id = "reminder-form" method = "POST" ID = "create" action="{{url_for('personalization.create')}}">
+            <form id = "reminder-form" method = "POST" ID = "create" action={{url_for('personalization.create')}}>
                 <label for = "name" style = "text-align: center;">Write the name of the service</label>
                 <input type = "text" name = "name" id = "name" class = "user-input-1" required>
                 <br>
@@ -227,7 +233,8 @@
                 <br>
                 <label for = "time" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
                 <input type = "time" name = "time" id = "time" class = "user-time-1" required>
-                <input type = "submit" id = "add-reminder-button" class = "button-3" value = "Add Reminder">
+                <br>
+                <input type = "submit" id = "reminder-button-2" class = "button-3" value = "Add Reminder">
             </form>
         </div>
         <div id = "phonebook-lobby-container" class = "phonebook-lobby-container">
@@ -240,7 +247,7 @@
         <script>
 
         var userInput1 = document.getElementById("name");
-        userInput1.value = "Kumon";
+        userInput1.value = "Kumon - 4S Ranch";
 
         </script>
     </body>

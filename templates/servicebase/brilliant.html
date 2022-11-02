@@ -1,10 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+
+    <title>Brilliant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    {% include "foundation/navigation-bar.html" %}
 </head>
+
+<style>
+    html, body {
+        font-family: 'Roboto Flex', sans-serif;
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+        background-color: black;
+    }
+
+    #service-template-background-1 {
+        height: 400px;
+        margin: 0;
+        background: url("https://www.nshoremag.com/wp-content/uploads/2021/09/mathIMG_0985.jpg");
+        background-size: cover;
+        background-position: center 35%;
+    }
+
+    .service-template-background-transition {
+        height: 40px;
+        background-color: black;
+    }
+
+    #service-template-background-2 {
+        height: 800px;
+        background-color: royalblue;
+    }
+
+    .service-template-container-1 {
+        height: 450px;
+        width: 400px;
+        padding: 10px;
+        background-color: white;
+    }
+
+    .bold {
+        font-weight: bold;
+    }
+
+    .button-1 {
+        margin-top: 0px;
+        margin-left: 100px;
+        height: 40px;
+        width: 200px;
+        color: black;
+        background-color: white;
+        border: 2px solid;
+        border-image: linear-gradient(45deg, white, black) 1;
+        transition-duration: 0.8s;
+    }
+
+    .button-1:hover {
+        border-image: linear-gradient(45deg, black, white) 1;
+    }
+
+    .locations-list {
+        font-size: 10px;
+    }
+
+    .button-2 {
+        height: 30px;
+        width: 300px;
+        background-color: navy;
+        border: none;
+        display: block;
+        margin: auto;
+        color: white;
+        transition-duration: 0.7s;
+    }
+
+    .button-2:hover {
+        background-color: dodgerblue;
+    }
+
+    .reminder-input-container {
+        height: 400px;
+        width: 350px;
+        background-color: darkgray;
+        display: none;
+        margin: auto;
+        margin-top: -72%;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
+    }
+
+    label {
+        color: black;
+        display: block;
+    }
+
+    .user-input-1 {
+        height: 20px;
+        width: 300px;
+        display: block;
+        margin: auto;
+    }
+
+    .user-date-1 {
+        height: 20px;
+        width: 150px;
+        display: block;
+        margin: auto;
+    }
+
+    .user-time-1 {
+        height: 20px;
+        width: 100px;
+        display: block;
+        margin: auto;
+    }
+
+    .button-3 {
+        height: 40px;
+        width: 250px;
+        background-color: white;
+        border: 2px solid dodgerblue;
+        color: dodgerblue;
+        transition-duration: 0.7s;
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    .button-3:hover {
+        background-color: dodgerblue;
+        color: white;
+    }
+
+    .phonebook-lobby-container {
+        height: 400px;
+        width: 350px;
+        background-color: black;
+        display: none;
+        position: relative;
+        z-index: 2;
+        margin: auto;
+        margin-top: -72%;
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
+    }
+
+    .key-terms-container {
+        height: 40px;
+        width: 350px;
+        background-color: lightgray;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .key-term {
+        height: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+        margin-left: 10px;
+    }
+
+</style>
 <body>
 
+
+<div id="service-template-background-1"></div>
+
+<div class="service-template-background-transition"></div>
+
+<div id="service-template-background-2">
+    <h1 style="margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">
+        Brilliant</h1>
+    <br>
+
+    <div style="margin-top: 100px; margin-left: 100px;" class="service-template-container-1">
+        <center><h1>Contact Information</h1></center>
+        <hr>
+        <p class="bold">Customer Service Phone Number:</p>
+        <p>(877) 601-6284</p>
+        <p class="bold">Email Address:</p>
+        <p>4sranch@mathnasium.com</p>
+        <p class="bold">Location:</p>
+        <p>Online - Visit Brilliant with the button below</p>
+        <p class = "bold">Key Terms:</p>
+        <div class = "key-terms-container">
+            <div class = "key-term">Organic</div>
+            <div class = "key-term">Eco-friendly</div>
+            <div class = "key-term">Local</div>
+        </div>
+        <br>
+        <form action="https://www.mathnasium.com/4sranch/about?utm_campaign=grassroots&utm_medium=ppc&utm_source=w-t&utm_source=google-ads&utm_campaign=grassroots&utm_agid=133027122138&utm_term=mathnasium&creative=593637975547&device=c&placement=&network=g&gclid=Cj0KCQjwqoibBhDUARIsAH2OpWgIfgtb7ryOpn5xRqW0xmsGyICKLNSBeIhVJPP8dbEPqCZ21vKcbogaAgTvEALw_wcB">
+            <input type="submit" class="button-1" value="Kumon's Website">
+        </form>
+    </div>
+
+    <div class="service-template-container-1" style="margin: auto; margin-top: -470px;">
+        <center><h1>General Description</h1></center>
+        <hr>
+        <div style="margin-left: 45px;">
+            <img src="/static/assets/images/MathnasiumLogo.jpg" alt="Picture of Company"
+                 style="height: 100px; width: 300px;">
+        </div>
+        <p style="margin-top: 21px; text-align: center; font-size: 21px;">Mathnasium is an American education brand and
+            supplemental math learning franchise consisting of over 1,000 learning centers in North America,
+            South America, Europe, and Asia that provides instruction to students in pre-kindergarten
+            through high school. A vast majority of Mathnasium students have reported an improvement in grades and general attitudes toward math.</p>
+    </div>
+
+    <div class="service-template-container-1" style="float: right; margin-top: -470px; margin-right: 90px;">
+
+        <h1 style="text-align: center;">Personalization Tools</h1>
+        <hr>
+        <p style="text-align: center; font-size: 21px;">Add a reminder for Mathnasium, or add the phone number of
+            Mathnasium to
+            your own personal service phonebook.</p>
+        <button id="reminder-button" class="button-2">Add to Reminders</button>
+        <button id="phonebook-button" class="button-2" style="margin-top: 50px;">Add to Service Phonebook</button>
+        <div id="reminder-input-container" class="reminder-input-container">
+            <p id="reminder-input-container-exit"
+               style="float: right; color: black; margin-top: 0px; margin-right: 5px; cursor: pointer;">&#x2716;</p>
+            <br>
+            <h2 style="color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
+            <hr>
+            <form id = "reminder-form" method = "POST" ID = "create" action={{url_for('personalization.create')}}>
+                <label for = "name" style = "text-align: center;">Write the name of the service</label>
+                <input type = "text" name = "name" id = "name" class = "user-input-1" required>
+                <br>
+                <label for = "date" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
+                <input type = "date" name = "date" id = "date" class = "user-date-1" required>
+                <br>
+                <label for = "time" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
+                <input type = "time" name = "time" id = "time" class = "user-time-1" required>
+                <br>
+                <input type = "submit" id = "reminder-button-2" class = "button-3" value = "Add Reminder">
+            </form>
+        </div>
+        <div id="phonebook-lobby-container" class="phonebook-lobby-container">
+            <p id="phonebook-lobby-container-exit"
+               style="float: right; color: white; margin-top: 1%; margin-right: 3%; cursor: pointer;">&#x2716;</p>
+            <br>
+        </div>
+    </div>
+</div>
+<script src='/static/assets/javascript/personalization_service_search_scripts.js'></script>
+<script>
+
+        var userInput1 = document.getElementById("name");
+        userInput1.value = "Brilliant";
+
+</script>
 </body>
 </html>

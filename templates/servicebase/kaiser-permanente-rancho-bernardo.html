@@ -22,20 +22,9 @@
         background-color: black;
     }
 
-    #service-template-background-1 {
-        height: 400px;
-        margin: 0;
-        background-size: cover;
-    }
-
-    .service-template-background-transition {
-        height: 40px;
-        background-color: black;
-    }
-
     #service-template-background-2 {
         height: 800px;
-        background-color: dodgerblue;
+        background-color: purple;
     }
 
     .service-template-container-1 {
@@ -50,7 +39,7 @@
     }
 
     .button-1 {
-        margin-top: 11px;
+        margin-top: 0px;
         margin-left: 100px;
         height: 40px;
         width: 200px;
@@ -151,31 +140,43 @@
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.7);
     }
 
+    .key-terms-container {
+        height: 40px;
+        width: 350px;
+        background-color: lightgray;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .key-term {
+        height: 20px;
+        padding: 5px;
+        background-color: whitesmoke;
+        margin-left: 10px;
+    }
+
 </style>
 <body>
 
-
-<div id = "service-template-background-1"></div>
-
-<div class = "service-template-background-transition"></div>
-
 <div id = "service-template-background-2">
-    <h1 style = "margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">Kaiser Permanente</h1>
+    <h1 style = "margin: 0; position: relative; top: 80px; text-align: center; color: white; font-size: 58px;">Kaiser Permanente - Rancho Bernardo</h1>
     <br>
-
     <div style = "margin-top: 100px; margin-left: 100px;" class = "service-template-container-1">
         <center><h1>Contact Information</h1></center>
         <hr>
         <p class = "bold">Customer Service Phone Number:</p>
         <p>1-833-574-2273</p>
         <p class = "bold">Email Address:</p>
-        <p> kpautoresponse@kp.org</p>
-        <p class = "bold">Locations in San Diego:</p>
-        <p class = "bold"> Address: 17140 Bernardo Center Dr, San Diego, CA 92128:</p>
-        <ul class = "locations-list">
-            <li>Rancho Bernardo</li>
-            
-        </ul>
+        <p>kpautoresponse@kp.org</p>
+        <p class = "bold">Location:</p>
+        <p>17140 Bernardo Center Dr, San Diego, CA 92128:</p>
+        <p class = "bold">Key Terms:</p>
+        <div class = "key-terms-container">
+            <div class = "key-term">Organic</div>
+            <div class = "key-term">Eco-friendly</div>
+            <div class = "key-term">Local</div>
+        </div>
         <br>
         <form action = "https://healthy.kaiserpermanente.org/southern-california/facilities/rancho-bernardo-medical-offices-100094">
             <input type = "submit" class = "button-1" value = "Kaiser Permanente's Website">
@@ -185,8 +186,8 @@
     <div class = "service-template-container-1" style = "margin: auto; margin-top: -470px;">
         <center><h1>General Description</h1></center>
         <hr>
-        <div style = "margin-left: 40px;">
-            <img src="/static/assets/images/KumonLogo.jpg" alt="Picture of Company" style = "height: 100px; width: 300px;">
+        <div style = "margin-left: 80px;">
+            <img src="/static/assets/images/KaiserPermanenteLogo.png" alt="Picture of Company" style = "height: 125px; width: 250px;">
         </div>
         <p style = "margin-top: 28px; text-align: center; font-size: 21px;"> Kaiser Permanente's Rancho Bernardo Medical Offices is a medical group helping those
              that seek medical attention and care in Family Medicine and Internal Medicine.</p>
@@ -204,16 +205,17 @@
             <br>
             <h2 style = "color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
             <hr>
-            <form id = "reminder-form" onsubmit = "addReminderExternal()">
-                <label for = "user-input-1" style = "text-align: center;">Write the name of the service</label>
-                <input type = "text" name = "reminder-name" id = "user-input-1" class = "user-input-1" required>
+            <form id = "reminder-form" method = "POST" ID = "create" action={{url_for('personalization.create')}}>
+                <label for = "name" style = "text-align: center;">Write the name of the service</label>
+                <input type = "text" name = "name" id = "name" class = "user-input-1" required>
                 <br>
-                <label for = "user-date-1" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
-                <input type = "date" name = "reminder-date" id = "user-date-1" class = "user-date-1" required>
+                <label for = "date" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
+                <input type = "date" name = "date" id = "date" class = "user-date-1" required>
                 <br>
-                <label for = "user-time-1" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
-                <input type = "time" name = "reminder-time" id = "user-time-1" class = "user-time-1" required>
-                <input type = "submit" id = "add-reminder-button" class = "button-3" value = "Add Reminder">
+                <label for = "time" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
+                <input type = "time" name = "time" id = "time" class = "user-time-1" required>
+                <br>
+                <input type = "submit" id = "reminder-button-2" class = "button-3" value = "Add Reminder">
             </form>
         </div>
         <div id = "phonebook-lobby-container" class = "phonebook-lobby-container">
@@ -225,8 +227,8 @@
         <script src='/static/assets/javascript/personalization_service_search_scripts.js'></script>
         <script>
 
-        var userInput1 = document.getElementById("user-input-1");
-        userInput1.value = "Kaiser Permanente";
+        var userInput1 = document.getElementById("name");
+        userInput1.value = "Kaiser Permanente - Rancho Bernardo";
 
         </script>
     </body>
