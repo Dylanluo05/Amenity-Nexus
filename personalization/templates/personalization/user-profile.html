@@ -505,7 +505,7 @@
         <div class = "intro-circle-container-1">
             <div class = "intro-square-container-1">
                 <div style = "position: relative; top: 40%;">
-                    <button class = "personalization-button-1" id = "intro-button-2" onclick = "document.getElementById('phonebook-background-1').scrollIntoView()">Phonebook</button>
+                    <button class = "personalization-button-1" id = "intro-button-2" onclick = "document.getElementById('phonebook-background-1').scrollIntoView()">Phonebook Coming Soon...</button>
                     <div class = "personalization-button-1-shadow" id = "intro-button-shadow-2"></div>
                 </div>
             </div>
@@ -530,7 +530,7 @@
                 <h2 style = "color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
                 <hr>
                 <form id = "reminder-form" method = "POST" ID = "create" action={{url_for('personalization.create')}}>
-                    <label for = "name" style = "text-align: center;">Write the name of the service</label>
+                    <label for = "name" style = "text-align: center;">Write the name of the service and the action you want to follow through with (e.g. Call Kumon)</label>
                     <br>
                     <input type = "text" name = "name" id = "name" class = "user-input-1" required>
                     <br>
@@ -572,7 +572,7 @@
         {% endif %}
     {% endfor %}
 </div>
-<div id = "phonebook-background-1">
+<!--<div id = "phonebook-background-1">
     <div style = "height: 100%; width: 100%; display: flex; flex-direction: row; align-items: center;">
         <div style = "width: 45%; display: flex; justify-content: center; align-items: center;">
             <img src = "/static/assets/images/phonebook-stock-photo-2.jpg" class = "phonebook-image-1">
@@ -946,8 +946,40 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <script src= "/static/assets/javascript/personalization.js"></script>
+<script>
+
+    var remindersListLength = $("#reminders-background-2").children("#my-service-reminds").length;
+    var reminderDatesList = [];
+    var reminderTimesList = [];
+    var reminderTitlesList = [];
+
+    for (var i = 0; i < remindersListLength; i++) {
+        var reminderDate = $(".reminder-item-container").eq(i).children(".reminder-item-date").text();
+        reminderDatesList.push(reminderDate);
+        var reminderTime = $(".reminder-item-container").eq(i).children(".reminder-item-time").text();
+        reminderTimesList.push(reminderTime);
+        var reminderTitle = $(".reminder-item-container").eq(i).children(".reminder-item-title").text();
+        reminderTitlesList.push(reminderTitle);
+    }
+
+    var currentDate1 = new Date();
+    var currentDate1Update1 = currentDate1.toISOString();
+    var currentDate1Update2 = currentDate1Update1.slice(0, 10);
+
+    var currentDate2 = new Date();
+    var currentDate2Hour = currentDate2.getHours();
+    var currentDate2Minute = currentDate2.getMinutes();
+    var currentDate2Update1 = currentDate2Hour + ":" + currentDate2Minute;
+
+    for (var w = 0; w < remindersListLength; w++) {
+        if (currentDate1Update2 == reminderDatesList[w] && currentDate2Update1 == reminderTimesList[w]) {
+            alert(reminderTitlesList[w]);
+        }
+    }
+
+</script>
 </body>
 {% endblock %}
 </html>

@@ -161,7 +161,7 @@ function introButtonAnimation2() {
     }
 }
 
-
+/*
 var phonebookButton1 = document.getElementById("phonebook-button-1");
 phonebookButton1.addEventListener("click", phonebookLobbyShow);
 
@@ -183,8 +183,9 @@ function phonebookLobbyShow() {
             }
         }
     }
-}
+}*/
 
+/*
 var phonebookLobbyContainerExit = document.getElementById("service-phonebook-lobby-container-exit");
 phonebookLobbyContainerExit.addEventListener("click", phonebookLobbyHide);
 
@@ -203,7 +204,7 @@ function phonebookLobbyHide() {
             }
         }
     }
-}
+}*/
 
 /*
 $(".reveal-1").hide();
@@ -268,12 +269,12 @@ if (localStorage.servicePhonebookKey) {
     $("#service-phonebook-phone-number").html(addedDataArrayRetrieve3[0].phoneNumber);
 }*/
 
-$(".button-1").on("click", addPhoneContact);
+/*$(".button-1").on("click", addPhoneContact);
 
 function addPhoneContact() {
     var buttonIndex = $(".button-1").index(".button-1");
     console.log(buttonIndex);
-}
+}*/
 
 /*var prevButton = document.getElementById("prev");
 prevButton.addEventListener("click", previous);
