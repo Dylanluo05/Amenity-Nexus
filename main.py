@@ -60,9 +60,9 @@ def user_profile():
 
 # Service Base URLs
 
-@app.route('/4s-ranch-boys-and-girls-club/')
-def boysandgirsclub():
-    return render_template("/servicebase/4s-ranch-boys-and-girls-club.html")
+@app.route('/4s-ranch-sports-park/')
+def sportspark():
+    return render_template("/servicebase/4s-ranch-sports-park.html")
 
 @app.route('/balboa-park/')
 def balboapark():
