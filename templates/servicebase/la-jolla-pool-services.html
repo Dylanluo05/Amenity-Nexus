@@ -40,9 +40,9 @@
 
     .button-1 {
         margin-top: 0px;
-        margin-left: 100px;
+        margin-left: 80px;
         height: 40px;
-        width: 200px;
+        width: 240px;
         color: black;
         background-color: white;
         border: 2px solid;
@@ -80,6 +80,7 @@
         display: none;
         margin: auto;
         margin-top: -72%;
+        padding: 10px;
         position: relative;
         z-index: 2;
         box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.7);
@@ -87,6 +88,7 @@
 
     label {
         color: black;
+        font-size: 15px;
         display: block;
     }
 
@@ -112,8 +114,8 @@
     }
 
     .button-3 {
-        height: 40px;
-        width: 250px;
+        height: 30px;
+        width: 200px;
         background-color: white;
         border: 2px solid dodgerblue;
         color: dodgerblue;
@@ -174,13 +176,13 @@
         <p>7514 Girard Ave La Jolla, CA 92037</p>
         <p class = "bold">Key Terms:</p>
         <div class = "key-terms-container">
-            <div class = "key-term">Organic</div>
-            <div class = "key-term">Eco-friendly</div>
-            <div class = "key-term">Local</div>
+            <div class = "key-term">Personalized</div>
+            <div class = "key-term">Luxury Pools</div>
+            <div class = "key-term">Spa Cleaning</div>
         </div>
         <br>
         <form action="https://www.bing.com/maps?osid=9a0317f2-2bab-4930-9dab-679f12154912&cp=32.843337~-117.2972&lvl=13&v=2&sV=2&form=S00027">
-            <input type="submit" class="button-1" value="LJPS Website">
+            <input type="submit" class="button-1" value="La Jolla Pool Services' Website">
         </form>
     </div>
 
@@ -191,7 +193,8 @@
             <img src="/static/assets/images/LaJollaPoolServicesLogo.jpg" alt="Picture of Company"
                  style="height: 120px; width: 300px;">
         </div>
-        <p style="margin-top: 28px; text-align: center; font-size: 21px;"></p>
+        <p style="margin-top: 28px; text-align: center; font-size: 21px;">La Jolla provides a professional pool service for communities within San Diego. Services include pool cleaning, pool repair, pool chemistry,
+            restoration and monthly pool maintenance, whether it be for commercial, recreational pools, fountains or spas.</p>
     </div>
 
     <div class="service-template-container-1" style="float: right; margin-top: -470px; margin-right: 90px;">
@@ -208,22 +211,24 @@
             <h2 style="color: black; text-align: center; font-size: lighter;">Create a Reminder</h2>
             <hr>
             <form id = "reminder-form" method = "POST" ID = "create" action={{url_for('personalization.create')}}>
-                <label for = "name" style = "text-align: center;">Write the name of the service and the action you want to follow through with (e.g. Call La Jolla Pool Services)</label>
-                <input type = "text" name = "name" id = "name" class = "user-input-1" required>
+                <label for = "name" style = "text-align: center;">Write the name of the service and the action you want to follow through with (e.g. Call ProTouch Pool Services)</label>
+                <input type = "text" name = "name" id = "name" class = "user-input-1" style = "margin-top: 7px;" required>
                 <br>
                 <label for = "date" style = "text-align: center;">Select the date when you want to be notified for this reminder</label>
-                <input type = "date" name = "date" id = "date" class = "user-date-1" required>
+                <input type = "date" name = "date" id = "date" class = "user-date-1" style = "margin-top: 7px;" required>
                 <br>
                 <label for = "time" style = "text-align: center;">Select the time when you want to be notified for this reminder</label>
-                <input type = "time" name = "time" id = "time" class = "user-time-1" required>
-                <br>
-                <input type = "submit" id = "reminder-button-2" class = "button-3" value = "Add Reminder">
+                <input type = "time" name = "time" id = "time" class = "user-time-1" style = "margin-top: 7px;" required>
+                <input type = "submit" id = "reminder-button-2" class = "button-3" value = "Add Reminder" style = "margin-top: 10px;">
             </form>
         </div>
         <div id="phonebook-lobby-container" class="phonebook-lobby-container">
             <p id="phonebook-lobby-container-exit"
                style="float: right; color: white; margin-top: 1%; margin-right: 3%; cursor: pointer;">&#x2716;</p>
             <br>
+            <div style = "width: 100%; height: 75%; display: flex; justify-content: center; align-items: center;">
+                <h2 style = "color: white;">Coming Soon...</h2>
+            </div>
         </div>
     </div>
 </div>
