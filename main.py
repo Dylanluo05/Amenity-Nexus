@@ -17,7 +17,7 @@ app.register_blueprint(app_phonebook)
 
 @app.route('/')
 def home():
-    return render_template("/foundation/home.html")
+    return render_template("/foundation/index.html")
 
 
 @app.route('/about-dylan/')
