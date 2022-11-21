@@ -52,7 +52,7 @@ def crud_login():
         email = request.form.get("email")
         password = request.form.get("password")
         if login(email, password):       # zero index [0] used as email is a tuple
-            return render_template('/foundation/index.html')
+            return render_template('index.html')
     return render_template("login.html")
 
 
