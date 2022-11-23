@@ -949,7 +949,8 @@
 </div>-->
 <script src= "/static/assets/javascript/personalization.js"></script>
 <script>
-    /*var remindersListLength = $("#reminders-background-2").children("#my-service-reminds").length;
+
+    var remindersListLength = $("#reminders-background-2").children("#my-service-reminds").length;
     var reminderDatesList = [];
     var reminderTimesList = [];
     var reminderTitlesList = [];
@@ -963,20 +964,25 @@
         reminderTitlesList.push(reminderTitle);
     }
 
-    var currentDate1 = new Date();
-    var currentDate1Update1 = currentDate1.toISOString();
-    var currentDate1Update2 = currentDate1Update1.slice(0, 10);
+    function reminderExecution() {
+        var currentDateCalendar1 = new Date();
+        var currentDateCalendar1Time = currentDateCalendar1.getTime();
+        var currentDateCalendar2 = new Date(currentDateCalendar1Time - 86400000);
+        var currentDateCalendar2Update1 = currentDateCalendar2.toISOString();
+        var currentDateCalendar2Update2 = currentDateCalendar2Update1.slice(0, 10);
 
-    var currentDate2 = new Date();
-    var currentDate2Hour = currentDate2.getHours();
-    var currentDate2Minute = currentDate2.getMinutes();
-    var currentDate2Update1 = currentDate2Hour + ":" + currentDate2Minute;
-
-    for (var w = 0; w < remindersListLength; w++) {
-        if (currentDate1Update2 == reminderDatesList[w] && currentDate2Update1 == reminderTimesList[w]) {
-            alert(reminderTitlesList[w]);
+        var currentDateTime = new Date();
+        var currentDateTimeHour = currentDateTime.getHours();
+        var currentDateTimeMinute = currentDateTime.getMinutes();
+        var currentDateTimeUpdate = currentDateTimeHour + ":" + currentDateTimeMinute;
+        for (var w = 0; w < remindersListLength; w++) {
+            if (currentDateCalendar2Update2 == reminderDatesList[w] && currentDateTimeUpdate == reminderTimesList[w]) {
+                alert(reminderTitlesList[w]);
+            }
         }
-    }*/
+    }
+
+    var reminderTimer = setInterval(reminderExecution, 15000);
 
 </script>
 </body>
