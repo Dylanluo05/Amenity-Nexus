@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    {% include "foundation/navigation-bar.html" %}
 </head>
 
 <style>
@@ -289,10 +290,7 @@
         }
 </style>
 
-
-{% block body %}
 <body>
-{% include "foundation/navigation-bar.html" %}
 <div class = "home-background-1">
     <div class = "home-background-1-image"></div>
     <div class = "home-background-1-overlay"></div>
@@ -493,8 +491,6 @@
 
     </script>
 </body>
-    
-{% endblock %}
-
+   
 
 </html>
