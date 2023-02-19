@@ -156,4 +156,4 @@ def ucsandiegohealthexpresscareranchobernardo():
     return render_template("/servicebase/uc-san-diego-health-express-care-rancho-bernardo.html")
 
 if __name__ == "__main__":
-    app.run(debug=True, port=777)
+    app.run(debug=True, host="0.0.0.0", port="8086")
